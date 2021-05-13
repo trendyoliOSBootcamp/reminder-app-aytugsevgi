@@ -1,9 +1,11 @@
 import UIKit
+import CoreData
 
 protocol HomePresenterToViewController: AnyObject {
     func configure()
     func showSearchResult(text: String)
     func setTableViewHeight()
+    func reloadData()
 }
 
 final class HomeViewController: UIViewController {
@@ -64,7 +66,11 @@ extension HomeViewController: HomePresenterToViewController {
         }
     }
     
-    
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension HomeViewController: UISearchResultsUpdating {
