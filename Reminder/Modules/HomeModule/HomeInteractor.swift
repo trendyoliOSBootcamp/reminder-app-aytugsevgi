@@ -1,10 +1,5 @@
 import Foundation
 
-protocol HomePresenterToInteractor {
-    func fetchReminders()
-    func fetchLists()
-}
-
 final class HomeInteractor {
     var presenter: HomeInteractorToPresenter?
     private let service = Service()

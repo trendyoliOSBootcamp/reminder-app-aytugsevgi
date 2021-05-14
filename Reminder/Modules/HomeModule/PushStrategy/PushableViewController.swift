@@ -11,22 +11,17 @@ protocol PushableViewController {
     func execute(navigationController: UINavigationController?)
 }
 
-extension PushableViewController {
-    func execute(navigationController: UINavigationController?) {
-        guard let viewController = viewController else { return }
-        navigationController?.present(viewController, animated: true)
-    }
-}
-
 class AddNewListPushable: PushableViewController {
     var viewController: UIViewController?
     
     func isSatisfied(identifier: StoryboardId) -> Bool {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyBoard.instantiateViewController(identifier: identifier.rawValue)
-                as? AddNewListViewController else { return false }
-        self.viewController = viewController
+        guard identifier == .addNewListViewController else { return false}
         return true
+    }
+    
+    func execute(navigationController: UINavigationController?) {
+        let view = AddNewListRouter.createModule(using: navigationController)
+        navigationController?.present(view, animated: true)
     }
 }
 
@@ -34,11 +29,13 @@ class AddNewReminderPushable: PushableViewController {
     var viewController: UIViewController?
     
     func isSatisfied(identifier: StoryboardId) -> Bool {
-        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyBoard.instantiateViewController(identifier: identifier.rawValue)
-                as? AddNewReminderViewController else { return false }
-        self.viewController = viewController
+        guard identifier == .addNewReminderViewController else { return false}
         return true
+    }
+    
+    func execute(navigationController: UINavigationController?) {
+//        let view = AddNewReminderRouter.createModule(using: navigationController)
+//        navigationController?.present(view, animated: true)
     }
 }
 

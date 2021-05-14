@@ -1,22 +1,5 @@
 import Foundation
 
-protocol HomeRouterToPresenter {
-    
-}
-
-protocol HomeViewControllerToPresenter {
-    var numberOfRows: Int { get }
-    func viewDidLoad()
-    func updateSearchResults(text: String?)
-    func viewDidLayoutSubviews()
-    func addListButtonTapped()
-    func newReminderButtonTapped()
-}
-
-protocol HomeInteractorToPresenter {
-    func listFetched(listModels: [ListModel])
-}
-
 final class HomePresenter {
     private weak var view: HomePresenterToViewController?
     private let interactor: HomePresenterToInteractor

@@ -200,31 +200,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-Ml-Q37">
-                                <rect key="frame" x="0.0" y="98" width="414" height="44"/>
+                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-Ml-Q37">
+                                <rect key="frame" x="0.0" y="54" width="414" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <barButtonItem systemItem="cancel" id="TGF-Hn-3pg"/>
+                                    <barButtonItem systemItem="cancel" id="TGF-Hn-3pg">
+                                        <connections>
+                                            <action selector="cancelButtonTapped" destination="VKx-X0-AKI" id="sun-B5-xUf"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="CXa-E8-vy5"/>
-                                    <barButtonItem systemItem="done" id="vCp-3f-MEs"/>
+                                    <barButtonItem style="done" systemItem="done" id="vCp-3f-MEs"/>
                                 </items>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf2-Gg-QzK">
-                                <rect key="frame" x="173.5" y="56" width="67.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uU7-nR-5Hj">
-                                <rect key="frame" x="154" y="128" width="106" height="106"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <rect key="frame" x="154" y="138" width="106" height="106"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list.bullet" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zAs-cS-inm">
+                                        <rect key="frame" x="20" y="22.5" width="66" height="60.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="zAs-cS-inm" firstAttribute="leading" secondItem="uU7-nR-5Hj" secondAttribute="leading" constant="20" id="GNB-xL-VTP"/>
                                     <constraint firstAttribute="height" constant="106" id="TUq-Mf-roW"/>
+                                    <constraint firstAttribute="bottom" secondItem="zAs-cS-inm" secondAttribute="bottom" constant="20" id="UEM-MT-LpK"/>
+                                    <constraint firstItem="zAs-cS-inm" firstAttribute="top" secondItem="uU7-nR-5Hj" secondAttribute="top" constant="20" id="cFY-6u-PIt"/>
                                     <constraint firstAttribute="width" secondItem="uU7-nR-5Hj" secondAttribute="height" multiplier="1:1" id="evj-bU-ait"/>
+                                    <constraint firstAttribute="trailing" secondItem="zAs-cS-inm" secondAttribute="trailing" constant="20" id="v7T-j1-HNd"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New List" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-Cx-mOE">
-                                <rect key="frame" x="20" y="274" width="374" height="50"/>
+                                <rect key="frame" x="20" y="284" width="374" height="50"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ymH-Jz-gEE"/>
@@ -232,9 +241,12 @@
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="nameTextFieldChanged" destination="VKx-X0-AKI" eventType="editingChanged" id="IHd-rn-ifA"/>
+                                </connections>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WaO-dw-KU7">
-                                <rect key="frame" x="0.0" y="374" width="414" height="488"/>
+                                <rect key="frame" x="0.0" y="384" width="414" height="478"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UhW-8z-hum">
                                     <size key="itemSize" width="128" height="128"/>
@@ -243,7 +255,16 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="VKx-X0-AKI" id="5Ta-FX-c48"/>
+                                </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf2-Gg-QzK">
+                                <rect key="frame" x="173" y="66" width="68.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qdx-fv-FbS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -255,7 +276,7 @@
                             <constraint firstItem="qdx-fv-FbS" firstAttribute="bottom" secondItem="WaO-dw-KU7" secondAttribute="bottom" id="Jfp-0s-CnV"/>
                             <constraint firstItem="UkD-Cx-mOE" firstAttribute="leading" secondItem="qdx-fv-FbS" secondAttribute="leading" constant="20" id="Q07-Il-4g0"/>
                             <constraint firstItem="uU7-nR-5Hj" firstAttribute="centerX" secondItem="qdx-fv-FbS" secondAttribute="centerX" id="QVZ-mp-5i0"/>
-                            <constraint firstItem="0JW-Ml-Q37" firstAttribute="top" secondItem="qdx-fv-FbS" secondAttribute="top" id="ReW-Mz-n6V"/>
+                            <constraint firstItem="0JW-Ml-Q37" firstAttribute="top" secondItem="qdx-fv-FbS" secondAttribute="top" constant="10" id="ReW-Mz-n6V"/>
                             <constraint firstItem="Vf2-Gg-QzK" firstAttribute="centerY" secondItem="0JW-Ml-Q37" secondAttribute="centerY" id="UOa-5r-mt9"/>
                             <constraint firstItem="WaO-dw-KU7" firstAttribute="top" secondItem="UkD-Cx-mOE" secondAttribute="bottom" constant="50" id="W9u-fh-Sn9"/>
                             <constraint firstItem="qdx-fv-FbS" firstAttribute="trailing" secondItem="0JW-Ml-Q37" secondAttribute="trailing" id="hPF-Tp-AGJ"/>
@@ -265,6 +286,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s0b-Dc-o3t"/>
+                    <connections>
+                        <outlet property="collectionView" destination="WaO-dw-KU7" id="I3h-qS-Peo"/>
+                        <outlet property="nameTextField" destination="UkD-Cx-mOE" id="MxE-oI-Ttk"/>
+                        <outlet property="selectedImageBackgroundView" destination="uU7-nR-5Hj" id="oLT-eu-7aE"/>
+                        <outlet property="selectedImageView" destination="zAs-cS-inm" id="MGe-f1-Fud"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Es1-u4-qkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,6 +314,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>

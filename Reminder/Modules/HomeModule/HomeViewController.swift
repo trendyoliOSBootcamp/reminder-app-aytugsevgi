@@ -1,13 +1,6 @@
 import UIKit
 import CoreData
 
-protocol HomePresenterToViewController: AnyObject {
-    func configure()
-    func showSearchResult(text: String)
-    func setTableViewHeight()
-    func reloadData()
-}
-
 final class HomeViewController: UIViewController {
     @IBOutlet weak private var allView: UIView!
     @IBOutlet weak private var flaggedView: UIView!

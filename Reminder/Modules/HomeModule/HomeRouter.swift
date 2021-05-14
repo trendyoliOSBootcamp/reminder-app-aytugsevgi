@@ -1,12 +1,5 @@
 import UIKit
 
-protocol HomePresenterToRouter {
-    func showAlert()
-    func push(identifier: StoryboardId)
-}
-
-
-
 final class HomeRouter {
     private var navigationController: UINavigationController?
         
@@ -30,6 +23,4 @@ extension HomeRouter: HomePresenterToRouter {
     func push(identifier: StoryboardId) {
         PushableViewControllerManager.shared.push(identifier, with: navigationController)
     }
-    
-    
 }
