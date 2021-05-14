@@ -3,6 +3,7 @@ import UIKit
 protocol AddNewListPresenterToViewController: AnyObject {
     func configure()
     func setImageViewBackgroundColor(color: UIColor)
+    func setImage(name: String)
 }
 
 final class AddNewListViewController: UIViewController {
@@ -38,6 +39,10 @@ extension AddNewListViewController: AddNewListPresenterToViewController {
                             color: color)
         tdView.apply()
     }
+    
+    func setImage(name: String) {
+        selectedImageView.image = UIImage(systemName: name)
+    }
 }
 
 extension AddNewListViewController: UICollectionViewDataSource {
@@ -47,7 +52,7 @@ extension AddNewListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.numberOfItemsInSection(section: section)
+        presenter.numberOfItemsInSection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -59,7 +64,8 @@ extension AddNewListViewController: UICollectionViewDataSource {
             return cell
         }
         let cell = collectionView.dequeueReusableCell(type: ImageCollectionViewCell.self, for: indexPath)
-        let viewModel = ImageCollectionViewCellViewModel(backgroundColor: UIColor.systemGray6, image: UIImage(systemName: "list.bullet"))
+        let image = presenter.imageForItem(at: indexPath.item)
+        let viewModel = ImageCollectionViewCellViewModel(backgroundColor: UIColor.systemGray6, image: UIImage(systemName: image))
         cell.configure(viewModel: viewModel)
         return cell
     }

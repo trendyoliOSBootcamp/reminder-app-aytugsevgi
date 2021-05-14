@@ -12,7 +12,7 @@ enum ListColor: Int {
     case systemPurple
     case systemIndigo
     case brown
-    case cyan
+    case red
     
     var color: UIColor {
         switch self {
@@ -38,8 +38,8 @@ enum ListColor: Int {
             return UIColor.systemIndigo
         case .brown:
             return UIColor.brown
-        case .cyan:
-            return UIColor.cyan
+        case .red:
+            return UIColor.red
         }
     }
 

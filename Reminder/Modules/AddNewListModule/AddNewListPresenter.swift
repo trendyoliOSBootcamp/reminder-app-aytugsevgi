@@ -1,15 +1,15 @@
 import Foundation
 
 protocol AddNewListViewControllerToPresenter {
-    var numberOfSections: Int { get }
+    var numberOfSections: Int { get }
+    var numberOfItemsInSection: Int { get }
     
     func viewDidLoad()
     func cancelButtonTapped()
     func nameTextFieldChanged(_ text: String?)
-    func numberOfItemsInSection(section: Int) -> Int
-    func sizeForItem(width: Double, minimumLineSpacing: Double, sectionInsetLeft: Double, sectionInsetRight: Double) -> Size
-    func colorForItem(at index: Int) -> ListColor
-    func imageForItem(at index: Int)
+    func sizeForItem(width: Double, minimumLineSpacing: Double, sectionInsetLeft: Double, sectionInsetRight: Double) -> Size
+    func colorForItem(at index: Int) -> ListColor
+    func imageForItem(at index: Int) -> String
     func didSelectItemAt(section: Int, item: Int)
 }
 
@@ -24,9 +24,12 @@ final class AddNewListPresenter {
     private let interactor: AddNewListPresenterToInteractor
     private let router: AddNewListPresenterToRouter
     private var newListModel: ListModel?
-    private var colorsForCell: [ListColor] = [.systemBlue, .cyan, .brown, .systemGray2, .systemGreen, .systemIndigo,
-                                              .systemOrange, .systemPink, .systemPurple, .systemRed, .systemTeal, .systemYellow]
-    
+    private var colorsForCell: [ListColor] = [.systemBlue, .red, .brown, .systemGray2, .systemGreen, .systemIndigo,
+                                              .systemOrange, .systemPink, .systemPurple, .systemRed, .systemTeal,
+                                              .systemYellow]
+    private var imagesForCell: [String] = ["list.bullet", "bookmark.fill", "pin.fill", "gift.fill", "folder.fill",
+                                           "paperplane.fill", "person.fill", "cloud.fill", "powersleep",
+                                           "person.2.fill", "calendar", "doc.fill"]
     init(view: AddNewListPresenterToViewController,
          interactor: AddNewListPresenterToInteractor,
          router: AddNewListPresenterToRouter) {
@@ -38,10 +41,12 @@ final class AddNewListPresenter {
 
 extension AddNewListPresenter: AddNewListViewControllerToPresenter {
     var numberOfSections: Int { 2 }
+    var numberOfItemsInSection: Int { 12 }
     
     func viewDidLoad() {
         view?.configure()
         view?.setImageViewBackgroundColor(color: colorsForCell.first!.color)
+        view?.setImage(name: imagesForCell.first!)
     }
     
     func cancelButtonTapped() {
@@ -51,10 +56,6 @@ extension AddNewListPresenter: AddNewListViewControllerToPresenter {
     func nameTextFieldChanged(_ text: String?) {
         guard let text = text else { return }
         newListModel?.name = text
-    }
-    
-    func numberOfItemsInSection(section: Int) -> Int {
-        section == 0 ? 12 : 12
     }
     
     func sizeForItem(width: Double, minimumLineSpacing: Double, sectionInsetLeft: Double, sectionInsetRight: Double) -> Size {
@@ -68,16 +69,13 @@ extension AddNewListPresenter: AddNewListViewControllerToPresenter {
         return colorsForCell[index]
     }
     
-    func imageForItem(at: Int) {
-        
+    func imageForItem(at index: Int) -> String {
+        return imagesForCell[index]
     }
     
     func didSelectItemAt(section: Int, item: Int) {
-        if section == 0 {
-            view?.setImageViewBackgroundColor(color: colorsForCell[item].color)
-        }
+        section == 0 ? view?.setImageViewBackgroundColor(color: colorsForCell[item].color) : view?.setImage(name: imagesForCell[item])
     }
-
 }
 
 extension AddNewListPresenter: AddNewListInteractorToPresenter {

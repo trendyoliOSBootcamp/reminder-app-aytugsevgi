@@ -46,7 +46,6 @@
 		25BADD8A264EE9F900D9A379 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BADD88264EE9F900D9A379 /* ImageCollectionViewCell.xib */; };
 		25BADD8D264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD8C264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift */; };
 		25BADD90264EF10900D9A379 /* ListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD8F264EF10900D9A379 /* ListColor.swift */; };
-		25BADD93264EF4B200D9A379 /* ListImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD92264EF4B200D9A379 /* ListImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,7 +90,6 @@
 		25BADD88264EE9F900D9A379 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		25BADD8C264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		25BADD8F264EF10900D9A379 /* ListColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListColor.swift; sourceTree = "<group>"; };
-		25BADD92264EF4B200D9A379 /* ListImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +127,7 @@
 				255452E7264DA6B0004B3334 /* Constant */,
 				255452DF264D74EB004B3334 /* Extension */,
 				255452EB264DB849004B3334 /* Model */,
+				255452CB264D459C004B3334 /* Navigation */,
 				255452CA264D4594004B3334 /* Modules */,
 				255452AB264D3A64004B3334 /* AppDelegate.swift */,
 				255452AD264D3A64004B3334 /* SceneDelegate.swift */,
@@ -160,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				25BADD52264EA2E100D9A379 /* AddNewReminderModule */,
-				255452CB264D459C004B3334 /* Navigation */,
 				25BADD4D264E91EC00D9A379 /* AddNewListModule */,
 				255452C0264D3B22004B3334 /* HomeModule */,
 			);
@@ -264,7 +262,6 @@
 				25BADD5C264EB49700D9A379 /* ThreeDimesionEffectable.swift */,
 				25BADD60264EB4B200D9A379 /* TDView.swift */,
 				25BADD8F264EF10900D9A379 /* ListColor.swift */,
-				25BADD92264EF4B200D9A379 /* ListImage.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -379,7 +376,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				25BADD7A264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift in Sources */,
-				25BADD93264EF4B200D9A379 /* ListImage.swift in Sources */,
 				25BADD64264EBA4300D9A379 /* UIView+Extension.swift in Sources */,
 				255452B0264D3A64004B3334 /* HomeViewController.swift in Sources */,
 				25BADD6D264EBB5400D9A379 /* AddNewListRouter.swift in Sources */,
