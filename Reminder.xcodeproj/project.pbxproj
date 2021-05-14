@@ -37,6 +37,16 @@
 		25BADD6A264EBB3F00D9A379 /* AddNewListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD69264EBB3F00D9A379 /* AddNewListInteractor.swift */; };
 		25BADD6D264EBB5400D9A379 /* AddNewListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD6C264EBB5400D9A379 /* AddNewListRouter.swift */; };
 		25BADD70264EBB6900D9A379 /* HomeViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD6F264EBB6900D9A379 /* HomeViewContract.swift */; };
+		25BADD75264ED61400D9A379 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD73264ED61400D9A379 /* ColorCollectionViewCell.swift */; };
+		25BADD76264ED61400D9A379 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BADD74264ED61400D9A379 /* ColorCollectionViewCell.xib */; };
+		25BADD7A264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD79264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift */; };
+		25BADD7F264EDA3B00D9A379 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD7E264EDA3B00D9A379 /* UICollectionView+Extension.swift */; };
+		25BADD82264EDA9400D9A379 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD81264EDA9400D9A379 /* UICollectionViewCell+Extension.swift */; };
+		25BADD89264EE9F900D9A379 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD87264EE9F900D9A379 /* ImageCollectionViewCell.swift */; };
+		25BADD8A264EE9F900D9A379 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BADD88264EE9F900D9A379 /* ImageCollectionViewCell.xib */; };
+		25BADD8D264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD8C264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift */; };
+		25BADD90264EF10900D9A379 /* ListColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD8F264EF10900D9A379 /* ListColor.swift */; };
+		25BADD93264EF4B200D9A379 /* ListImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD92264EF4B200D9A379 /* ListImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +82,16 @@
 		25BADD69264EBB3F00D9A379 /* AddNewListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListInteractor.swift; sourceTree = "<group>"; };
 		25BADD6C264EBB5400D9A379 /* AddNewListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListRouter.swift; sourceTree = "<group>"; };
 		25BADD6F264EBB6900D9A379 /* HomeViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewContract.swift; sourceTree = "<group>"; };
+		25BADD73264ED61400D9A379 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
+		25BADD74264ED61400D9A379 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		25BADD79264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		25BADD7E264EDA3B00D9A379 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		25BADD81264EDA9400D9A379 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		25BADD87264EE9F900D9A379 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		25BADD88264EE9F900D9A379 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		25BADD8C264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		25BADD8F264EF10900D9A379 /* ListColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListColor.swift; sourceTree = "<group>"; };
+		25BADD92264EF4B200D9A379 /* ListImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +199,8 @@
 				255452E4264D752C004B3334 /* UITableView+Extension.swift */,
 				255452F1264DC36E004B3334 /* UIColor+Extension.swift */,
 				25BADD63264EBA4300D9A379 /* UIView+Extension.swift */,
+				25BADD7E264EDA3B00D9A379 /* UICollectionView+Extension.swift */,
+				25BADD81264EDA9400D9A379 /* UICollectionViewCell+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -210,6 +232,8 @@
 		25BADD4D264E91EC00D9A379 /* AddNewListModule */ = {
 			isa = PBXGroup;
 			children = (
+				25BADD78264ED80300D9A379 /* ViewModel */,
+				25BADD72264ED5E900D9A379 /* Cell */,
 				25BADD4E264E920900D9A379 /* AddNewListViewController.swift */,
 				25BADD66264EBB3200D9A379 /* AddNewListPresenter.swift */,
 				25BADD69264EBB3F00D9A379 /* AddNewListInteractor.swift */,
@@ -239,8 +263,46 @@
 			children = (
 				25BADD5C264EB49700D9A379 /* ThreeDimesionEffectable.swift */,
 				25BADD60264EB4B200D9A379 /* TDView.swift */,
+				25BADD8F264EF10900D9A379 /* ListColor.swift */,
+				25BADD92264EF4B200D9A379 /* ListImage.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		25BADD72264ED5E900D9A379 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25BADD86264EE9E900D9A379 /* ImageCollectionViewCell */,
+				25BADD85264EE9DB00D9A379 /* ColorCollectionViewCell */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		25BADD78264ED80300D9A379 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				25BADD79264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift */,
+				25BADD8C264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		25BADD85264EE9DB00D9A379 /* ColorCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				25BADD73264ED61400D9A379 /* ColorCollectionViewCell.swift */,
+				25BADD74264ED61400D9A379 /* ColorCollectionViewCell.xib */,
+			);
+			path = ColorCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		25BADD86264EE9E900D9A379 /* ImageCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				25BADD87264EE9F900D9A379 /* ImageCollectionViewCell.swift */,
+				25BADD88264EE9F900D9A379 /* ImageCollectionViewCell.xib */,
+			);
+			path = ImageCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +366,8 @@
 				255452DD264D71D7004B3334 /* MyListTableViewCell.xib in Resources */,
 				255452B5264D3A67004B3334 /* Assets.xcassets in Resources */,
 				255452B3264D3A64004B3334 /* Main.storyboard in Resources */,
+				25BADD8A264EE9F900D9A379 /* ImageCollectionViewCell.xib in Resources */,
+				25BADD76264ED61400D9A379 /* ColorCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +378,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25BADD7A264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift in Sources */,
+				25BADD93264EF4B200D9A379 /* ListImage.swift in Sources */,
 				25BADD64264EBA4300D9A379 /* UIView+Extension.swift in Sources */,
 				255452B0264D3A64004B3334 /* HomeViewController.swift in Sources */,
 				25BADD6D264EBB5400D9A379 /* AddNewListRouter.swift in Sources */,
@@ -321,8 +387,10 @@
 				25BADD61264EB4B200D9A379 /* TDView.swift in Sources */,
 				255452C8264D3B91004B3334 /* HomeRouter.swift in Sources */,
 				255452DC264D71D7004B3334 /* MyListTableViewCell.swift in Sources */,
+				25BADD82264EDA9400D9A379 /* UICollectionViewCell+Extension.swift in Sources */,
 				255452D1264D4B20004B3334 /* HomeSearchResultsController.swift in Sources */,
 				25BADD5D264EB49700D9A379 /* ThreeDimesionEffectable.swift in Sources */,
+				25BADD90264EF10900D9A379 /* ListColor.swift in Sources */,
 				25BADD59264EA40800D9A379 /* ViewControllerNavigatable.swift in Sources */,
 				255452AC264D3A64004B3334 /* AppDelegate.swift in Sources */,
 				255452E1264D7509004B3334 /* UITableViewCell+Extension.swift in Sources */,
@@ -332,8 +400,12 @@
 				255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */,
 				25BADD6A264EBB3F00D9A379 /* AddNewListInteractor.swift in Sources */,
 				25BADD67264EBB3200D9A379 /* AddNewListPresenter.swift in Sources */,
+				25BADD7F264EDA3B00D9A379 /* UICollectionView+Extension.swift in Sources */,
 				255452ED264DB88E004B3334 /* ListModel.swift in Sources */,
+				25BADD89264EE9F900D9A379 /* ImageCollectionViewCell.swift in Sources */,
+				25BADD8D264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift in Sources */,
 				25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */,
+				25BADD75264ED61400D9A379 /* ColorCollectionViewCell.swift in Sources */,
 				25BADD54264EA2FB00D9A379 /* AddNewReminderViewController.swift in Sources */,
 				255452E9264DA6BF004B3334 /* Constant.swift in Sources */,
 				255452C5264D3B6B004B3334 /* HomeInteractor.swift in Sources */,

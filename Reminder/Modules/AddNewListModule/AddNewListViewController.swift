@@ -2,30 +2,26 @@ import UIKit
 
 protocol AddNewListPresenterToViewController: AnyObject {
     func configure()
+    func setImageViewBackgroundColor(color: UIColor)
 }
 
 final class AddNewListViewController: UIViewController {
-    @IBOutlet weak var selectedImageBackgroundView: UIView!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var selectedImageView: UIImageView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak private var selectedImageBackgroundView: UIView!
+    @IBOutlet weak private var nameTextField: UITextField!
+    @IBOutlet weak private var selectedImageView: UIImageView!
+    @IBOutlet weak private var collectionView: UICollectionView!
     var presenter: AddNewListViewControllerToPresenter!
-    private var initColor = UIColor.systemBlue
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let color = initColor.encode(),
-              let image = selectedImageView.image?.pngData() else { return }
-        let model = ListModel(name: nameTextField.text ?? "",
-                              color: color, image: image)
-        presenter.viewDidLoad(listModel: model)
+        presenter.viewDidLoad()
     }
 
-    @IBAction func cancelButtonTapped() {
+    @IBAction private func cancelButtonTapped() {
         presenter.cancelButtonTapped()
     }
     
-    @IBAction func nameTextFieldChanged() {
+    @IBAction private func nameTextFieldChanged() {
         presenter.nameTextFieldChanged(nameTextField.text)
     }
 }
@@ -33,12 +29,11 @@ final class AddNewListViewController: UIViewController {
 extension AddNewListViewController: AddNewListPresenterToViewController {
     func configure() {
         selectedImageBackgroundView.makeCircle()
-        setImageViewBackgroundColor(colorData: initColor.encode())
+        collectionView.register(reusableCellType: ColorCollectionViewCell.self)
+        collectionView.register(reusableCellType: ImageCollectionViewCell.self)
     }
     
-    func setImageViewBackgroundColor(colorData: Data?) {
-        guard let data = colorData,
-              let color = UIColor().color(data: data) else { return }
+    func setImageViewBackgroundColor(color: UIColor) {
         let tdView = TDView(view: selectedImageBackgroundView,
                             color: color)
         tdView.apply()
@@ -46,12 +41,41 @@ extension AddNewListViewController: AddNewListPresenterToViewController {
 }
 
 extension AddNewListViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        presenter.numberOfSections
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.numberOfItemsInSection(section: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // create custom cell
-        return UICollectionViewCell()
+        if indexPath.section == 0 {
+            let cell = collectionView.dequeueReusableCell(type: ColorCollectionViewCell.self, for: indexPath)
+            let listColor = presenter.colorForItem(at: indexPath.row)
+            let viewModel = ColorCollectionViewCellViewModel(backgroundColor: listColor.color)
+            cell.configure(viewModel: viewModel)
+            return cell
+        }
+        let cell = collectionView.dequeueReusableCell(type: ImageCollectionViewCell.self, for: indexPath)
+        let viewModel = ImageCollectionViewCellViewModel(backgroundColor: UIColor.systemGray6, image: UIImage(systemName: "list.bullet"))
+        cell.configure(viewModel: viewModel)
+        return cell
+    }
+}
+
+extension AddNewListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.didSelectItemAt(section: indexPath.section, item: indexPath.item)
+    }
+}
+
+extension AddNewListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let layout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize.zero }
+        let size = presenter.sizeForItem(width: Double(collectionView.frame.width), minimumLineSpacing: Double(layout.minimumLineSpacing),
+                              sectionInsetLeft: Double(layout.sectionInset.left), sectionInsetRight: Double(layout.sectionInset.right))
+        return CGSize(width: size.width, height: size.height)
     }
 }

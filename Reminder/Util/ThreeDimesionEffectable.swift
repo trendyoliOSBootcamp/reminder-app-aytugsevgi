@@ -19,6 +19,11 @@ extension ThreeDimensionEffectable {
         gradientLayer.locations = [0,1]
         gradientLayer.frame = view.bounds
         gradientLayer.cornerRadius = view.layer.cornerRadius
+        guard let subLayers = view.layer.sublayers else { return }
+        if subLayers.count > 1 {
+            view.layer.sublayers?[0].removeFromSuperlayer()
+        }
         view.layer.insertSublayer(gradientLayer, at: 0)
+        view.setNeedsDisplay()
     }
 }
