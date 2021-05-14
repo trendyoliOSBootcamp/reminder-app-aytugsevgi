@@ -27,6 +27,9 @@
 		255452ED264DB88E004B3334 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452EC264DB88E004B3334 /* ListModel.swift */; };
 		255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F1264DC36E004B3334 /* UIColor+Extension.swift */; };
 		255452F6264DC4B3004B3334 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F5264DC4B3004B3334 /* Service.swift */; };
+		25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD4E264E920900D9A379 /* AddNewListViewController.swift */; };
+		25BADD54264EA2FB00D9A379 /* AddNewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */; };
+		25BADD59264EA40800D9A379 /* PushableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD58264EA40800D9A379 /* PushableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		255452EC264DB88E004B3334 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		255452F1264DC36E004B3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		255452F5264DC4B3004B3334 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		25BADD4E264E920900D9A379 /* AddNewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewController.swift; sourceTree = "<group>"; };
+		25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderViewController.swift; sourceTree = "<group>"; };
+		25BADD58264EA40800D9A379 /* PushableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		255452C0264D3B22004B3334 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				25BADD57264EA3C200D9A379 /* PushStrategy */,
 				255452D9264D71BE004B3334 /* Cell */,
 				255452D3264D4E1A004B3334 /* Search */,
 				255452AF264D3A64004B3334 /* HomeViewController.swift */,
@@ -116,7 +123,9 @@
 		255452CA264D4594004B3334 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				25BADD52264EA2E100D9A379 /* AddNewReminderModule */,
 				255452CB264D459C004B3334 /* Navigation */,
+				25BADD4D264E91EC00D9A379 /* AddNewListModule */,
 				255452C0264D3B22004B3334 /* HomeModule */,
 			);
 			path = Modules;
@@ -179,6 +188,30 @@
 				255452F5264DC4B3004B3334 /* Service.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		25BADD4D264E91EC00D9A379 /* AddNewListModule */ = {
+			isa = PBXGroup;
+			children = (
+				25BADD4E264E920900D9A379 /* AddNewListViewController.swift */,
+			);
+			path = AddNewListModule;
+			sourceTree = "<group>";
+		};
+		25BADD52264EA2E100D9A379 /* AddNewReminderModule */ = {
+			isa = PBXGroup;
+			children = (
+				25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */,
+			);
+			path = AddNewReminderModule;
+			sourceTree = "<group>";
+		};
+		25BADD57264EA3C200D9A379 /* PushStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				25BADD58264EA40800D9A379 /* PushableViewController.swift */,
+			);
+			path = PushStrategy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +290,7 @@
 				255452C8264D3B91004B3334 /* HomeRouter.swift in Sources */,
 				255452DC264D71D7004B3334 /* MyListTableViewCell.swift in Sources */,
 				255452D1264D4B20004B3334 /* HomeSearchResultsController.swift in Sources */,
+				25BADD59264EA40800D9A379 /* PushableViewController.swift in Sources */,
 				255452AC264D3A64004B3334 /* AppDelegate.swift in Sources */,
 				255452E1264D7509004B3334 /* UITableViewCell+Extension.swift in Sources */,
 				255452D7264D6DC1004B3334 /* Reminder.xcdatamodeld in Sources */,
@@ -264,6 +298,8 @@
 				255452F6264DC4B3004B3334 /* Service.swift in Sources */,
 				255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */,
 				255452ED264DB88E004B3334 /* ListModel.swift in Sources */,
+				25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */,
+				25BADD54264EA2FB00D9A379 /* AddNewReminderViewController.swift in Sources */,
 				255452E9264DA6BF004B3334 /* Constant.swift in Sources */,
 				255452C5264D3B6B004B3334 /* HomeInteractor.swift in Sources */,
 				255452C2264D3B5D004B3334 /* HomePresenter.swift in Sources */,

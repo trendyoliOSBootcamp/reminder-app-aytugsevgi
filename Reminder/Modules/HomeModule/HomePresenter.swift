@@ -9,6 +9,8 @@ protocol HomeViewControllerToPresenter {
     func viewDidLoad()
     func updateSearchResults(text: String?)
     func viewDidLayoutSubviews()
+    func addListButtonTapped()
+    func newReminderButtonTapped()
 }
 
 protocol HomeInteractorToPresenter {
@@ -51,6 +53,14 @@ extension HomePresenter: HomeViewControllerToPresenter {
     
     func cellForItemAt(index: Int) -> ListModel {
         return listModels[index]
+    }
+    
+    func addListButtonTapped() {
+        router.push(identifier: .addNewListViewController)
+    }
+    
+    func newReminderButtonTapped() {
+        router.push(identifier: .addNewReminderViewController)
     }
 }
 

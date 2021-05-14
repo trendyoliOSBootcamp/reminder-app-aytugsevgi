@@ -2,21 +2,23 @@ import UIKit
 
 protocol HomePresenterToRouter {
     func showAlert()
-    func push()
+    func push(identifier: StoryboardId)
 }
+
+
 
 final class HomeRouter {
     private var navigationController: UINavigationController?
         
-    static func createModule(using navigationFactory: NavigationFactory) -> UIViewController {
+    static func createModule(using navigationController: UINavigationController) -> UIViewController {
         let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "HomeViewController") as! HomeViewController
         let interactor = HomeInteractor()
         let router = HomeRouter()
         let presenter = HomePresenter(view: view, router: router, interactor: interactor)
         view.presenter = presenter
         interactor.presenter = presenter
-        router.navigationController = navigationFactory(view)
-        return navigationFactory(view)
+        router.navigationController = navigationController
+        return view
     }
 }
 
@@ -25,8 +27,8 @@ extension HomeRouter: HomePresenterToRouter {
         
     }
     
-    func push() {
-        
+    func push(identifier: StoryboardId) {
+        PushableViewControllerManager.shared.push(identifier, with: navigationController)
     }
     
     

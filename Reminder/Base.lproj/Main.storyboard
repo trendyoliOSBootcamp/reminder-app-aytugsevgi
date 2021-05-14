@@ -132,10 +132,17 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <state key="normal" title="  New Reminder" image="plus.circle.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="newReminderButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="e10-H7-BL0"/>
+                                            </connections>
                                         </button>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NyT-WC-DP1"/>
-                                    <barButtonItem title="Add List" largeContentSizeImage="pencil" catalog="system" width="94" style="plain" id="quo-Dx-q6U"/>
+                                    <barButtonItem title="Add List" largeContentSizeImage="pencil" catalog="system" width="94" style="plain" id="quo-Dx-q6U">
+                                        <connections>
+                                            <action selector="addListButtonTapped" destination="BYZ-38-t0r" id="PHN-KQ-rKR"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="barTintColor" systemColor="systemGray6Color"/>
                             </toolbar>
@@ -183,7 +190,100 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1910.144927536232" y="88.392857142857139"/>
+            <point key="canvasLocation" x="2820.289855072464" y="88.392857142857139"/>
+        </scene>
+        <!--Add New List View Controller-->
+        <scene sceneID="NDf-iM-0UT">
+            <objects>
+                <viewController storyboardIdentifier="AddNewListViewController" id="VKx-X0-AKI" customClass="AddNewListViewController" customModule="Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LIN-5D-mCm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-Ml-Q37">
+                                <rect key="frame" x="0.0" y="98" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="TGF-Hn-3pg"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CXa-E8-vy5"/>
+                                    <barButtonItem systemItem="done" id="vCp-3f-MEs"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vf2-Gg-QzK">
+                                <rect key="frame" x="173.5" y="56" width="67.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uU7-nR-5Hj">
+                                <rect key="frame" x="154" y="128" width="106" height="106"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="106" id="TUq-Mf-roW"/>
+                                    <constraint firstAttribute="width" secondItem="uU7-nR-5Hj" secondAttribute="height" multiplier="1:1" id="evj-bU-ait"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New List" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-Cx-mOE">
+                                <rect key="frame" x="20" y="274" width="374" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ymH-Jz-gEE"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                            </textField>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WaO-dw-KU7">
+                                <rect key="frame" x="0.0" y="374" width="414" height="488"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UhW-8z-hum">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qdx-fv-FbS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0JW-Ml-Q37" firstAttribute="leading" secondItem="qdx-fv-FbS" secondAttribute="leading" id="7RW-mi-sfy"/>
+                            <constraint firstItem="UkD-Cx-mOE" firstAttribute="centerX" secondItem="uU7-nR-5Hj" secondAttribute="centerX" id="B6t-mE-Z4t"/>
+                            <constraint firstItem="WaO-dw-KU7" firstAttribute="leading" secondItem="qdx-fv-FbS" secondAttribute="leading" id="ICY-L7-hWn"/>
+                            <constraint firstItem="uU7-nR-5Hj" firstAttribute="top" secondItem="0JW-Ml-Q37" secondAttribute="bottom" constant="40" id="JbP-Pq-rgQ"/>
+                            <constraint firstItem="qdx-fv-FbS" firstAttribute="bottom" secondItem="WaO-dw-KU7" secondAttribute="bottom" id="Jfp-0s-CnV"/>
+                            <constraint firstItem="UkD-Cx-mOE" firstAttribute="leading" secondItem="qdx-fv-FbS" secondAttribute="leading" constant="20" id="Q07-Il-4g0"/>
+                            <constraint firstItem="uU7-nR-5Hj" firstAttribute="centerX" secondItem="qdx-fv-FbS" secondAttribute="centerX" id="QVZ-mp-5i0"/>
+                            <constraint firstItem="0JW-Ml-Q37" firstAttribute="top" secondItem="qdx-fv-FbS" secondAttribute="top" id="ReW-Mz-n6V"/>
+                            <constraint firstItem="Vf2-Gg-QzK" firstAttribute="centerY" secondItem="0JW-Ml-Q37" secondAttribute="centerY" id="UOa-5r-mt9"/>
+                            <constraint firstItem="WaO-dw-KU7" firstAttribute="top" secondItem="UkD-Cx-mOE" secondAttribute="bottom" constant="50" id="W9u-fh-Sn9"/>
+                            <constraint firstItem="qdx-fv-FbS" firstAttribute="trailing" secondItem="0JW-Ml-Q37" secondAttribute="trailing" id="hPF-Tp-AGJ"/>
+                            <constraint firstItem="UkD-Cx-mOE" firstAttribute="top" secondItem="uU7-nR-5Hj" secondAttribute="bottom" constant="40" id="jDf-qk-KGN"/>
+                            <constraint firstItem="Vf2-Gg-QzK" firstAttribute="centerX" secondItem="0JW-Ml-Q37" secondAttribute="centerX" id="jKv-PH-I3s"/>
+                            <constraint firstItem="qdx-fv-FbS" firstAttribute="trailing" secondItem="WaO-dw-KU7" secondAttribute="trailing" id="nZt-Va-OXf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="s0b-Dc-o3t"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Es1-u4-qkl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3786.9565217391309" y="87.723214285714278"/>
+        </scene>
+        <!--Add New Reminder View Controller-->
+        <scene sceneID="ceV-2x-gia">
+            <objects>
+                <viewController storyboardIdentifier="AddNewReminderViewController" id="dIE-oh-VAL" customClass="AddNewReminderViewController" customModule="Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="76z-44-un8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ACt-r5-pGh"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vC0-V3-d95" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4698" y="97"/>
         </scene>
     </scenes>
     <resources>
@@ -193,11 +293,20 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
