@@ -21,6 +21,7 @@ extension HomeRouter: HomePresenterToRouter {
     }
     
     func push(identifier: StoryboardId) {
-        PushableViewControllerManager.shared.push(identifier, with: navigationController)
+        ViewControllerNavigatableManager.shared.push(identifier,
+                                                     with: navigationController)
     }
 }

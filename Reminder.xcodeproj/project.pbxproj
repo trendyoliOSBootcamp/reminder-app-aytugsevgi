@@ -29,7 +29,7 @@
 		255452F6264DC4B3004B3334 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F5264DC4B3004B3334 /* Service.swift */; };
 		25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD4E264E920900D9A379 /* AddNewListViewController.swift */; };
 		25BADD54264EA2FB00D9A379 /* AddNewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */; };
-		25BADD59264EA40800D9A379 /* PushableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD58264EA40800D9A379 /* PushableViewController.swift */; };
+		25BADD59264EA40800D9A379 /* ViewControllerNavigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD58264EA40800D9A379 /* ViewControllerNavigatable.swift */; };
 		25BADD5D264EB49700D9A379 /* ThreeDimesionEffectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD5C264EB49700D9A379 /* ThreeDimesionEffectable.swift */; };
 		25BADD61264EB4B200D9A379 /* TDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD60264EB4B200D9A379 /* TDView.swift */; };
 		25BADD64264EBA4300D9A379 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD63264EBA4300D9A379 /* UIView+Extension.swift */; };
@@ -64,7 +64,7 @@
 		255452F5264DC4B3004B3334 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		25BADD4E264E920900D9A379 /* AddNewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewController.swift; sourceTree = "<group>"; };
 		25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderViewController.swift; sourceTree = "<group>"; };
-		25BADD58264EA40800D9A379 /* PushableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushableViewController.swift; sourceTree = "<group>"; };
+		25BADD58264EA40800D9A379 /* ViewControllerNavigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNavigatable.swift; sourceTree = "<group>"; };
 		25BADD5C264EB49700D9A379 /* ThreeDimesionEffectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDimesionEffectable.swift; sourceTree = "<group>"; };
 		25BADD60264EB4B200D9A379 /* TDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDView.swift; sourceTree = "<group>"; };
 		25BADD63264EBA4300D9A379 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		255452C0264D3B22004B3334 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
-				25BADD57264EA3C200D9A379 /* PushStrategy */,
+				25BADD57264EA3C200D9A379 /* NavigatableStrategy */,
 				255452D9264D71BE004B3334 /* Cell */,
 				255452D3264D4E1A004B3334 /* Search */,
 				255452AF264D3A64004B3334 /* HomeViewController.swift */,
@@ -226,12 +226,12 @@
 			path = AddNewReminderModule;
 			sourceTree = "<group>";
 		};
-		25BADD57264EA3C200D9A379 /* PushStrategy */ = {
+		25BADD57264EA3C200D9A379 /* NavigatableStrategy */ = {
 			isa = PBXGroup;
 			children = (
-				25BADD58264EA40800D9A379 /* PushableViewController.swift */,
+				25BADD58264EA40800D9A379 /* ViewControllerNavigatable.swift */,
 			);
-			path = PushStrategy;
+			path = NavigatableStrategy;
 			sourceTree = "<group>";
 		};
 		25BADD5B264EB47D00D9A379 /* Util */ = {
@@ -323,7 +323,7 @@
 				255452DC264D71D7004B3334 /* MyListTableViewCell.swift in Sources */,
 				255452D1264D4B20004B3334 /* HomeSearchResultsController.swift in Sources */,
 				25BADD5D264EB49700D9A379 /* ThreeDimesionEffectable.swift in Sources */,
-				25BADD59264EA40800D9A379 /* PushableViewController.swift in Sources */,
+				25BADD59264EA40800D9A379 /* ViewControllerNavigatable.swift in Sources */,
 				255452AC264D3A64004B3334 /* AppDelegate.swift in Sources */,
 				255452E1264D7509004B3334 /* UITableViewCell+Extension.swift in Sources */,
 				255452D7264D6DC1004B3334 /* Reminder.xcdatamodeld in Sources */,

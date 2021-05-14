@@ -5,14 +5,13 @@ enum StoryboardId: String {
     case addNewReminderViewController = "AddNewReminderViewController"
 }
 
-protocol PushableViewController {
-    var viewController: UIViewController? { get }
+protocol ViewControllerNavigatable {
+    
     func isSatisfied(identifier: StoryboardId) -> Bool
     func execute(navigationController: UINavigationController?)
 }
 
-class AddNewListPushable: PushableViewController {
-    var viewController: UIViewController?
+class AddNewListNavigatable: ViewControllerNavigatable {
     
     func isSatisfied(identifier: StoryboardId) -> Bool {
         guard identifier == .addNewListViewController else { return false}
@@ -25,8 +24,7 @@ class AddNewListPushable: PushableViewController {
     }
 }
 
-class AddNewReminderPushable: PushableViewController {
-    var viewController: UIViewController?
+class AddNewReminderNavigatable: ViewControllerNavigatable {
     
     func isSatisfied(identifier: StoryboardId) -> Bool {
         guard identifier == .addNewReminderViewController else { return false}
@@ -39,9 +37,9 @@ class AddNewReminderPushable: PushableViewController {
     }
 }
 
-class PushableViewControllerManager {
-    static let shared = PushableViewControllerManager()
-    private let items: [PushableViewController] = [AddNewListPushable(), AddNewReminderPushable()]
+class ViewControllerNavigatableManager {
+    static let shared = ViewControllerNavigatableManager()
+    private let items: [ViewControllerNavigatable] = [AddNewListNavigatable(), AddNewReminderNavigatable()]
     
     func push(_ identifier: StoryboardId, with navigationController: UINavigationController?) {
         items.first(where: {$0.isSatisfied(identifier: identifier)})?.execute(navigationController: navigationController)
