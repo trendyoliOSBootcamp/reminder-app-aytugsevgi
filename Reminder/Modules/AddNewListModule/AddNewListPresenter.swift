@@ -1,6 +1,6 @@
 import Foundation
 
-protocol NewReminderListSavedDelegate {
+protocol NewReminderListSavedDelegate: AnyObject {
     func newReminderListDidSaved(savedReminderList: ReminderList)
 }
 
@@ -37,14 +37,16 @@ final class AddNewListPresenter {
                                            "paperplane.fill", "person.fill", "cloud.fill", "powersleep",
                                            "person.2.fill", "calendar", "doc.fill"]
     private var selectedReminderList = SelectedReminderList(name: "", color: 0, image: "")
-    var delegate: NewReminderListSavedDelegate?
+    private weak var delegate: NewReminderListSavedDelegate?
     
     init(view: AddNewListViewInterface,
          interactor: AddNewListInteractorInterface,
-         router: AddNewListRouterInterface) {
+         router: AddNewListRouterInterface,
+         delegate: NewReminderListSavedDelegate) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.delegate = delegate
     }
 }
 

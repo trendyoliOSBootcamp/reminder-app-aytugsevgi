@@ -12,11 +12,11 @@ final class AddNewListRouter {
         self.navigationController = navigationController
     }
     
-    static func createModule(using navigationController: UINavigationController?) -> UIViewController {
+    static func createModule(using navigationController: UINavigationController?, delegate: NewReminderListSavedDelegate) -> UIViewController {
         let view = UIStoryboard.instantiateViewController(type: AddNewListViewController.self)
         let interactor = AddNewListInteractor()
         let router = AddNewListRouter(navigationController: navigationController)
-        let presenter = AddNewListPresenter(view: view, interactor: interactor, router: router)
+        let presenter = AddNewListPresenter(view: view, interactor: interactor, router: router, delegate: delegate)
         view.presenter = presenter
         interactor.output = presenter
         return view

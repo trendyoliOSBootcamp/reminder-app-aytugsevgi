@@ -3,6 +3,7 @@ import UIKit
 protocol HomeRouterInterface {
     func showAlert()
     func push(identifier: StoryboardId)
+    func push(identifier: StoryboardId, delegate: NewReminderListSavedDelegate)
 }
 
 
@@ -29,8 +30,10 @@ extension HomeRouter: HomeRouterInterface {
         
     }
     
+    func push(identifier: StoryboardId, delegate: NewReminderListSavedDelegate) {
+        NavigatableManager.shared.push(to: identifier, navigationController: navigationController, delegate: delegate)
+    }
     func push(identifier: StoryboardId) {
-        NavigatableManager.shared.push(to: identifier,
-                                                     using: navigationController)
+        NavigatableManager.shared.push(to: identifier, navigationController: navigationController)
     }
 }

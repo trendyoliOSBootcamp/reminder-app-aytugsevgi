@@ -4,7 +4,6 @@ import CoreData
 protocol HomeViewInterface: AnyObject {
     func configure()
     func showSearchResult(reminders: [Reminder])
-    func setTableViewHeight()
     func reloadData()
 }
 
@@ -20,11 +19,6 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        presenter.viewDidLayoutSubviews()
     }
     
     @objc private func allViewTapped() {
@@ -63,11 +57,6 @@ extension HomeViewController: HomeViewInterface {
         vc?.view.bounds = view.frame
         vc?.configure(reminders: reminders)
         
-    }
-    
-    func setTableViewHeight() {
-        let height = tableView.rowHeight * CGFloat(tableView.numberOfRows(inSection: 0)) - CGFloat(HomeConstant.rowSeperatorHeight)
-        tableView.frame.size.height = height < 0 ? 0 : height
     }
     
     func reloadData() {
