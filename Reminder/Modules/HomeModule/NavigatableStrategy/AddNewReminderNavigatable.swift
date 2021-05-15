@@ -6,7 +6,7 @@ class AddNewReminderNavigatable: Navigatable {
     }
     
     func execute(navigationController: UINavigationController?) {
-//        let view = AddNewReminderRouter.createModule(using: navigationController)
-//        navigationController?.present(view, animated: true)
+        let view = AddNewReminderRouter.createModule(using: navigationController)
+        navigationController?.present(view, animated: true)
     }
 }

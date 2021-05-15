@@ -1,5 +1,9 @@
 import Foundation
 
+protocol NewReminderListSavedDelegate {
+    func newReminderListDidSaved(savedReminderList: ReminderList)
+}
+
 protocol AddNewListPresenterInterface {
     var numberOfSections: Int { get }
     
@@ -11,25 +15,30 @@ protocol AddNewListPresenterInterface {
     func colorForItem(at index: Int) -> ListColor?
     func imageForItem(at index: Int) -> String?
     func didSelectItemAt(indexPath: IndexPath)
+    func doneButtonTapped()
 }
 
 protocol AddNewListPresenterOutputInterface: AnyObject {
-    func newListSaved()
+    func newListSaved(savedReminderList: ReminderList)
+    func newListSaveFailed(error: String)
 }
 
 typealias Size = (width: Double, height: Double)
+typealias SelectedReminderList = (name: String, color: Int, image: String)
 
 final class AddNewListPresenter {
     private weak var view: AddNewListViewInterface?
     private let interactor: AddNewListInteractorInterface
     private let router: AddNewListRouterInterface
-    private var newListModel: ListModel?
     private var colorsForCell: [ListColor] = [.systemBlue, .red, .brown, .systemGray2, .systemGreen, .systemIndigo,
                                               .systemOrange, .systemPink, .systemPurple, .systemRed, .systemTeal,
                                               .systemYellow]
     private var imagesForCell: [String] = ["list.bullet", "bookmark.fill", "pin.fill", "gift.fill", "folder.fill",
                                            "paperplane.fill", "person.fill", "cloud.fill", "powersleep",
                                            "person.2.fill", "calendar", "doc.fill"]
+    private var selectedReminderList = SelectedReminderList(name: "", color: 0, image: "")
+    var delegate: NewReminderListSavedDelegate?
+    
     init(view: AddNewListViewInterface,
          interactor: AddNewListInteractorInterface,
          router: AddNewListRouterInterface) {
@@ -48,11 +57,16 @@ extension AddNewListPresenter: AddNewListPresenterInterface {
     
     func viewDidLoad() {
         view?.configure()
-        guard let color = colorsForCell.first?.color,
-              let name = imagesForCell.first else { return }
-        view?.setImageViewBackgroundColor(color: color)
-        view?.setImage(name: name)
-        view?.setTextFieldTextColor(color: color)
+        guard let color = colorsForCell.first,
+              let imageName = imagesForCell.first else { return }
+        let name = AddNewListConstant.initialRemainderListName
+        selectedReminderList.name = name
+        selectedReminderList.color = color.rawValue
+        selectedReminderList.image = imageName
+        view?.setImageViewBackgroundColor(color: color.color)
+        view?.setImage(name: imageName)
+        view?.setTextFieldTextColor(color: color.color)
+        view?.setTextFieldText(text: name)
     }
     
     func cancelButtonTapped() {
@@ -61,7 +75,7 @@ extension AddNewListPresenter: AddNewListPresenterInterface {
     
     func nameTextFieldChanged(text: String?) {
         guard let text = text else { return }
-        newListModel?.name = text
+        selectedReminderList.name = text
     }
     
     func sizeForItem(width: Double, minimumLineSpacing: Double, sectionInsetLeft: Double, sectionInsetRight: Double) -> Size {
@@ -82,17 +96,35 @@ extension AddNewListPresenter: AddNewListPresenterInterface {
     
     func didSelectItemAt(indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let color = colorsForCell[safe: indexPath.item]?.color
-            view?.setImageViewBackgroundColor(color: color)
-            view?.setTextFieldTextColor(color: color)
+            guard let color = colorsForCell[safe: indexPath.item] else { return }
+            selectedReminderList.color = color.rawValue
+            view?.setImageViewBackgroundColor(color: color.color)
+            view?.setTextFieldTextColor(color: color.color)
         } else {
-            view?.setImage(name: imagesForCell[safe: indexPath.item])
+            guard let imageName = imagesForCell[safe: indexPath.item] else { return }
+            selectedReminderList.image = imageName
+            view?.setImage(name: imageName)
         }
+    }
+    
+    func doneButtonTapped() {
+        let name = selectedReminderList.name
+        let color = selectedReminderList.color
+        let image = selectedReminderList.image
+        let reminderList = ReminderList(id: UUID(), name: name, color: color, image: image, reminders: [])
+        interactor.saveNewList(reminderList: reminderList)
     }
 }
 
 extension AddNewListPresenter: AddNewListPresenterOutputInterface {
-    func newListSaved() {
-        
+    func newListSaved(savedReminderList: ReminderList) {
+        delegate?.newReminderListDidSaved(savedReminderList: savedReminderList)
+        router.dismiss()
+    }
+    
+    func newListSaveFailed(error: String) {
+        router.showAlert(title: "Hata", message: error)
     }
 }
+
+

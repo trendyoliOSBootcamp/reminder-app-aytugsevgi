@@ -3,7 +3,7 @@ import CoreData
 
 protocol HomeViewInterface: AnyObject {
     func configure()
-    func showSearchResult(text: String)
+    func showSearchResult(reminders: [Reminder])
     func setTableViewHeight()
     func reloadData()
 }
@@ -58,14 +58,16 @@ extension HomeViewController: HomeViewInterface {
         flaggedView.addGestureRecognizer(flaggedViewGestureRecognizer)
     }
     
-    func showSearchResult(text: String) {
+    func showSearchResult(reminders: [Reminder]) {
         let vc = searchController.searchResultsController as? HomeSearchResultsViewController
         vc?.view.bounds = view.frame
-        vc?.view.backgroundColor = .darkGray
+        vc?.configure(reminders: reminders)
+        
     }
     
     func setTableViewHeight() {
-        tableView.frame.size.height = tableView.rowHeight * CGFloat(tableView.numberOfRows(inSection: 0)) - CGFloat(HomeConstant.rowSeperatorHeight)
+        let height = tableView.rowHeight * CGFloat(tableView.numberOfRows(inSection: 0)) - CGFloat(HomeConstant.rowSeperatorHeight)
+        tableView.frame.size.height = height < 0 ? 0 : height
     }
     
     func reloadData() {
@@ -88,8 +90,9 @@ extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(type: MyListTableViewCell.self, for: indexPath)
+        let remainderList = presenter.cellForItemAt(index: indexPath.row)
         cell.selectionStyle = .none
-        cell.configure()
+        cell.configure(remainderList: remainderList)
         return cell
     }
 }

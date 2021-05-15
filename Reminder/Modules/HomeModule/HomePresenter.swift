@@ -7,17 +7,18 @@ protocol HomePresenterInterface {
     func viewDidLayoutSubviews()
     func addListButtonTapped()
     func newReminderButtonTapped()
+    func cellForItemAt(index: Int) -> ReminderList
 }
 
-protocol HomePresenterOutputInterface {
-    func listFetched(listModels: [ListModel])
+protocol HomePresenterOutputInterface: AnyObject {
+    func listFetched(listModels: [ReminderList])
 }
 
 final class HomePresenter {
     private weak var view: HomeViewInterface?
     private let interactor: HomeInteractorInterface
     private let router: HomeRouterInterface
-    private var listModels = [ListModel]()
+    private var listModels = [ReminderList]()
     
     init(view: HomeViewInterface, router: HomeRouterInterface, interactor: HomeInteractorInterface) {
         self.view = view
@@ -40,10 +41,11 @@ extension HomePresenter: HomePresenterInterface {
     
     func updateSearchResults(text: String?) {
         guard let text = text else { return }
-        view?.showSearchResult(text: text)
+        // filtered reminders
+        view?.showSearchResult(reminders: [])
     }
     
-    func cellForItemAt(index: Int) -> ListModel {
+    func cellForItemAt(index: Int) -> ReminderList {
         return listModels[index]
     }
     
@@ -57,8 +59,9 @@ extension HomePresenter: HomePresenterInterface {
 }
 
 extension HomePresenter: HomePresenterOutputInterface {
-    func listFetched(listModels: [ListModel]) {
+    func listFetched(listModels: [ReminderList]) {
         self.listModels = listModels
         view?.reloadData()
+        print(listModels.count)
     }
 }

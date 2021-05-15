@@ -69,6 +69,8 @@
             <connections>
                 <outlet property="listImageView" destination="mD8-Ab-i7w" id="WDe-RD-LeR"/>
                 <outlet property="listImageViewBackgroundView" destination="XeE-Sx-G8T" id="E1q-Mw-gAS"/>
+                <outlet property="listNameLabel" destination="Ig9-AK-U5g" id="oUt-jX-C7T"/>
+                <outlet property="remainderCountLabel" destination="STK-qR-JzN" id="oHL-OR-Naa"/>
             </connections>
             <point key="canvasLocation" x="126.81159420289856" y="89.397321428571431"/>
         </tableViewCell>

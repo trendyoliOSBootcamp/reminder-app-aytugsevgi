@@ -1,8 +1,17 @@
 import UIKit
 
-class AddNewReminderViewController: UIViewController {
+protocol AddNewReminderViewInterface: AnyObject {
+    
+}
+
+final class AddNewReminderViewController: UIViewController {
+    var presenter: AddNewReminderPresenterInterface!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+}
+
+extension AddNewReminderViewController: AddNewReminderViewInterface {
+    
 }

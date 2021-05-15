@@ -23,7 +23,7 @@
 		255452DD264D71D7004B3334 /* MyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 255452DB264D71D7004B3334 /* MyListTableViewCell.xib */; };
 		255452E1264D7509004B3334 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452E0264D7509004B3334 /* UITableViewCell+Extension.swift */; };
 		255452E5264D752C004B3334 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452E4264D752C004B3334 /* UITableView+Extension.swift */; };
-		255452ED264DB88E004B3334 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452EC264DB88E004B3334 /* ListModel.swift */; };
+		255452ED264DB88E004B3334 /* ReminderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452EC264DB88E004B3334 /* ReminderList.swift */; };
 		255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F1264DC36E004B3334 /* UIColor+Extension.swift */; };
 		255452F6264DC4B3004B3334 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F5264DC4B3004B3334 /* Service.swift */; };
 		259163D1264F375800D67A41 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D0264F375800D67A41 /* StoryboardName.swift */; };
@@ -36,6 +36,9 @@
 		259163F0264F534500D67A41 /* AddNewListConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163EF264F534500D67A41 /* AddNewListConstant.swift */; };
 		259163F3264F5AB400D67A41 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163F2264F5AB400D67A41 /* Collection+Extension.swift */; };
 		259163F8264F5FF800D67A41 /* Resuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163F7264F5FF800D67A41 /* Resuable.swift */; };
+		25B68920265025950007CC06 /* AddNewReminderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6891F265025950007CC06 /* AddNewReminderPresenter.swift */; };
+		25B68923265026D00007CC06 /* AddNewReminderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B68922265026D00007CC06 /* AddNewReminderInteractor.swift */; };
+		25B68926265027A10007CC06 /* AddNewReminderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B68925265027A10007CC06 /* AddNewReminderRouter.swift */; };
 		25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD4E264E920900D9A379 /* AddNewListViewController.swift */; };
 		25BADD54264EA2FB00D9A379 /* AddNewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */; };
 		25BADD59264EA40800D9A379 /* AddNewListNavigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD58264EA40800D9A379 /* AddNewListNavigatable.swift */; };
@@ -73,7 +76,7 @@
 		255452DB264D71D7004B3334 /* MyListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyListTableViewCell.xib; sourceTree = "<group>"; };
 		255452E0264D7509004B3334 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		255452E4264D752C004B3334 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
-		255452EC264DB88E004B3334 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		255452EC264DB88E004B3334 /* ReminderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderList.swift; sourceTree = "<group>"; };
 		255452F1264DC36E004B3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		255452F5264DC4B3004B3334 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		259163D0264F375800D67A41 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
@@ -86,6 +89,9 @@
 		259163EF264F534500D67A41 /* AddNewListConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListConstant.swift; sourceTree = "<group>"; };
 		259163F2264F5AB400D67A41 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		259163F7264F5FF800D67A41 /* Resuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resuable.swift; sourceTree = "<group>"; };
+		25B6891F265025950007CC06 /* AddNewReminderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderPresenter.swift; sourceTree = "<group>"; };
+		25B68922265026D00007CC06 /* AddNewReminderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderInteractor.swift; sourceTree = "<group>"; };
+		25B68925265027A10007CC06 /* AddNewReminderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderRouter.swift; sourceTree = "<group>"; };
 		25BADD4E264E920900D9A379 /* AddNewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewController.swift; sourceTree = "<group>"; };
 		25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderViewController.swift; sourceTree = "<group>"; };
 		25BADD58264EA40800D9A379 /* AddNewListNavigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListNavigatable.swift; sourceTree = "<group>"; };
@@ -219,7 +225,7 @@
 		255452EB264DB849004B3334 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				255452EC264DB88E004B3334 /* ListModel.swift */,
+				255452EC264DB88E004B3334 /* ReminderList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +299,9 @@
 			isa = PBXGroup;
 			children = (
 				25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */,
+				25B6891F265025950007CC06 /* AddNewReminderPresenter.swift */,
+				25B68922265026D00007CC06 /* AddNewReminderInteractor.swift */,
+				25B68925265027A10007CC06 /* AddNewReminderRouter.swift */,
 			);
 			path = AddNewReminderModule;
 			sourceTree = "<group>";
@@ -426,7 +435,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				259163DC264F4D7F00D67A41 /* Navigatable.swift in Sources */,
+				25B68920265025950007CC06 /* AddNewReminderPresenter.swift in Sources */,
 				25BADD7A264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift in Sources */,
+				25B68926265027A10007CC06 /* AddNewReminderRouter.swift in Sources */,
 				25BADD64264EBA4300D9A379 /* UIView+Extension.swift in Sources */,
 				259163E6264F4ED200D67A41 /* AddNewReminderNavigatable.swift in Sources */,
 				255452B0264D3A64004B3334 /* HomeViewController.swift in Sources */,
@@ -435,6 +446,7 @@
 				255452C8264D3B91004B3334 /* HomeRouter.swift in Sources */,
 				255452DC264D71D7004B3334 /* MyListTableViewCell.swift in Sources */,
 				25BADD82264EDA9400D9A379 /* UICollectionViewCell+Extension.swift in Sources */,
+				25B68923265026D00007CC06 /* AddNewReminderInteractor.swift in Sources */,
 				255452D1264D4B20004B3334 /* HomeSearchResultsController.swift in Sources */,
 				25BADD90264EF10900D9A379 /* ListColor.swift in Sources */,
 				25BADD59264EA40800D9A379 /* AddNewListNavigatable.swift in Sources */,
@@ -449,7 +461,7 @@
 				25BADD6A264EBB3F00D9A379 /* AddNewListInteractor.swift in Sources */,
 				25BADD67264EBB3200D9A379 /* AddNewListPresenter.swift in Sources */,
 				25BADD7F264EDA3B00D9A379 /* UICollectionView+Extension.swift in Sources */,
-				255452ED264DB88E004B3334 /* ListModel.swift in Sources */,
+				255452ED264DB88E004B3334 /* ReminderList.swift in Sources */,
 				25BADD89264EE9F900D9A379 /* ImageCollectionViewCell.swift in Sources */,
 				25BADD8D264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift in Sources */,
 				25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */,

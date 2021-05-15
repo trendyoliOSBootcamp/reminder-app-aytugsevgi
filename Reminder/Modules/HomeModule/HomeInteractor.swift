@@ -6,7 +6,7 @@ protocol HomeInteractorInterface {
 }
 
 final class HomeInteractor {
-    var output: HomePresenterOutputInterface?
+    weak var output: HomePresenterOutputInterface?
     private let service = Service()
 }
 

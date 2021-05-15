@@ -5,6 +5,7 @@ protocol AddNewListViewInterface: AnyObject {
     func setImageViewBackgroundColor(color: UIColor?)
     func setImage(name: String?)
     func setTextFieldTextColor(color: UIColor?)
+    func setTextFieldText(text: String)
 }
 
 final class AddNewListViewController: UIViewController {
@@ -25,6 +26,9 @@ final class AddNewListViewController: UIViewController {
 
     @IBAction func nameTextFieldChanged(_ sender: UITextField) {
         presenter.nameTextFieldChanged(text: sender.text)
+    }
+    @IBAction func doneButtonTapped() {
+        presenter.doneButtonTapped()
     }
 }
 
@@ -47,6 +51,10 @@ extension AddNewListViewController: AddNewListViewInterface {
     func setImage(name: String?) {
         guard let name = name else { return }
         selectedImageView.image = UIImage(systemName: name)
+    }
+    
+    func setTextFieldText(text: String) {
+        nameTextField.text = text
     }
 }
 
