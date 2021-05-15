@@ -1,10 +1,3 @@
-//
-//  MyListTableViewCell.swift
-//  Reminder
-//
-//  Created by aytug on 13.05.2021.
-//
-
 import UIKit
 
 class MyListTableViewCell: UITableViewCell {
@@ -12,8 +5,8 @@ class MyListTableViewCell: UITableViewCell {
     @IBOutlet weak var listImageViewBackgroundView: UIView!
     
     func configure() {
-        layoutIfNeeded()
-        listImageViewBackgroundView.layer.cornerRadius = listImageViewBackgroundView.frame.width / 2
+        listImageViewBackgroundView.makeCircle
+        listImageViewBackgroundView.backgroundColor = .clear
+        listImageViewBackgroundView.applyThreeDimensionEffect(color: .systemOrange)
     }
-    
 }

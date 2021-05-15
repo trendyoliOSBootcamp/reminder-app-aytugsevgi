@@ -23,15 +23,22 @@
 		255452DD264D71D7004B3334 /* MyListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 255452DB264D71D7004B3334 /* MyListTableViewCell.xib */; };
 		255452E1264D7509004B3334 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452E0264D7509004B3334 /* UITableViewCell+Extension.swift */; };
 		255452E5264D752C004B3334 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452E4264D752C004B3334 /* UITableView+Extension.swift */; };
-		255452E9264DA6BF004B3334 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452E8264DA6BF004B3334 /* Constant.swift */; };
 		255452ED264DB88E004B3334 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452EC264DB88E004B3334 /* ListModel.swift */; };
 		255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F1264DC36E004B3334 /* UIColor+Extension.swift */; };
 		255452F6264DC4B3004B3334 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F5264DC4B3004B3334 /* Service.swift */; };
 		259163D1264F375800D67A41 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D0264F375800D67A41 /* StoryboardName.swift */; };
 		259163D4264F3A2400D67A41 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */; };
+		259163DC264F4D7F00D67A41 /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163DB264F4D7F00D67A41 /* Navigatable.swift */; };
+		259163E0264F4DEA00D67A41 /* StoryboardId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163DF264F4DEA00D67A41 /* StoryboardId.swift */; };
+		259163E3264F4E0800D67A41 /* NavigatableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163E2264F4E0800D67A41 /* NavigatableManager.swift */; };
+		259163E6264F4ED200D67A41 /* AddNewReminderNavigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163E5264F4ED200D67A41 /* AddNewReminderNavigatable.swift */; };
+		259163EB264F508C00D67A41 /* HomeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163EA264F508C00D67A41 /* HomeConstant.swift */; };
+		259163F0264F534500D67A41 /* AddNewListConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163EF264F534500D67A41 /* AddNewListConstant.swift */; };
+		259163F3264F5AB400D67A41 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163F2264F5AB400D67A41 /* Collection+Extension.swift */; };
+		259163F8264F5FF800D67A41 /* Resuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163F7264F5FF800D67A41 /* Resuable.swift */; };
 		25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD4E264E920900D9A379 /* AddNewListViewController.swift */; };
 		25BADD54264EA2FB00D9A379 /* AddNewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */; };
-		25BADD59264EA40800D9A379 /* ViewControllerNavigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD58264EA40800D9A379 /* ViewControllerNavigatable.swift */; };
+		25BADD59264EA40800D9A379 /* AddNewListNavigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD58264EA40800D9A379 /* AddNewListNavigatable.swift */; };
 		25BADD64264EBA4300D9A379 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD63264EBA4300D9A379 /* UIView+Extension.swift */; };
 		25BADD67264EBB3200D9A379 /* AddNewListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD66264EBB3200D9A379 /* AddNewListPresenter.swift */; };
 		25BADD6A264EBB3F00D9A379 /* AddNewListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD69264EBB3F00D9A379 /* AddNewListInteractor.swift */; };
@@ -67,15 +74,22 @@
 		255452DB264D71D7004B3334 /* MyListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyListTableViewCell.xib; sourceTree = "<group>"; };
 		255452E0264D7509004B3334 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		255452E4264D752C004B3334 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
-		255452E8264DA6BF004B3334 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		255452EC264DB88E004B3334 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		255452F1264DC36E004B3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		255452F5264DC4B3004B3334 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		259163D0264F375800D67A41 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		259163DB264F4D7F00D67A41 /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
+		259163DF264F4DEA00D67A41 /* StoryboardId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardId.swift; sourceTree = "<group>"; };
+		259163E2264F4E0800D67A41 /* NavigatableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatableManager.swift; sourceTree = "<group>"; };
+		259163E5264F4ED200D67A41 /* AddNewReminderNavigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderNavigatable.swift; sourceTree = "<group>"; };
+		259163EA264F508C00D67A41 /* HomeConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConstant.swift; sourceTree = "<group>"; };
+		259163EF264F534500D67A41 /* AddNewListConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListConstant.swift; sourceTree = "<group>"; };
+		259163F2264F5AB400D67A41 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
+		259163F7264F5FF800D67A41 /* Resuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resuable.swift; sourceTree = "<group>"; };
 		25BADD4E264E920900D9A379 /* AddNewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListViewController.swift; sourceTree = "<group>"; };
 		25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderViewController.swift; sourceTree = "<group>"; };
-		25BADD58264EA40800D9A379 /* ViewControllerNavigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNavigatable.swift; sourceTree = "<group>"; };
+		25BADD58264EA40800D9A379 /* AddNewListNavigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListNavigatable.swift; sourceTree = "<group>"; };
 		25BADD63264EBA4300D9A379 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		25BADD66264EBB3200D9A379 /* AddNewListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListPresenter.swift; sourceTree = "<group>"; };
 		25BADD69264EBB3F00D9A379 /* AddNewListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListInteractor.swift; sourceTree = "<group>"; };
@@ -122,12 +136,11 @@
 		255452AA264D3A64004B3334 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				25BADD5B264EB47D00D9A379 /* Util */,
-				255452F4264DC490004B3334 /* Service */,
-				255452E7264DA6B0004B3334 /* Constant */,
 				255452DF264D74EB004B3334 /* Extension */,
+				25BADD5B264EB47D00D9A379 /* Util */,
+				259163D7264F4D1800D67A41 /* Core */,
+				255452F4264DC490004B3334 /* Service */,
 				255452EB264DB849004B3334 /* Model */,
-				255452CB264D459C004B3334 /* Navigation */,
 				255452CA264D4594004B3334 /* Modules */,
 				255452AB264D3A64004B3334 /* AppDelegate.swift */,
 				255452AD264D3A64004B3334 /* SceneDelegate.swift */,
@@ -143,6 +156,7 @@
 		255452C0264D3B22004B3334 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				259163E8264F506D00D67A41 /* Constant */,
 				25BADD57264EA3C200D9A379 /* NavigatableStrategy */,
 				255452D9264D71BE004B3334 /* Cell */,
 				255452D3264D4E1A004B3334 /* Search */,
@@ -200,16 +214,9 @@
 				25BADD7E264EDA3B00D9A379 /* UICollectionView+Extension.swift */,
 				25BADD81264EDA9400D9A379 /* UICollectionViewCell+Extension.swift */,
 				259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */,
+				259163F2264F5AB400D67A41 /* Collection+Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		255452E7264DA6B0004B3334 /* Constant */ = {
-			isa = PBXGroup;
-			children = (
-				255452E8264DA6BF004B3334 /* Constant.swift */,
-			);
-			path = Constant;
 			sourceTree = "<group>";
 		};
 		255452EB264DB849004B3334 /* Model */ = {
@@ -228,9 +235,53 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		259163D7264F4D1800D67A41 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				259163F5264F5F9C00D67A41 /* ReusableStrategy */,
+				259163DA264F4D4200D67A41 /* NavigatableStrategy */,
+				255452CB264D459C004B3334 /* Navigation */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		259163DA264F4D4200D67A41 /* NavigatableStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				259163DB264F4D7F00D67A41 /* Navigatable.swift */,
+				259163E2264F4E0800D67A41 /* NavigatableManager.swift */,
+			);
+			path = NavigatableStrategy;
+			sourceTree = "<group>";
+		};
+		259163E8264F506D00D67A41 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				259163EA264F508C00D67A41 /* HomeConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		259163EE264F533700D67A41 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				259163EF264F534500D67A41 /* AddNewListConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		259163F5264F5F9C00D67A41 /* ReusableStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				259163F7264F5FF800D67A41 /* Resuable.swift */,
+			);
+			path = ReusableStrategy;
+			sourceTree = "<group>";
+		};
 		25BADD4D264E91EC00D9A379 /* AddNewListModule */ = {
 			isa = PBXGroup;
 			children = (
+				259163EE264F533700D67A41 /* Constant */,
 				25BADD78264ED80300D9A379 /* ViewModel */,
 				25BADD72264ED5E900D9A379 /* Cell */,
 				25BADD4E264E920900D9A379 /* AddNewListViewController.swift */,
@@ -252,7 +303,8 @@
 		25BADD57264EA3C200D9A379 /* NavigatableStrategy */ = {
 			isa = PBXGroup;
 			children = (
-				25BADD58264EA40800D9A379 /* ViewControllerNavigatable.swift */,
+				25BADD58264EA40800D9A379 /* AddNewListNavigatable.swift */,
+				259163E5264F4ED200D67A41 /* AddNewReminderNavigatable.swift */,
 			);
 			path = NavigatableStrategy;
 			sourceTree = "<group>";
@@ -262,6 +314,7 @@
 			children = (
 				25BADD8F264EF10900D9A379 /* ListColor.swift */,
 				259163D0264F375800D67A41 /* StoryboardName.swift */,
+				259163DF264F4DEA00D67A41 /* StoryboardId.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -375,8 +428,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				259163DC264F4D7F00D67A41 /* Navigatable.swift in Sources */,
 				25BADD7A264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift in Sources */,
 				25BADD64264EBA4300D9A379 /* UIView+Extension.swift in Sources */,
+				259163E6264F4ED200D67A41 /* AddNewReminderNavigatable.swift in Sources */,
 				255452B0264D3A64004B3334 /* HomeViewController.swift in Sources */,
 				25BADD6D264EBB5400D9A379 /* AddNewListRouter.swift in Sources */,
 				255452CD264D45AC004B3334 /* NavigationBuilder.swift in Sources */,
@@ -385,7 +440,7 @@
 				25BADD82264EDA9400D9A379 /* UICollectionViewCell+Extension.swift in Sources */,
 				255452D1264D4B20004B3334 /* HomeSearchResultsController.swift in Sources */,
 				25BADD90264EF10900D9A379 /* ListColor.swift in Sources */,
-				25BADD59264EA40800D9A379 /* ViewControllerNavigatable.swift in Sources */,
+				25BADD59264EA40800D9A379 /* AddNewListNavigatable.swift in Sources */,
 				255452AC264D3A64004B3334 /* AppDelegate.swift in Sources */,
 				255452E1264D7509004B3334 /* UITableViewCell+Extension.swift in Sources */,
 				255452D7264D6DC1004B3334 /* Reminder.xcdatamodeld in Sources */,
@@ -393,6 +448,7 @@
 				255452F6264DC4B3004B3334 /* Service.swift in Sources */,
 				255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */,
 				259163D1264F375800D67A41 /* StoryboardName.swift in Sources */,
+				259163F8264F5FF800D67A41 /* Resuable.swift in Sources */,
 				25BADD6A264EBB3F00D9A379 /* AddNewListInteractor.swift in Sources */,
 				25BADD67264EBB3200D9A379 /* AddNewListPresenter.swift in Sources */,
 				25BADD7F264EDA3B00D9A379 /* UICollectionView+Extension.swift in Sources */,
@@ -401,10 +457,14 @@
 				25BADD8D264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift in Sources */,
 				25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */,
 				25BADD75264ED61400D9A379 /* ColorCollectionViewCell.swift in Sources */,
+				259163E0264F4DEA00D67A41 /* StoryboardId.swift in Sources */,
 				25BADD54264EA2FB00D9A379 /* AddNewReminderViewController.swift in Sources */,
-				255452E9264DA6BF004B3334 /* Constant.swift in Sources */,
+				259163EB264F508C00D67A41 /* HomeConstant.swift in Sources */,
 				255452C5264D3B6B004B3334 /* HomeInteractor.swift in Sources */,
+				259163F0264F534500D67A41 /* AddNewListConstant.swift in Sources */,
 				25BADD70264EBB6900D9A379 /* HomeViewContract.swift in Sources */,
+				259163F3264F5AB400D67A41 /* Collection+Extension.swift in Sources */,
+				259163E3264F4E0800D67A41 /* NavigatableManager.swift in Sources */,
 				255452C2264D3B5D004B3334 /* HomePresenter.swift in Sources */,
 				255452E5264D752C004B3334 /* UITableView+Extension.swift in Sources */,
 				259163D4264F3A2400D67A41 /* UIStoryboard+Extension.swift in Sources */,

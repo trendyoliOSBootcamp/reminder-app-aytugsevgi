@@ -8,7 +8,7 @@ final class HomeRouter {
     }
         
     static func createModule(using navigationController: UINavigationController) -> UIViewController {
-        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        let view = UIStoryboard.instantiateViewController(type: HomeViewController.self)
         let interactor = HomeInteractor()
         let router = HomeRouter(navigationController: navigationController)
         let presenter = HomePresenter(view: view, router: router, interactor: interactor)
@@ -24,7 +24,7 @@ extension HomeRouter: HomePresenterToRouter {
     }
     
     func push(identifier: StoryboardId) {
-        ViewControllerNavigatableManager.shared.push(identifier,
-                                                     with: navigationController)
+        NavigatableManager.shared.push(to: identifier,
+                                                     using: navigationController)
     }
 }

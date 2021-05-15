@@ -1,5 +1,5 @@
 import UIKit
 
 struct ColorCollectionViewCellViewModel {
-    let backgroundColor: UIColor
+    let backgroundColor: UIColor?
 }

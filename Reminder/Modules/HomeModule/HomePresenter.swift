@@ -39,11 +39,11 @@ extension HomePresenter: HomeViewControllerToPresenter {
     }
     
     func addListButtonTapped() {
-        router.push(identifier: .addNewListViewController)
+        router.push(identifier: .addNewList)
     }
     
     func newReminderButtonTapped() {
-        router.push(identifier: .addNewReminderViewController)
+        router.push(identifier: .addNewReminder)
     }
 }
 

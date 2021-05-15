@@ -2,8 +2,9 @@ import UIKit
 
 protocol AddNewListPresenterToViewController: AnyObject {
     func configure()
-    func setImageViewBackgroundColor(color: UIColor)
-    func setImage(name: String)
+    func setImageViewBackgroundColor(color: UIColor?)
+    func setImage(name: String?)
+    func setTextFieldTextColor(color: UIColor?)
 }
 
 final class AddNewListViewController: UIViewController {
@@ -30,15 +31,21 @@ final class AddNewListViewController: UIViewController {
 extension AddNewListViewController: AddNewListPresenterToViewController {
     func configure() {
         selectedImageBackgroundView.makeCircle
+        nameTextField.layer.cornerRadius = CGFloat(AddNewListConstant.textFieldCornerRadius)
         collectionView.register(reusableCellType: ColorCollectionViewCell.self)
         collectionView.register(reusableCellType: ImageCollectionViewCell.self)
     }
     
-    func setImageViewBackgroundColor(color: UIColor) {
+    func setImageViewBackgroundColor(color: UIColor?) {
         selectedImageBackgroundView.applyThreeDimensionEffect(color: color)
     }
     
-    func setImage(name: String) {
+    func setTextFieldTextColor(color: UIColor?) {
+        nameTextField.textColor = color
+    }
+    
+    func setImage(name: String?) {
+        guard let name = name else { return }
         selectedImageView.image = UIImage(systemName: name)
     }
 }
@@ -50,21 +57,22 @@ extension AddNewListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.numberOfItemsInSection
+        presenter.numberOfItemsInSection(at: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(type: ColorCollectionViewCell.self, for: indexPath)
             let listColor = presenter.colorForItem(at: indexPath.row)
-            let viewModel = ColorCollectionViewCellViewModel(backgroundColor: listColor.color)
+            let viewModel = ColorCollectionViewCellViewModel(backgroundColor: listColor?.color)
             cell.configure(viewModel: viewModel)
             return cell
         }
         let cell = collectionView.dequeueReusableCell(type: ImageCollectionViewCell.self, for: indexPath)
-        let image = presenter.imageForItem(at: indexPath.item)
-        let viewModel = ImageCollectionViewCellViewModel(backgroundColor: UIColor.systemGray6, image: UIImage(systemName: image))
-        cell.configure(viewModel: viewModel)
+        if let image = presenter.imageForItem(at: indexPath.item) {
+            let viewModel = ImageCollectionViewCellViewModel(backgroundColor: UIColor.systemGray6, image: UIImage(systemName: image))
+            cell.configure(viewModel: viewModel)
+        }
         return cell
     }
 }

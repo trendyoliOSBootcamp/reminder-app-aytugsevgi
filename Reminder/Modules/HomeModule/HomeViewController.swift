@@ -38,13 +38,13 @@ final class HomeViewController: UIViewController {
 extension HomeViewController: HomePresenterToViewController {
     func configure() {
         tableView.register(reusableCellType: MyListTableViewCell.self)
-        tableView.layer.cornerRadius = 8
+        tableView.layer.cornerRadius = CGFloat(HomeConstant.tableViewCornerRadius)
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
-        allView.layer.cornerRadius = 8
-        flaggedView.layer.cornerRadius = 8
-        allImageView.layer.cornerRadius = allImageView.frame.height / 2
-        flaggedImageView.layer.cornerRadius = flaggedImageView.frame.height / 2
+        allView.layer.cornerRadius = CGFloat(HomeConstant.allViewCornerRadius)
+        flaggedView.layer.cornerRadius = CGFloat(HomeConstant.flaggedViewCornerRadius)
+        allImageView.layer.cornerRadius = allImageView.frame.height * CGFloat(HomeConstant.allImageViewCornerRadiusMultiply)
+        flaggedImageView.layer.cornerRadius = flaggedImageView.frame.height * CGFloat(HomeConstant.flaggedImageViewCornerRadiusMultiply)
         let allViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(allViewTapped))
         allView.addGestureRecognizer(allViewGestureRecognizer)
         let flaggedViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(flaggedViewTapped))
@@ -58,11 +58,7 @@ extension HomeViewController: HomePresenterToViewController {
     }
     
     func setTableViewHeight() {
-        let oldFrame = self.tableView.frame
-        tableView.frame.size.height = tableView.rowHeight * CGFloat(tableView.numberOfRows(inSection: 0)) - CGFloat(Constant.rowSeperatorHeight)
-        if oldFrame.height > tableView.frame.height {
-            tableView.isScrollEnabled = false
-        }
+        tableView.frame.size.height = tableView.rowHeight * CGFloat(tableView.numberOfRows(inSection: 0)) - CGFloat(HomeConstant.rowSeperatorHeight)
     }
     
     func reloadData() {

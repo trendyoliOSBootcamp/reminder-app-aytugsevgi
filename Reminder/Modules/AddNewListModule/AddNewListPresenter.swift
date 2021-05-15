@@ -2,14 +2,14 @@ import Foundation
 
 protocol AddNewListViewControllerToPresenter {
     var numberOfSections: Int { get }
-    var numberOfItemsInSection: Int { get }
     
+    func numberOfItemsInSection(at section: Int) -> Int
     func viewDidLoad()
     func cancelButtonTapped()
     func nameTextFieldChanged(text: String?)
     func sizeForItem(width: Double, minimumLineSpacing: Double, sectionInsetLeft: Double, sectionInsetRight: Double) -> Size
-    func colorForItem(at index: Int) -> ListColor
-    func imageForItem(at index: Int) -> String
+    func colorForItem(at index: Int) -> ListColor?
+    func imageForItem(at index: Int) -> String?
     func didSelectItemAt(indexPath: IndexPath)
 }
 
@@ -40,8 +40,11 @@ final class AddNewListPresenter {
 }
 
 extension AddNewListPresenter: AddNewListViewControllerToPresenter {
-    var numberOfSections: Int { 2 }
-    var numberOfItemsInSection: Int { 12 }
+    var numberOfSections: Int { AddNewListConstant.numberOfSections }
+    
+    func numberOfItemsInSection(at section: Int) -> Int {
+        section == 0 ? colorsForCell.count : imagesForCell.count
+    }
     
     func viewDidLoad() {
         view?.configure()
@@ -49,6 +52,7 @@ extension AddNewListPresenter: AddNewListViewControllerToPresenter {
               let name = imagesForCell.first else { return }
         view?.setImageViewBackgroundColor(color: color)
         view?.setImage(name: name)
+        view?.setTextFieldTextColor(color: color)
     }
     
     func cancelButtonTapped() {
@@ -61,22 +65,29 @@ extension AddNewListPresenter: AddNewListViewControllerToPresenter {
     }
     
     func sizeForItem(width: Double, minimumLineSpacing: Double, sectionInsetLeft: Double, sectionInsetRight: Double) -> Size {
-        let totalLineSpacing = minimumLineSpacing * 5 + sectionInsetLeft + sectionInsetRight
-        let cellWidth = (width - totalLineSpacing) / 6
+        let lineSpacingCount = Double(AddNewListConstant.numberOfItemInLine - 1)
+        let totalLineSpacing = minimumLineSpacing * lineSpacingCount + sectionInsetLeft + sectionInsetRight
+        let cellWidth = (width - totalLineSpacing) / Double(AddNewListConstant.numberOfItemInLine)
         let cellHeight = cellWidth
         return Size(width: cellWidth, height: cellHeight)
     }
     
-    func colorForItem(at index: Int) -> ListColor {
-        return colorsForCell[index]
+    func colorForItem(at index: Int) -> ListColor? {
+        return colorsForCell[safe: index]
     }
     
-    func imageForItem(at index: Int) -> String {
-        return imagesForCell[index]
+    func imageForItem(at index: Int) -> String? {
+        return imagesForCell[safe: index]
     }
     
     func didSelectItemAt(indexPath: IndexPath) {
-        indexPath.section == 0 ? view?.setImageViewBackgroundColor(color: colorsForCell[indexPath.item].color) : view?.setImage(name: imagesForCell[indexPath.item])
+        if indexPath.section == 0 {
+            let color = colorsForCell[safe: indexPath.item]?.color
+            view?.setImageViewBackgroundColor(color: color)
+            view?.setTextFieldTextColor(color: color)
+        } else {
+            view?.setImage(name: imagesForCell[safe: indexPath.item])
+        }
     }
 }
 

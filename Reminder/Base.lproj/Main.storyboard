@@ -232,11 +232,11 @@
                                     <constraint firstAttribute="trailing" secondItem="zAs-cS-inm" secondAttribute="trailing" constant="20" id="v7T-j1-HNd"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New List" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-Cx-mOE">
-                                <rect key="frame" x="20" y="284" width="374" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New List" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-Cx-mOE">
+                                <rect key="frame" x="20" y="284" width="374" height="54"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ymH-Jz-gEE"/>
+                                    <constraint firstAttribute="height" constant="54" id="ymH-Jz-gEE"/>
                                 </constraints>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
@@ -245,8 +245,8 @@
                                     <action selector="nameTextFieldChanged:" destination="VKx-X0-AKI" eventType="editingChanged" id="Dvo-yd-VUB"/>
                                 </connections>
                             </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WaO-dw-KU7">
-                                <rect key="frame" x="0.0" y="384" width="414" height="478"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WaO-dw-KU7">
+                                <rect key="frame" x="0.0" y="388" width="414" height="474"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="UhW-8z-hum">
                                     <size key="itemSize" width="60" height="60"/>
