@@ -22,13 +22,14 @@ final class Service {
     
     func saveList() {
         let context = Service.context
-        guard let color = UIColor.blue.encode() else { return }
-        let image = UIImage(systemName: "cloud.heavyrain.fill")!.pngData()
+        guard let colorData = UIColor.blue.encode(),
+              let image = UIImage(systemName: "cloud.heavyrain.fill") else { return }
+        let imageData = image.pngData()
         let newObj =  NSEntityDescription.insertNewObject(forEntityName: "List", into: context)
         newObj.setValue(UUID(), forKey: "id")
         newObj.setValue("Selam", forKey: "name")
-        newObj.setValue(color, forKey: "color")
-        newObj.setValue(image, forKey: "image")
+        newObj.setValue(colorData, forKey: "color")
+        newObj.setValue(imageData, forKey: "image")
         do {
             try context.save()
         } catch  {

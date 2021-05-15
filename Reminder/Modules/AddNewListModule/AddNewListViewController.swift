@@ -21,23 +21,21 @@ final class AddNewListViewController: UIViewController {
     @IBAction private func cancelButtonTapped() {
         presenter.cancelButtonTapped()
     }
-    
-    @IBAction private func nameTextFieldChanged() {
-        presenter.nameTextFieldChanged(nameTextField.text)
+
+    @IBAction func nameTextFieldChanged(_ sender: UITextField) {
+        presenter.nameTextFieldChanged(text: sender.text)
     }
 }
 
 extension AddNewListViewController: AddNewListPresenterToViewController {
     func configure() {
-        selectedImageBackgroundView.makeCircle()
+        selectedImageBackgroundView.makeCircle
         collectionView.register(reusableCellType: ColorCollectionViewCell.self)
         collectionView.register(reusableCellType: ImageCollectionViewCell.self)
     }
     
     func setImageViewBackgroundColor(color: UIColor) {
-        let tdView = TDView(view: selectedImageBackgroundView,
-                            color: color)
-        tdView.apply()
+        selectedImageBackgroundView.applyThreeDimensionEffect(color: color)
     }
     
     func setImage(name: String) {
@@ -73,7 +71,7 @@ extension AddNewListViewController: UICollectionViewDataSource {
 
 extension AddNewListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.didSelectItemAt(section: indexPath.section, item: indexPath.item)
+        presenter.didSelectItemAt(indexPath: indexPath)
     }
 }
 

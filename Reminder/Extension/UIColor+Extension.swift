@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIColor {
-     func color(data:Data) -> UIColor? {
+     func color(data: Data) -> UIColor? {
           return try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? UIColor
      }
      func encode() -> Data? {

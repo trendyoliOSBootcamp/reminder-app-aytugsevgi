@@ -7,14 +7,17 @@ protocol AddNewListPresenterToRouter {
 final class AddNewListRouter {
     private var navigationController: UINavigationController?
     
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
+    }
+    
     static func createModule(using navigationController: UINavigationController?) -> UIViewController {
-        let view = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AddNewListViewController") as! AddNewListViewController
+        let view = UIStoryboard.instantiateViewController(type: AddNewListViewController.self)
         let interactor = AddNewListInteractor()
-        let router = AddNewListRouter()
+        let router = AddNewListRouter(navigationController: navigationController)
         let presenter = AddNewListPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
         interactor.presenter = presenter
-        router.navigationController = navigationController
         return view
     }
 }
@@ -24,3 +27,4 @@ extension AddNewListRouter: AddNewListPresenterToRouter {
         navigationController?.dismiss(animated: true)
     }
 }
+

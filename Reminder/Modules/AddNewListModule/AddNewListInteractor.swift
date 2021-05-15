@@ -5,7 +5,7 @@ protocol AddNewListPresenterToInteractor {
 }
 
 final class AddNewListInteractor {
-    var presenter: AddNewListInteractorToPresenter?
+    weak var presenter: AddNewListInteractorToPresenter?
 }
 
 extension AddNewListInteractor: AddNewListPresenterToInteractor {

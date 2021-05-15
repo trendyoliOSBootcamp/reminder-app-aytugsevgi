@@ -3,7 +3,7 @@ import UIKit
 class ColorCollectionViewCell: UICollectionViewCell {
     
     func configure(viewModel: ColorCollectionViewCellViewModel) {
-        makeCircle()
+        makeCircle
         backgroundColor = viewModel.backgroundColor
     }
 

@@ -6,14 +6,14 @@ protocol AddNewListViewControllerToPresenter {
     
     func viewDidLoad()
     func cancelButtonTapped()
-    func nameTextFieldChanged(_ text: String?)
+    func nameTextFieldChanged(text: String?)
     func sizeForItem(width: Double, minimumLineSpacing: Double, sectionInsetLeft: Double, sectionInsetRight: Double) -> Size
     func colorForItem(at index: Int) -> ListColor
     func imageForItem(at index: Int) -> String
-    func didSelectItemAt(section: Int, item: Int)
+    func didSelectItemAt(indexPath: IndexPath)
 }
 
-protocol AddNewListInteractorToPresenter {
+protocol AddNewListInteractorToPresenter: AnyObject {
     func newListSaved()
 }
 
@@ -45,15 +45,17 @@ extension AddNewListPresenter: AddNewListViewControllerToPresenter {
     
     func viewDidLoad() {
         view?.configure()
-        view?.setImageViewBackgroundColor(color: colorsForCell.first!.color)
-        view?.setImage(name: imagesForCell.first!)
+        guard let color = colorsForCell.first?.color,
+              let name = imagesForCell.first else { return }
+        view?.setImageViewBackgroundColor(color: color)
+        view?.setImage(name: name)
     }
     
     func cancelButtonTapped() {
         router.dismiss()
     }
     
-    func nameTextFieldChanged(_ text: String?) {
+    func nameTextFieldChanged(text: String?) {
         guard let text = text else { return }
         newListModel?.name = text
     }
@@ -73,8 +75,8 @@ extension AddNewListPresenter: AddNewListViewControllerToPresenter {
         return imagesForCell[index]
     }
     
-    func didSelectItemAt(section: Int, item: Int) {
-        section == 0 ? view?.setImageViewBackgroundColor(color: colorsForCell[item].color) : view?.setImage(name: imagesForCell[item])
+    func didSelectItemAt(indexPath: IndexPath) {
+        indexPath.section == 0 ? view?.setImageViewBackgroundColor(color: colorsForCell[indexPath.item].color) : view?.setImage(name: imagesForCell[indexPath.item])
     }
 }
 
