@@ -1,6 +1,6 @@
 import UIKit
 
-protocol AddNewListPresenterToRouter {
+protocol AddNewListRouterInterface{
     func dismiss()
 }
 
@@ -22,7 +22,7 @@ final class AddNewListRouter {
     }
 }
 
-extension AddNewListRouter: AddNewListPresenterToRouter {
+extension AddNewListRouter: AddNewListRouterInterface {
     func dismiss() {
         navigationController?.dismiss(animated: true)
     }

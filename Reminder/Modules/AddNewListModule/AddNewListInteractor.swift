@@ -1,14 +1,14 @@
 import Foundation
 
-protocol AddNewListPresenterToInteractor {
+protocol AddNewListInteractorInterface {
     func saveNewList(listModel: ListModel)
 }
 
 final class AddNewListInteractor {
-    weak var presenter: AddNewListInteractorToPresenter?
+    weak var presenter: AddNewListPresenterOutputInterface?
 }
 
-extension AddNewListInteractor: AddNewListPresenterToInteractor {
+extension AddNewListInteractor: AddNewListInteractorInterface {
     func saveNewList(listModel: ListModel) {
         
     }

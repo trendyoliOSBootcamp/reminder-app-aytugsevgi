@@ -43,7 +43,6 @@
 		25BADD67264EBB3200D9A379 /* AddNewListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD66264EBB3200D9A379 /* AddNewListPresenter.swift */; };
 		25BADD6A264EBB3F00D9A379 /* AddNewListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD69264EBB3F00D9A379 /* AddNewListInteractor.swift */; };
 		25BADD6D264EBB5400D9A379 /* AddNewListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD6C264EBB5400D9A379 /* AddNewListRouter.swift */; };
-		25BADD70264EBB6900D9A379 /* HomeViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD6F264EBB6900D9A379 /* HomeViewContract.swift */; };
 		25BADD75264ED61400D9A379 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD73264ED61400D9A379 /* ColorCollectionViewCell.swift */; };
 		25BADD76264ED61400D9A379 /* ColorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BADD74264ED61400D9A379 /* ColorCollectionViewCell.xib */; };
 		25BADD7A264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BADD79264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift */; };
@@ -94,7 +93,6 @@
 		25BADD66264EBB3200D9A379 /* AddNewListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListPresenter.swift; sourceTree = "<group>"; };
 		25BADD69264EBB3F00D9A379 /* AddNewListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListInteractor.swift; sourceTree = "<group>"; };
 		25BADD6C264EBB5400D9A379 /* AddNewListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListRouter.swift; sourceTree = "<group>"; };
-		25BADD6F264EBB6900D9A379 /* HomeViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewContract.swift; sourceTree = "<group>"; };
 		25BADD73264ED61400D9A379 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		25BADD74264ED61400D9A379 /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		25BADD79264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				255452C1264D3B5D004B3334 /* HomePresenter.swift */,
 				255452C4264D3B6B004B3334 /* HomeInteractor.swift */,
 				255452C7264D3B91004B3334 /* HomeRouter.swift */,
-				25BADD6F264EBB6900D9A379 /* HomeViewContract.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -462,7 +459,6 @@
 				259163EB264F508C00D67A41 /* HomeConstant.swift in Sources */,
 				255452C5264D3B6B004B3334 /* HomeInteractor.swift in Sources */,
 				259163F0264F534500D67A41 /* AddNewListConstant.swift in Sources */,
-				25BADD70264EBB6900D9A379 /* HomeViewContract.swift in Sources */,
 				259163F3264F5AB400D67A41 /* Collection+Extension.swift in Sources */,
 				259163E3264F4E0800D67A41 /* NavigatableManager.swift in Sources */,
 				255452C2264D3B5D004B3334 /* HomePresenter.swift in Sources */,

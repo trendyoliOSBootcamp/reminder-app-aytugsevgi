@@ -1,17 +1,22 @@
 import Foundation
 
+protocol HomeInteractorInterface {
+    func fetchReminders()
+    func fetchLists()
+}
+
 final class HomeInteractor {
-    var presenter: HomeInteractorToPresenter?
+    var output: HomePresenterOutputInterface?
     private let service = Service()
 }
 
-extension HomeInteractor: HomePresenterToInteractor {
+extension HomeInteractor: HomeInteractorInterface {
     func fetchReminders() {
         
     }
     
     func fetchLists() {
         guard let listModels = service.fetchList() else { return }
-        presenter?.listFetched(listModels: listModels)
+        output?.listFetched(listModels: listModels)
     }
 }

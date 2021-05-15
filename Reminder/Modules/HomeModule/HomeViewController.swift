@@ -1,6 +1,13 @@
 import UIKit
 import CoreData
 
+protocol HomeViewInterface: AnyObject {
+    func configure()
+    func showSearchResult(text: String)
+    func setTableViewHeight()
+    func reloadData()
+}
+
 final class HomeViewController: UIViewController {
     @IBOutlet weak private var allView: UIView!
     @IBOutlet weak private var flaggedView: UIView!
@@ -8,7 +15,7 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak private var flaggedImageView: UIView!
     @IBOutlet weak private var tableView: UITableView!
     private let searchController = UISearchController(searchResultsController: HomeSearchResultsViewController())
-    var presenter: HomeViewControllerToPresenter!
+    var presenter: HomePresenterInterface!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +42,7 @@ final class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: HomePresenterToViewController {
+extension HomeViewController: HomeViewInterface {
     func configure() {
         tableView.register(reusableCellType: MyListTableViewCell.self)
         tableView.layer.cornerRadius = CGFloat(HomeConstant.tableViewCornerRadius)

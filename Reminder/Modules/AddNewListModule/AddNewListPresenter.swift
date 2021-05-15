@@ -1,6 +1,6 @@
 import Foundation
 
-protocol AddNewListViewControllerToPresenter {
+protocol AddNewListPresenterInterface {
     var numberOfSections: Int { get }
     
     func numberOfItemsInSection(at section: Int) -> Int
@@ -13,16 +13,16 @@ protocol AddNewListViewControllerToPresenter {
     func didSelectItemAt(indexPath: IndexPath)
 }
 
-protocol AddNewListInteractorToPresenter: AnyObject {
+protocol AddNewListPresenterOutputInterface: AnyObject {
     func newListSaved()
 }
 
 typealias Size = (width: Double, height: Double)
 
 final class AddNewListPresenter {
-    private weak var view: AddNewListPresenterToViewController?
-    private let interactor: AddNewListPresenterToInteractor
-    private let router: AddNewListPresenterToRouter
+    private weak var view: AddNewListViewInterface?
+    private let interactor: AddNewListInteractorInterface
+    private let router: AddNewListRouterInterface
     private var newListModel: ListModel?
     private var colorsForCell: [ListColor] = [.systemBlue, .red, .brown, .systemGray2, .systemGreen, .systemIndigo,
                                               .systemOrange, .systemPink, .systemPurple, .systemRed, .systemTeal,
@@ -30,16 +30,16 @@ final class AddNewListPresenter {
     private var imagesForCell: [String] = ["list.bullet", "bookmark.fill", "pin.fill", "gift.fill", "folder.fill",
                                            "paperplane.fill", "person.fill", "cloud.fill", "powersleep",
                                            "person.2.fill", "calendar", "doc.fill"]
-    init(view: AddNewListPresenterToViewController,
-         interactor: AddNewListPresenterToInteractor,
-         router: AddNewListPresenterToRouter) {
+    init(view: AddNewListViewInterface,
+         interactor: AddNewListInteractorInterface,
+         router: AddNewListRouterInterface) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
 }
 
-extension AddNewListPresenter: AddNewListViewControllerToPresenter {
+extension AddNewListPresenter: AddNewListPresenterInterface {
     var numberOfSections: Int { AddNewListConstant.numberOfSections }
     
     func numberOfItemsInSection(at section: Int) -> Int {
@@ -91,7 +91,7 @@ extension AddNewListPresenter: AddNewListViewControllerToPresenter {
     }
 }
 
-extension AddNewListPresenter: AddNewListInteractorToPresenter {
+extension AddNewListPresenter: AddNewListPresenterOutputInterface {
     func newListSaved() {
         
     }

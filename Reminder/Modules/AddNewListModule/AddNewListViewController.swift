@@ -1,6 +1,6 @@
 import UIKit
 
-protocol AddNewListPresenterToViewController: AnyObject {
+protocol AddNewListViewInterface: AnyObject {
     func configure()
     func setImageViewBackgroundColor(color: UIColor?)
     func setImage(name: String?)
@@ -12,7 +12,7 @@ final class AddNewListViewController: UIViewController {
     @IBOutlet weak private var nameTextField: UITextField!
     @IBOutlet weak private var selectedImageView: UIImageView!
     @IBOutlet weak private var collectionView: UICollectionView!
-    var presenter: AddNewListViewControllerToPresenter!
+    var presenter: AddNewListPresenterInterface!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ final class AddNewListViewController: UIViewController {
     }
 }
 
-extension AddNewListViewController: AddNewListPresenterToViewController {
+extension AddNewListViewController: AddNewListViewInterface {
     func configure() {
         selectedImageBackgroundView.makeCircle
         nameTextField.layer.cornerRadius = CGFloat(AddNewListConstant.textFieldCornerRadius)

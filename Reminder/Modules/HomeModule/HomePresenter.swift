@@ -1,23 +1,32 @@
 import Foundation
 
+protocol HomePresenterInterface {
+    var numberOfRows: Int { get }
+    func viewDidLoad()
+    func updateSearchResults(text: String?)
+    func viewDidLayoutSubviews()
+    func addListButtonTapped()
+    func newReminderButtonTapped()
+}
+
+protocol HomePresenterOutputInterface {
+    func listFetched(listModels: [ListModel])
+}
+
 final class HomePresenter {
-    private weak var view: HomePresenterToViewController?
-    private let interactor: HomePresenterToInteractor
-    private let router: HomePresenterToRouter
+    private weak var view: HomeViewInterface?
+    private let interactor: HomeInteractorInterface
+    private let router: HomeRouterInterface
     private var listModels = [ListModel]()
     
-    init(view: HomePresenterToViewController, router: HomePresenterToRouter, interactor: HomePresenterToInteractor) {
+    init(view: HomeViewInterface, router: HomeRouterInterface, interactor: HomeInteractorInterface) {
         self.view = view
         self.interactor = interactor
         self.router = router
     }
 }
 
-extension HomePresenter: HomeRouterToPresenter {
-    
-}
-
-extension HomePresenter: HomeViewControllerToPresenter {
+extension HomePresenter: HomePresenterInterface {
     var numberOfRows: Int { listModels.count }
     
     func viewDidLoad() {
@@ -47,7 +56,7 @@ extension HomePresenter: HomeViewControllerToPresenter {
     }
 }
 
-extension HomePresenter: HomeInteractorToPresenter {
+extension HomePresenter: HomePresenterOutputInterface {
     func listFetched(listModels: [ListModel]) {
         self.listModels = listModels
         view?.reloadData()
