@@ -1,5 +1,9 @@
 import Foundation
 
+protocol NewReminderSavedDelegate: AnyObject {
+    func didReminderSave(reminder: Reminder)
+}
+
 protocol AddNewReminderPresenterInterface {
     var numberOfRowsInComponent: Int { get }
     var numberOfComponents: Int { get }
@@ -18,6 +22,7 @@ typealias NewReminder = (title: String, content: String, list: ReminderList, isF
 
 protocol AddNewReminderOutputInterface: AnyObject {
     func listFetched(listModels: [ReminderList])
+    func reminderSaved(reminder: Reminder)
 }
 
 final class AddNewReminderPresenter {
@@ -28,12 +33,14 @@ final class AddNewReminderPresenter {
     private var reminderList = [ReminderList]()
     private var newReminder: NewReminder?
     private var priorities: [Priority] = [.none, .normal, .low, .medium, .high]
+    private weak var delegate: NewReminderSavedDelegate?
     
     init(view: AddNewReminderViewInterface, interactor: AddNewReminderInteractorInterface,
-         router: AddNewReminderRouterInterface) {
+         router: AddNewReminderRouterInterface, delegate: NewReminderSavedDelegate) {
         self.view = view
         self.interactor = interactor
         self.router = router
+        self.delegate = delegate
     }
 }
 
@@ -52,7 +59,7 @@ extension AddNewReminderPresenter: AddNewReminderPresenterInterface {
     
     func viewDidLoad() {
         view?.configure()
-        interactor.fetchRemainderList()
+        interactor.fetchReminderList()
     }
     
     func priorityButtonTapped() {
@@ -70,13 +77,18 @@ extension AddNewReminderPresenter: AddNewReminderPresenterInterface {
     }
     
     func addButtonTapped(title: String?, content: String, isFlag: Bool) {
-        guard let title = title, !title.isEmpty, !content.isEmpty else {
-            router.dismiss { self.router.showAlert(title: "Didn't Save", message: "Title or notes can't be empty!") }
+        guard let title = title, !title.isEmpty, !content.isEmpty,
+              let listId = newReminder?.list.id, let priority = newReminder?.priority else {
+            router.dismiss { self.router.showAlert(title: "Didn't Save", message: "Any area can't be empty!") }
             return
         }
         newReminder?.title = title
         newReminder?.content = content
         newReminder?.isFlag = isFlag
+        let reminder = Reminder(id: UUID(), reminderListId: listId, title: title,
+                                content: content, isFlag: isFlag, priority: priority)
+        interactor.saveReminder(reminder: reminder)
+        
     }
     
     func cancelButtonTapped() {
@@ -113,5 +125,10 @@ extension AddNewReminderPresenter: AddNewReminderOutputInterface {
         newReminder = NewReminder(title: "", content: "", list: first, isFlag: false, priority: Priority.none)
         view?.setListLabelText(text: newReminder?.list.name)
         view?.setPriorityLabelText(text: newReminder?.priority.string)
+    }
+    
+    func reminderSaved(reminder: Reminder) {
+        delegate?.didReminderSave(reminder: reminder)
+        router.dismiss(completion: nil)
     }
 }

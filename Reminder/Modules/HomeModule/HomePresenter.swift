@@ -49,7 +49,7 @@ extension HomePresenter: HomePresenterInterface {
     }
     
     func newReminderButtonTapped() {
-        router.push(identifier: .addNewReminder)
+        router.push(identifier: .addNewReminder, delegate: self)
     }
 }
 
@@ -57,6 +57,12 @@ extension HomePresenter: NewReminderListSavedDelegate {
     func newReminderListDidSaved(savedReminderList: ReminderList) {
         listModels.append(savedReminderList)
         view?.reloadData()
+    }
+}
+
+extension HomePresenter: NewReminderSavedDelegate {
+    func didReminderSave(reminder: Reminder) {
+        print(reminder)
     }
 }
 

@@ -1,7 +1,7 @@
 import UIKit
 
 protocol AddNewReminderRouterInterface {
-    func dismiss(completion: (() -> Void)?)
+    func dismiss(completion: (() -> Void)?)
     func showAlert(title: String, message: String)
 }
 
@@ -12,11 +12,11 @@ final class AddNewReminderRouter {
         self.navigationController = navigationController
     }
         
-    static func createModule(using navigationController: UINavigationController?) -> UIViewController {
+    static func createModule(using navigationController: UINavigationController?, delegate: NewReminderSavedDelegate) -> UIViewController {
         let view = UIStoryboard.instantiateViewController(type: AddNewReminderViewController.self)
         let interactor = AddNewReminderInteractor()
         let router = AddNewReminderRouter(navigationController: navigationController)
-        let presenter = AddNewReminderPresenter(view: view, interactor: interactor, router: router)
+        let presenter = AddNewReminderPresenter(view: view, interactor: interactor, router: router, delegate: delegate)
         view.presenter = presenter
         interactor.output = presenter
         return view
@@ -25,7 +25,7 @@ final class AddNewReminderRouter {
 }
 
 extension AddNewReminderRouter: AddNewReminderRouterInterface {
-    func dismiss(completion: (() -> Void)? = nil) {
+    func dismiss(completion: (() -> Void)? = nil) {
         navigationController?.dismiss(animated: true, completion: completion)
     }
     

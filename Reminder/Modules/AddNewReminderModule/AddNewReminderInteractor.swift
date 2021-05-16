@@ -1,5 +1,6 @@
 protocol AddNewReminderInteractorInterface {
-    func fetchRemainderList()
+    func fetchReminderList()
+    func saveReminder(reminder: Reminder) 
 }
 
 final class AddNewReminderInteractor {
@@ -8,8 +9,19 @@ final class AddNewReminderInteractor {
 }
 
 extension AddNewReminderInteractor: AddNewReminderInteractorInterface {
-    func fetchRemainderList() {
+    func fetchReminderList() {
         guard let list = service.fetchList() else { return }
         output?.listFetched(listModels: list)
+    }
+    
+    func saveReminder(reminder: Reminder) {
+        do {
+            try service.saveReminder(reminder: reminder)
+            output?.reminderSaved(reminder: reminder)
+        } catch {
+            print("Error on SaveReminder")
+        }
+        
+        
     }
 }

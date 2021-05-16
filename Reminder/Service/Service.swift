@@ -21,6 +21,25 @@ final class Service {
         return listModels
     }
     
+    func fetchReminders() -> [Reminder]? {
+        var reminders = [Reminder]()
+        let context = Service.context
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReminderEntity")
+        fetchRequest.returnsObjectsAsFaults = false
+        guard let results = try? context.fetch(fetchRequest) as? [NSManagedObject] else { return nil }
+        for result in results {
+            guard let id = result.value(forKey: "id") as? UUID,
+                  let title = result.value(forKey: "title") as? String,
+                  let content = result.value(forKey: "content") as? String,
+                  let isFlag = result.value(forKey: "isFlag") as? Bool,
+                  let priority = result.value(forKey: "priority") as? Int,
+                  let reminderListId = result.value(forKey: "reminderListId") as? UUID else { continue }
+            let reminder = Reminder(id: id, reminderListId: reminderListId, title: title, content: content, isFlag: isFlag, priority: Priority.init(rawValue: priority) ?? .none)
+            reminders.append(reminder)
+        }
+        return reminders
+    }
+    
     func saveList(reminderList: ReminderList) throws {
         let context = Service.context
         let newObj =  NSEntityDescription.insertNewObject(forEntityName: "ReminderListEntity", into: context)
@@ -28,6 +47,23 @@ final class Service {
         newObj.setValue(reminderList.name, forKey: "name")
         newObj.setValue(reminderList.color, forKey: "color")
         newObj.setValue(reminderList.image, forKey: "image")
+        do {
+            try context.save()
+            print("saved")
+        } catch let error {
+            throw(error)
+        }
+    }
+    
+    func saveReminder(reminder: Reminder) throws {
+        let context = Service.context
+        let newObj =  NSEntityDescription.insertNewObject(forEntityName: "ReminderEntity", into: context)
+        newObj.setValue(reminder.id, forKey: "id")
+        newObj.setValue(reminder.title, forKey: "title")
+        newObj.setValue(reminder.content, forKey: "content")
+        newObj.setValue(reminder.isFlag, forKey: "isFlag")
+        newObj.setValue(reminder.priority.rawValue, forKey: "priority")
+        newObj.setValue(reminder.reminderListId, forKey: "reminderListId")
         do {
             try context.save()
             print("saved")
