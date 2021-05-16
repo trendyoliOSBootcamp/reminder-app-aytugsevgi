@@ -26,6 +26,7 @@
 		255452ED264DB88E004B3334 /* ReminderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452EC264DB88E004B3334 /* ReminderList.swift */; };
 		255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F1264DC36E004B3334 /* UIColor+Extension.swift */; };
 		255452F6264DC4B3004B3334 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F5264DC4B3004B3334 /* Service.swift */; };
+		2590DCA72651B3D100349971 /* AddNewReminderConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCA62651B3D100349971 /* AddNewReminderConstant.swift */; };
 		259163D1264F375800D67A41 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D0264F375800D67A41 /* StoryboardName.swift */; };
 		259163D4264F3A2400D67A41 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */; };
 		259163DC264F4D7F00D67A41 /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163DB264F4D7F00D67A41 /* Navigatable.swift */; };
@@ -35,7 +36,7 @@
 		259163EB264F508C00D67A41 /* HomeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163EA264F508C00D67A41 /* HomeConstant.swift */; };
 		259163F0264F534500D67A41 /* AddNewListConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163EF264F534500D67A41 /* AddNewListConstant.swift */; };
 		259163F3264F5AB400D67A41 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163F2264F5AB400D67A41 /* Collection+Extension.swift */; };
-		259163F8264F5FF800D67A41 /* Resuable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163F7264F5FF800D67A41 /* Resuable.swift */; };
+		259163F8264F5FF800D67A41 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163F7264F5FF800D67A41 /* Reusable.swift */; };
 		25B68920265025950007CC06 /* AddNewReminderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6891F265025950007CC06 /* AddNewReminderPresenter.swift */; };
 		25B68923265026D00007CC06 /* AddNewReminderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B68922265026D00007CC06 /* AddNewReminderInteractor.swift */; };
 		25B68926265027A10007CC06 /* AddNewReminderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B68925265027A10007CC06 /* AddNewReminderRouter.swift */; };
@@ -82,6 +83,7 @@
 		255452EC264DB88E004B3334 /* ReminderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderList.swift; sourceTree = "<group>"; };
 		255452F1264DC36E004B3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		255452F5264DC4B3004B3334 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2590DCA62651B3D100349971 /* AddNewReminderConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderConstant.swift; sourceTree = "<group>"; };
 		259163D0264F375800D67A41 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		259163DB264F4D7F00D67A41 /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
@@ -91,7 +93,7 @@
 		259163EA264F508C00D67A41 /* HomeConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConstant.swift; sourceTree = "<group>"; };
 		259163EF264F534500D67A41 /* AddNewListConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListConstant.swift; sourceTree = "<group>"; };
 		259163F2264F5AB400D67A41 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
-		259163F7264F5FF800D67A41 /* Resuable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resuable.swift; sourceTree = "<group>"; };
+		259163F7264F5FF800D67A41 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		25B6891F265025950007CC06 /* AddNewReminderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderPresenter.swift; sourceTree = "<group>"; };
 		25B68922265026D00007CC06 /* AddNewReminderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderInteractor.swift; sourceTree = "<group>"; };
 		25B68925265027A10007CC06 /* AddNewReminderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderRouter.swift; sourceTree = "<group>"; };
@@ -245,6 +247,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		2590DCA52651B3BA00349971 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2590DCA62651B3D100349971 /* AddNewReminderConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
 		259163D7264F4D1800D67A41 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,7 +293,7 @@
 		259163F5264F5F9C00D67A41 /* ReusableStrategy */ = {
 			isa = PBXGroup;
 			children = (
-				259163F7264F5FF800D67A41 /* Resuable.swift */,
+				259163F7264F5FF800D67A41 /* Reusable.swift */,
 			);
 			path = ReusableStrategy;
 			sourceTree = "<group>";
@@ -305,6 +315,7 @@
 		25BADD52264EA2E100D9A379 /* AddNewReminderModule */ = {
 			isa = PBXGroup;
 			children = (
+				2590DCA52651B3BA00349971 /* Constant */,
 				25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */,
 				25B6891F265025950007CC06 /* AddNewReminderPresenter.swift */,
 				25B68922265026D00007CC06 /* AddNewReminderInteractor.swift */,
@@ -455,6 +466,7 @@
 				25B68930265085DD0007CC06 /* Priority.swift in Sources */,
 				255452CD264D45AC004B3334 /* NavigationBuilder.swift in Sources */,
 				255452C8264D3B91004B3334 /* HomeRouter.swift in Sources */,
+				2590DCA72651B3D100349971 /* AddNewReminderConstant.swift in Sources */,
 				255452DC264D71D7004B3334 /* MyListTableViewCell.swift in Sources */,
 				25BADD82264EDA9400D9A379 /* UICollectionViewCell+Extension.swift in Sources */,
 				25B68923265026D00007CC06 /* AddNewReminderInteractor.swift in Sources */,
@@ -469,7 +481,7 @@
 				255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */,
 				25B6892D265072370007CC06 /* PickerType.swift in Sources */,
 				259163D1264F375800D67A41 /* StoryboardName.swift in Sources */,
-				259163F8264F5FF800D67A41 /* Resuable.swift in Sources */,
+				259163F8264F5FF800D67A41 /* Reusable.swift in Sources */,
 				25BADD6A264EBB3F00D9A379 /* AddNewListInteractor.swift in Sources */,
 				25BADD67264EBB3200D9A379 /* AddNewListPresenter.swift in Sources */,
 				25BADD7F264EDA3B00D9A379 /* UICollectionView+Extension.swift in Sources */,

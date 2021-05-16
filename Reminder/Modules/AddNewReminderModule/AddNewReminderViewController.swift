@@ -57,11 +57,11 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
     
     func configure() {
         listColorView.makeCircle
-        listBackgroundView.layer.cornerRadius = 10
-        flagBackgroundView.layer.cornerRadius = 10
-        priorityBackgroundView.layer.cornerRadius = 10
-        textsStackView.layer.cornerRadius = 10
-        flagImageView.layer.cornerRadius = 5
+        listBackgroundView.layer.cornerRadius = CGFloat(AddNewReminderConstant.listBackgroundViewRadius)
+        flagBackgroundView.layer.cornerRadius = CGFloat(AddNewReminderConstant.flagBackgroundViewRadius)
+        priorityBackgroundView.layer.cornerRadius = CGFloat(AddNewReminderConstant.priorityBackgroundViewRadius)
+        textsStackView.layer.cornerRadius = CGFloat(AddNewReminderConstant.textsStackViewRadius)
+        flagImageView.layer.cornerRadius = CGFloat(AddNewReminderConstant.flagImageViewRadius)
         pickerViewBackgroundView.transform.ty = self.view.frame.maxY - self.pickerViewBackgroundView.frame.minY
         definesPresentationContext = true
     }
@@ -70,7 +70,7 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.reloadComponent(0)
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: AddNewReminderConstant.pickerViewAnimationDuration, animations: {
             self.pickerViewBackgroundView.transform.ty = self.pickerViewBackgroundView.frame.minY - self.view.frame.maxY
         })
 
@@ -79,7 +79,7 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
     func closePicker(completion: @escaping (Bool) -> Void) {
         pickerView.delegate = nil
         pickerView.dataSource = nil
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: AddNewReminderConstant.pickerViewAnimationDuration, animations: {
             self.pickerViewBackgroundView.transform.ty = self.view.frame.maxY - self.pickerViewBackgroundView.frame.minY
         }, completion: completion )
     }
