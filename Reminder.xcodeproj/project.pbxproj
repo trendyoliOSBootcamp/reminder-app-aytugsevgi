@@ -27,6 +27,9 @@
 		255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F1264DC36E004B3334 /* UIColor+Extension.swift */; };
 		255452F6264DC4B3004B3334 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452F5264DC4B3004B3334 /* Service.swift */; };
 		2590DCA72651B3D100349971 /* AddNewReminderConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCA62651B3D100349971 /* AddNewReminderConstant.swift */; };
+		2590DCAC2651BE0300349971 /* ImageViewCellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCAB2651BE0300349971 /* ImageViewCellReusable.swift */; };
+		2590DCAF2651BE2400349971 /* ColorViewCellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCAE2651BE2400349971 /* ColorViewCellReusable.swift */; };
+		2590DCB22651BE4D00349971 /* ReusableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCB12651BE4D00349971 /* ReusableManager.swift */; };
 		259163D1264F375800D67A41 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D0264F375800D67A41 /* StoryboardName.swift */; };
 		259163D4264F3A2400D67A41 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */; };
 		259163DC264F4D7F00D67A41 /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163DB264F4D7F00D67A41 /* Navigatable.swift */; };
@@ -84,6 +87,9 @@
 		255452F1264DC36E004B3334 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		255452F5264DC4B3004B3334 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		2590DCA62651B3D100349971 /* AddNewReminderConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewReminderConstant.swift; sourceTree = "<group>"; };
+		2590DCAB2651BE0300349971 /* ImageViewCellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCellReusable.swift; sourceTree = "<group>"; };
+		2590DCAE2651BE2400349971 /* ColorViewCellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewCellReusable.swift; sourceTree = "<group>"; };
+		2590DCB12651BE4D00349971 /* ReusableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableManager.swift; sourceTree = "<group>"; };
 		259163D0264F375800D67A41 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		259163DB264F4D7F00D67A41 /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
@@ -255,6 +261,15 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		2590DCAA2651BDD800349971 /* ReusableStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				2590DCAB2651BE0300349971 /* ImageViewCellReusable.swift */,
+				2590DCAE2651BE2400349971 /* ColorViewCellReusable.swift */,
+			);
+			path = ReusableStrategy;
+			sourceTree = "<group>";
+		};
 		259163D7264F4D1800D67A41 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				259163F7264F5FF800D67A41 /* Reusable.swift */,
+				2590DCB12651BE4D00349971 /* ReusableManager.swift */,
 			);
 			path = ReusableStrategy;
 			sourceTree = "<group>";
@@ -315,6 +331,7 @@
 		25BADD52264EA2E100D9A379 /* AddNewReminderModule */ = {
 			isa = PBXGroup;
 			children = (
+				2590DCAA2651BDD800349971 /* ReusableStrategy */,
 				2590DCA52651B3BA00349971 /* Constant */,
 				25BADD53264EA2FB00D9A379 /* AddNewReminderViewController.swift */,
 				25B6891F265025950007CC06 /* AddNewReminderPresenter.swift */,
@@ -457,6 +474,7 @@
 				259163DC264F4D7F00D67A41 /* Navigatable.swift in Sources */,
 				25B68920265025950007CC06 /* AddNewReminderPresenter.swift in Sources */,
 				25BADD7A264ED81800D9A379 /* ColorCollectionViewCellViewModel.swift in Sources */,
+				2590DCAF2651BE2400349971 /* ColorViewCellReusable.swift in Sources */,
 				25B68933265085FE0007CC06 /* Reminder.swift in Sources */,
 				25B68926265027A10007CC06 /* AddNewReminderRouter.swift in Sources */,
 				25BADD64264EBA4300D9A379 /* UIView+Extension.swift in Sources */,
@@ -470,6 +488,7 @@
 				255452DC264D71D7004B3334 /* MyListTableViewCell.swift in Sources */,
 				25BADD82264EDA9400D9A379 /* UICollectionViewCell+Extension.swift in Sources */,
 				25B68923265026D00007CC06 /* AddNewReminderInteractor.swift in Sources */,
+				2590DCAC2651BE0300349971 /* ImageViewCellReusable.swift in Sources */,
 				255452D1264D4B20004B3334 /* HomeSearchResultsController.swift in Sources */,
 				25BADD90264EF10900D9A379 /* ListColor.swift in Sources */,
 				25BADD59264EA40800D9A379 /* AddNewListNavigatable.swift in Sources */,
@@ -489,6 +508,7 @@
 				25BADD89264EE9F900D9A379 /* ImageCollectionViewCell.swift in Sources */,
 				25BADD8D264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift in Sources */,
 				25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */,
+				2590DCB22651BE4D00349971 /* ReusableManager.swift in Sources */,
 				25BADD75264ED61400D9A379 /* ColorCollectionViewCell.swift in Sources */,
 				259163E0264F4DEA00D67A41 /* StoryboardId.swift in Sources */,
 				25BADD54264EA2FB00D9A379 /* AddNewReminderViewController.swift in Sources */,

@@ -69,19 +69,12 @@ extension AddNewListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.section == 0 {
-            let cell = collectionView.dequeueReusableCell(type: ColorCollectionViewCell.self, for: indexPath)
-            let listColor = presenter.colorForItem(at: indexPath.row)
-            let viewModel = ColorCollectionViewCellViewModel(backgroundColor: listColor?.color)
-            cell.configure(viewModel: viewModel)
-            return cell
-        }
-        let cell = collectionView.dequeueReusableCell(type: ImageCollectionViewCell.self, for: indexPath)
-        if let image = presenter.imageForItem(at: indexPath.item) {
-            let viewModel = ImageCollectionViewCellViewModel(backgroundColor: UIColor.systemGray6, image: UIImage(systemName: image))
-            cell.configure(viewModel: viewModel)
-        }
-        return cell
+        var viewModels = [Any]()
+        viewModels.append(ColorCollectionViewCellViewModel(backgroundColor: presenter.colorForItem(at: indexPath.row)?.color))
+        viewModels.append(ImageCollectionViewCellViewModel(backgroundColor: UIColor.systemGray6,
+                                                           image: UIImage(systemName: presenter.imageForItem(at: indexPath.item) ?? "")))
+        return ReusableManager.shared.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath,
+                                                                    viewModels: viewModels)!
     }
 }
 
