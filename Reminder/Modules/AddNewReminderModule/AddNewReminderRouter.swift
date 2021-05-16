@@ -1,7 +1,8 @@
 import UIKit
 
 protocol AddNewReminderRouterInterface {
-    
+    func dismiss(completion: (() -> Void)?)
+    func showAlert(title: String, message: String)
 }
 
 final class AddNewReminderRouter {
@@ -24,5 +25,14 @@ final class AddNewReminderRouter {
 }
 
 extension AddNewReminderRouter: AddNewReminderRouterInterface {
+    func dismiss(completion: (() -> Void)? = nil) {
+        navigationController?.dismiss(animated: true, completion: completion)
+    }
     
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(action)
+        navigationController?.present(alert, animated: true)
+    }
 }
