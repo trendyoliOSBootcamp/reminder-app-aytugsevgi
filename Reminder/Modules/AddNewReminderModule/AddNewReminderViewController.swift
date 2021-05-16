@@ -7,6 +7,7 @@ protocol AddNewReminderViewInterface: AnyObject {
     func setListLabelText(text: String?)
     func setPriorityLabelText(text: String?)
     func setPickerViewNameLabelText(text: String?)
+    func setListViewColor(color: UIColor?)
 }
 
 final class AddNewReminderViewController: UIViewController {
@@ -25,8 +26,6 @@ final class AddNewReminderViewController: UIViewController {
     @IBOutlet weak private var listViewLabel: UILabel!
     @IBOutlet weak private var priorityViewLabel: UILabel!
     @IBOutlet weak private var pickerViewNameLabel: UILabel!
-    
-    private lazy var picker = PickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +86,10 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
     
     func setListLabelText(text: String?) {
         listViewLabel.text = text
+    }
+    
+    func setListViewColor(color: UIColor?) {
+        listColorView.backgroundColor = color
     }
     
     func setPriorityLabelText(text: String?) {

@@ -11,6 +11,7 @@ protocol HomePresenterInterface {
 
 protocol HomePresenterOutputInterface: AnyObject {
     func listFetched(listModels: [ReminderList])
+    func remindersFetched(reminders: [Reminder])
 }
 
 final class HomePresenter {
@@ -18,6 +19,7 @@ final class HomePresenter {
     private let interactor: HomeInteractorInterface
     private let router: HomeRouterInterface
     private var listModels = [ReminderList]()
+    private var reminders = [Reminder]()
     
     init(view: HomeViewInterface, router: HomeRouterInterface, interactor: HomeInteractorInterface) {
         self.view = view
@@ -62,14 +64,32 @@ extension HomePresenter: NewReminderListSavedDelegate {
 
 extension HomePresenter: NewReminderSavedDelegate {
     func didReminderSave(reminder: Reminder) {
-        print(reminder)
+        var newReminderLists = [ReminderList]()
+        for var reminderList in listModels {
+            if reminderList.id == reminder.reminderListId {
+                reminderList.reminders.append(reminder)
+            }
+            newReminderLists.append(reminderList)
+        }
+        listModels = newReminderLists
+        view?.reloadData()
     }
 }
 
 extension HomePresenter: HomePresenterOutputInterface {
     func listFetched(listModels: [ReminderList]) {
         self.listModels = listModels
+        interactor.fetchReminders()
+    }
+    
+    func remindersFetched(reminders: [Reminder]) {
+        self.reminders = reminders
+        var newReminderLists = [ReminderList]()
+        for var reminderList in listModels {
+            reminderList.reminders.append(contentsOf: reminders.filter { $0.reminderListId.uuidString == reminderList.id.uuidString })
+            newReminderLists.append(reminderList)
+        }
+        listModels = newReminderLists
         view?.reloadData()
-        print(listModels.count)
     }
 }

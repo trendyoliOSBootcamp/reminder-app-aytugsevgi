@@ -12,11 +12,12 @@ final class HomeInteractor {
 
 extension HomeInteractor: HomeInteractorInterface {
     func fetchReminders() {
-        
+        guard let reminders = service.fetchReminders() else { return }
+        output?.remindersFetched(reminders: reminders)
     }
     
     func fetchLists() {
-        guard let listModels = service.fetchList() else { return }
+        guard let listModels = service.fetchList() else { return }
         output?.listFetched(listModels: listModels)
     }
 }
