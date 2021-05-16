@@ -7,6 +7,7 @@ protocol HomePresenterInterface {
     func addListButtonTapped()
     func newReminderButtonTapped()
     func cellForItemAt(index: Int) -> ReminderList
+    func didSelectRowAt(indexPath: IndexPath)
 }
 
 protocol HomePresenterOutputInterface: AnyObject {
@@ -52,6 +53,11 @@ extension HomePresenter: HomePresenterInterface {
     
     func newReminderButtonTapped() {
         router.push(identifier: .addNewReminder, delegate: self)
+    }
+    
+    func didSelectRowAt(indexPath: IndexPath) {
+        guard let list = listModels[safe: indexPath.row] else { return }
+        router.push(identifier: .list, args: list)
     }
 }
 

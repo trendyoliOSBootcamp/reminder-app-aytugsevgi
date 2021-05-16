@@ -1,7 +1,7 @@
 import UIKit
 
 protocol ListViewInterface: AnyObject {
-    
+    func configure(with reminderList: ReminderList)
 }
 
 final class ListViewController: UIViewController {
@@ -13,5 +13,7 @@ final class ListViewController: UIViewController {
 }
 
 extension ListViewController: ListViewInterface {
-    
+    func configure(with reminderList: ReminderList) {
+        print(reminderList)
+    }
 }

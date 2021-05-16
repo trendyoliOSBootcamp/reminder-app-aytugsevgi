@@ -1,7 +1,7 @@
 import Foundation
 
 protocol ListPresenterInterface {
-    
+    func viewDidLoad()
 }
 
 protocol ListPresenterOutputInterface: AnyObject {
@@ -23,6 +23,10 @@ final class ListPresenter {
 }
 
 extension ListPresenter: ListPresenterInterface {
+    func viewDidLoad() {
+        view?.configure(with: reminderList)
+    }
+    
     
 }
 
