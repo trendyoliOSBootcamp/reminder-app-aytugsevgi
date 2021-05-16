@@ -30,6 +30,10 @@
 		2590DCAC2651BE0300349971 /* ImageViewCellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCAB2651BE0300349971 /* ImageViewCellReusable.swift */; };
 		2590DCAF2651BE2400349971 /* ColorViewCellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCAE2651BE2400349971 /* ColorViewCellReusable.swift */; };
 		2590DCB22651BE4D00349971 /* ReusableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCB12651BE4D00349971 /* ReusableManager.swift */; };
+		2590DCB62651D57C00349971 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCB52651D57C00349971 /* ListViewController.swift */; };
+		2590DCBA2651D5AF00349971 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCB92651D5AF00349971 /* ListPresenter.swift */; };
+		2590DCBD2651D5B900349971 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCBC2651D5B900349971 /* ListInteractor.swift */; };
+		2590DCC02651D5C700349971 /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590DCBF2651D5C700349971 /* ListRouter.swift */; };
 		259163D1264F375800D67A41 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D0264F375800D67A41 /* StoryboardName.swift */; };
 		259163D4264F3A2400D67A41 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */; };
 		259163DC264F4D7F00D67A41 /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259163DB264F4D7F00D67A41 /* Navigatable.swift */; };
@@ -90,6 +94,10 @@
 		2590DCAB2651BE0300349971 /* ImageViewCellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewCellReusable.swift; sourceTree = "<group>"; };
 		2590DCAE2651BE2400349971 /* ColorViewCellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewCellReusable.swift; sourceTree = "<group>"; };
 		2590DCB12651BE4D00349971 /* ReusableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableManager.swift; sourceTree = "<group>"; };
+		2590DCB52651D57C00349971 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		2590DCB92651D5AF00349971 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		2590DCBC2651D5B900349971 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
+		2590DCBF2651D5C700349971 /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		259163D0264F375800D67A41 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		259163D3264F3A2400D67A41 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		259163DB264F4D7F00D67A41 /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
@@ -189,6 +197,7 @@
 		255452CA264D4594004B3334 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2590DCB42651D53300349971 /* ListModule */,
 				25BADD52264EA2E100D9A379 /* AddNewReminderModule */,
 				25BADD4D264E91EC00D9A379 /* AddNewListModule */,
 				255452C0264D3B22004B3334 /* HomeModule */,
@@ -268,6 +277,17 @@
 				2590DCAE2651BE2400349971 /* ColorViewCellReusable.swift */,
 			);
 			path = ReusableStrategy;
+			sourceTree = "<group>";
+		};
+		2590DCB42651D53300349971 /* ListModule */ = {
+			isa = PBXGroup;
+			children = (
+				2590DCB52651D57C00349971 /* ListViewController.swift */,
+				2590DCB92651D5AF00349971 /* ListPresenter.swift */,
+				2590DCBC2651D5B900349971 /* ListInteractor.swift */,
+				2590DCBF2651D5C700349971 /* ListRouter.swift */,
+			);
+			path = ListModule;
 			sourceTree = "<group>";
 		};
 		259163D7264F4D1800D67A41 /* Core */ = {
@@ -479,7 +499,9 @@
 				25B68926265027A10007CC06 /* AddNewReminderRouter.swift in Sources */,
 				25BADD64264EBA4300D9A379 /* UIView+Extension.swift in Sources */,
 				259163E6264F4ED200D67A41 /* AddNewReminderNavigatable.swift in Sources */,
+				2590DCB62651D57C00349971 /* ListViewController.swift in Sources */,
 				255452B0264D3A64004B3334 /* HomeViewController.swift in Sources */,
+				2590DCBA2651D5AF00349971 /* ListPresenter.swift in Sources */,
 				25BADD6D264EBB5400D9A379 /* AddNewListRouter.swift in Sources */,
 				25B68930265085DD0007CC06 /* Priority.swift in Sources */,
 				255452CD264D45AC004B3334 /* NavigationBuilder.swift in Sources */,
@@ -487,6 +509,7 @@
 				2590DCA72651B3D100349971 /* AddNewReminderConstant.swift in Sources */,
 				255452DC264D71D7004B3334 /* MyListTableViewCell.swift in Sources */,
 				25BADD82264EDA9400D9A379 /* UICollectionViewCell+Extension.swift in Sources */,
+				2590DCBD2651D5B900349971 /* ListInteractor.swift in Sources */,
 				25B68923265026D00007CC06 /* AddNewReminderInteractor.swift in Sources */,
 				2590DCAC2651BE0300349971 /* ImageViewCellReusable.swift in Sources */,
 				255452D1264D4B20004B3334 /* HomeSearchResultsController.swift in Sources */,
@@ -496,6 +519,7 @@
 				255452E1264D7509004B3334 /* UITableViewCell+Extension.swift in Sources */,
 				255452D7264D6DC1004B3334 /* Reminder.xcdatamodeld in Sources */,
 				255452AE264D3A64004B3334 /* SceneDelegate.swift in Sources */,
+				2590DCC02651D5C700349971 /* ListRouter.swift in Sources */,
 				255452F6264DC4B3004B3334 /* Service.swift in Sources */,
 				255452F2264DC36E004B3334 /* UIColor+Extension.swift in Sources */,
 				25B6892D265072370007CC06 /* PickerType.swift in Sources */,
