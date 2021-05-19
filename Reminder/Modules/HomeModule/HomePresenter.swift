@@ -3,11 +3,14 @@ import Foundation
 protocol HomePresenterInterface {
     var numberOfRows: Int { get }
     func viewDidLoad()
+    func viewWillAppear()
     func updateSearchResults(text: String?)
     func addListButtonTapped()
     func newReminderButtonTapped()
     func cellForItemAt(index: Int) -> ReminderList
     func didSelectRowAt(indexPath: IndexPath)
+    func allViewTapped()
+    func flaggedViewTapped()
 }
 
 protocol HomePresenterOutputInterface: AnyObject {
@@ -37,6 +40,10 @@ extension HomePresenter: HomePresenterInterface {
         interactor.fetchLists()
     }
     
+    func viewWillAppear() {
+        view?.resetNavigationBar()
+    }
+    
     func updateSearchResults(text: String?) {
         guard text != nil else { return }
         // filtered reminders
@@ -58,6 +65,21 @@ extension HomePresenter: HomePresenterInterface {
     func didSelectRowAt(indexPath: IndexPath) {
         guard let list = listModels[safe: indexPath.row] else { return }
         router.push(identifier: .list, args: list)
+    }
+    
+    func allViewTapped() {
+        var allReminders = [Reminder]()
+        listModels.forEach { allReminders.append(contentsOf: $0.reminders) }
+        let reminderList = ReminderList(id: UUID(), name: "All", color: 12, image: "", reminders: allReminders)
+        router.push(identifier: .list, args: reminderList)
+    }
+    
+    func flaggedViewTapped() {
+        var allReminders = [Reminder]()
+        listModels.forEach { allReminders.append(contentsOf: $0.reminders )}
+        let reminderList = ReminderList(id: UUID(), name: "Flagged", color: 1,
+                                        image: "", reminders: allReminders.filter { $0.isFlag })
+        router.push(identifier: .list, args: reminderList)
     }
 }
 

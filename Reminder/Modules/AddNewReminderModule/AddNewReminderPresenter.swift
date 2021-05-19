@@ -96,7 +96,7 @@ extension AddNewReminderPresenter: AddNewReminderPresenterInterface {
     }
     
     func titleForRow(at row: Int) -> String? {
-        pickerType == PickerType.priority ?  priorities[safe: row]?.string : reminderList[safe: row]?.name
+        pickerType == PickerType.priority ?  priorities[safe: row]?.toString : reminderList[safe: row]?.name
     }
     
     func pickerDoneButtonTapped() {
@@ -109,7 +109,7 @@ extension AddNewReminderPresenter: AddNewReminderPresenterInterface {
         guard pickerType == .list, let list = reminderList[safe: row] else {
             guard let priority = Priority(rawValue: row) else { return }
             newReminder?.priority = priority
-            view?.setPriorityLabelText(text: priority.string)
+            view?.setPriorityLabelText(text: priority.toString)
             return
         }
         newReminder?.list = list
@@ -125,7 +125,7 @@ extension AddNewReminderPresenter: AddNewReminderOutputInterface {
         guard let firstReminderList = reminderList.first else { return }
         newReminder = NewReminder(title: "", content: "", list: firstReminderList, isFlag: false, priority: Priority.none)
         view?.setListLabelText(text: newReminder?.list.name)
-        view?.setPriorityLabelText(text: newReminder?.priority.string)
+        view?.setPriorityLabelText(text: newReminder?.priority.toString)
         view?.setListViewColor(color: ListColor.init(rawValue: firstReminderList.color)?.color)
     }
     

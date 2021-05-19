@@ -1,7 +1,10 @@
 import Foundation
 
 protocol ListPresenterInterface {
+    var numberOfRows: Int { get }
+    
     func viewDidLoad()
+    func cellForRowItemAt(_ row: Int) -> Reminder?
 }
 
 protocol ListPresenterOutputInterface: AnyObject {
@@ -23,11 +26,15 @@ final class ListPresenter {
 }
 
 extension ListPresenter: ListPresenterInterface {
+    var numberOfRows: Int { reminderList.reminders.count }
+    
     func viewDidLoad() {
         view?.configure(with: reminderList)
     }
     
-    
+    func cellForRowItemAt(_ row: Int) -> Reminder? {
+        reminderList.reminders[safe: row]
+    }
 }
 
 extension ListPresenter: ListPresenterOutputInterface {

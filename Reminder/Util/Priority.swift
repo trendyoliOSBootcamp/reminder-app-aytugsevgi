@@ -5,7 +5,7 @@ enum Priority: Int {
     case medium
     case high
     
-    var string: String {
+    var toString: String {
         switch self {
             case .none:
                 return "None"
@@ -17,6 +17,21 @@ enum Priority: Int {
                 return "Medium"
             case .high:
                 return "High"
+        }
+    }
+    
+    var exclamationMark: String {
+        switch self {
+            case .none:
+                return ""
+            case .normal:
+                return ""
+            case .low:
+                return "!"
+            case .medium:
+                return "!!"
+            case .high:
+                return "!!!"
         }
     }
 }

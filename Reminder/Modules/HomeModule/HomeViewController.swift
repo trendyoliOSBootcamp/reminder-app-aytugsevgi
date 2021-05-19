@@ -5,6 +5,7 @@ protocol HomeViewInterface: AnyObject {
     func configure()
     func showSearchResult(reminders: [Reminder])
     func reloadData()
+    func resetNavigationBar()
 }
 
 final class HomeViewController: UIViewController {
@@ -21,12 +22,17 @@ final class HomeViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.viewWillAppear()
+    }
+    
     @objc private func allViewTapped() {
-        print(#function)
+        presenter.allViewTapped()
     }
     
     @objc private func flaggedViewTapped() {
-        print(#function)
+        presenter.flaggedViewTapped()
     }
     @IBAction func addListButtonTapped() {
         presenter.addListButtonTapped()
@@ -63,6 +69,13 @@ extension HomeViewController: HomeViewInterface {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func resetNavigationBar() {
+        title = .none
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.backgroundColor = .clear
     }
 }
 
