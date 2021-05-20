@@ -1,7 +1,6 @@
 import UIKit
 
 class NavigationBuilder {
-    
     static func build() -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.navigationBar.isTranslucent = false

@@ -1,6 +1,6 @@
 import UIKit
 
-class ListNavigatable: Navigatable {
+final class ListNavigatable: Navigatable {
     func isSatisfied(identifier: StoryboardId, delegate: AnyObject?, args: Any? = nil) -> Bool {
         identifier == .list && args is ReminderList
     }

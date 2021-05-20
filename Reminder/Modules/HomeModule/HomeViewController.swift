@@ -34,10 +34,12 @@ final class HomeViewController: UIViewController {
     @objc private func flaggedViewTapped() {
         presenter.flaggedViewTapped()
     }
-    @IBAction func addListButtonTapped() {
+    
+    @IBAction private func addListButtonTapped() {
         presenter.addListButtonTapped()
     }
-    @IBAction func newReminderButtonTapped() {
+    
+    @IBAction private func newReminderButtonTapped() {
         presenter.newReminderButtonTapped()
     }
 }

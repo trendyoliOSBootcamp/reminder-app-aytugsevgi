@@ -2,11 +2,11 @@ import UIKit
 
 extension UITableView {
     func register(reusableCellType: UITableViewCell.Type) {
-        self.register(reusableCellType.nib, forCellReuseIdentifier: reusableCellType.identifier)
+        register(reusableCellType.nib, forCellReuseIdentifier: reusableCellType.identifier)
     }
 
     func dequeueReusableCell<T: UITableViewCell>(type: T.Type, for indexPath: IndexPath) -> T {
-        self.dequeueReusableCell(withIdentifier: type.identifier, for: indexPath) as! T
+        dequeueReusableCell(withIdentifier: type.identifier, for: indexPath) as! T
     }
     
     func setEmptyMessage(_ message: String) {
@@ -19,10 +19,10 @@ extension UITableView {
         messageLabel.textAlignment = .center
         messageLabel.font = UIFont(name: "System", size: 20)
         messageLabel.sizeToFit()
-        self.backgroundView = messageLabel
+        backgroundView = messageLabel
     }
     
     func restore() {
-        self.backgroundView = nil
+        backgroundView = nil
     }
 }

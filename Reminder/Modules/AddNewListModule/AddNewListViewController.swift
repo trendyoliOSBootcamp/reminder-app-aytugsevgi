@@ -24,10 +24,10 @@ final class AddNewListViewController: UIViewController {
         presenter.cancelButtonTapped()
     }
 
-    @IBAction func nameTextFieldChanged(_ sender: UITextField) {
+    @IBAction private func nameTextFieldChanged(_ sender: UITextField) {
         presenter.nameTextFieldChanged(text: sender.text)
     }
-    @IBAction func doneButtonTapped() {
+    @IBAction private func doneButtonTapped() {
         presenter.doneButtonTapped()
     }
 }
@@ -59,7 +59,6 @@ extension AddNewListViewController: AddNewListViewInterface {
 }
 
 extension AddNewListViewController: UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         presenter.numberOfSections
     }

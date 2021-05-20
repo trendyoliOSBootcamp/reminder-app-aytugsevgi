@@ -2,6 +2,7 @@ import Foundation
 
 protocol HomePresenterInterface {
     var numberOfRows: Int { get }
+    
     func viewDidLoad()
     func viewWillAppear()
     func updateSearchResults(text: String?)

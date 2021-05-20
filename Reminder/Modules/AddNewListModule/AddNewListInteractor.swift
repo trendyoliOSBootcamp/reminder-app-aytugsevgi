@@ -11,15 +11,11 @@ final class AddNewListInteractor {
 
 extension AddNewListInteractor: AddNewListInteractorInterface {
     func saveNewList(reminderList: ReminderList) {
-        
         do {
             try service.saveList(reminderList: reminderList)
             output?.newListSaved(savedReminderList: reminderList)
         } catch let error {
             output?.newListSaveFailed(error: error.localizedDescription)
         }
-        
-        
-        
     }
 }

@@ -1,10 +1,10 @@
 import UIKit
 
 class MyListTableViewCell: UITableViewCell {
-    @IBOutlet weak var listImageView: UIImageView!
-    @IBOutlet weak var listImageViewBackgroundView: UIView!
-    @IBOutlet weak var listNameLabel: UILabel!
-    @IBOutlet weak var remainderCountLabel: UILabel!
+    @IBOutlet private weak var listImageView: UIImageView!
+    @IBOutlet private weak var listImageViewBackgroundView: UIView!
+    @IBOutlet private weak var listNameLabel: UILabel!
+    @IBOutlet private weak var remainderCountLabel: UILabel!
     
     func configure(remainderList: ReminderList) {
         listImageViewBackgroundView.makeCircle

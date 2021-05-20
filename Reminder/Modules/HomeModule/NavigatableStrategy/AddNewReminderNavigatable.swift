@@ -1,6 +1,6 @@
 import UIKit
 
-class AddNewReminderNavigatable: Navigatable {
+final class AddNewReminderNavigatable: Navigatable {
     func isSatisfied(identifier: StoryboardId, delegate: AnyObject?, args: Any? = nil) -> Bool {
         identifier == .addNewReminder && delegate is NewReminderSavedDelegate
     }
