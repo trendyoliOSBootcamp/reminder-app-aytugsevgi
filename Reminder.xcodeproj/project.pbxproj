@@ -11,6 +11,10 @@
 		2525BB2E26554A7100DC834B /* ReminderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2525BB2C26554A7100DC834B /* ReminderTableViewCell.xib */; };
 		2525BB38265558F200DC834B /* ReminderTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525BB37265558F200DC834B /* ReminderTableViewCellViewModel.swift */; };
 		2525BB3C265586EE00DC834B /* ListConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2525BB3B265586EE00DC834B /* ListConstant.swift */; };
+		254C7C3D26565BE10087A411 /* SearchControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C7C3C26565BE10087A411 /* SearchControllerViewModel.swift */; };
+		254C7C4226567E330087A411 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C7C4026567E330087A411 /* SearchTableViewCell.swift */; };
+		254C7C4326567E330087A411 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254C7C4126567E330087A411 /* SearchTableViewCell.xib */; };
+		254C7C472656911A0087A411 /* SearchTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254C7C462656911A0087A411 /* SearchTableViewHeader.swift */; };
 		255452AC264D3A64004B3334 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452AB264D3A64004B3334 /* AppDelegate.swift */; };
 		255452AE264D3A64004B3334 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452AD264D3A64004B3334 /* SceneDelegate.swift */; };
 		255452B0264D3A64004B3334 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255452AF264D3A64004B3334 /* HomeViewController.swift */; };
@@ -78,6 +82,10 @@
 		2525BB2C26554A7100DC834B /* ReminderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReminderTableViewCell.xib; sourceTree = "<group>"; };
 		2525BB37265558F200DC834B /* ReminderTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		2525BB3B265586EE00DC834B /* ListConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListConstant.swift; sourceTree = "<group>"; };
+		254C7C3C26565BE10087A411 /* SearchControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerViewModel.swift; sourceTree = "<group>"; };
+		254C7C4026567E330087A411 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		254C7C4126567E330087A411 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		254C7C462656911A0087A411 /* SearchTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewHeader.swift; sourceTree = "<group>"; };
 		255452A8264D3A64004B3334 /* Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		255452AB264D3A64004B3334 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		255452AD264D3A64004B3334 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +186,32 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		254C7C3B26565BCD0087A411 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				254C7C3C26565BE10087A411 /* SearchControllerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		254C7C3F26567DF80087A411 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				254C7C45265690ED0087A411 /* Header */,
+				254C7C4026567E330087A411 /* SearchTableViewCell.swift */,
+				254C7C4126567E330087A411 /* SearchTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		254C7C45265690ED0087A411 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				254C7C462656911A0087A411 /* SearchTableViewHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		2554529F264D3A64004B3334 = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +251,7 @@
 		255452C0264D3B22004B3334 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				254C7C3B26565BCD0087A411 /* ViewModel */,
 				259163E8264F506D00D67A41 /* Constant */,
 				25BADD57264EA3C200D9A379 /* NavigatableStrategy */,
 				255452D9264D71BE004B3334 /* Cell */,
@@ -251,6 +286,7 @@
 		255452D3264D4E1A004B3334 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				254C7C3F26567DF80087A411 /* Cell */,
 				255452D0264D4B20004B3334 /* HomeSearchResultsController.swift */,
 			);
 			path = Search;
@@ -515,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				255452B8264D3A67004B3334 /* LaunchScreen.storyboard in Resources */,
+				254C7C4326567E330087A411 /* SearchTableViewCell.xib in Resources */,
 				255452DD264D71D7004B3334 /* MyListTableViewCell.xib in Resources */,
 				255452B5264D3A67004B3334 /* Assets.xcassets in Resources */,
 				255452B3264D3A64004B3334 /* Main.storyboard in Resources */,
@@ -547,9 +584,11 @@
 				255452CD264D45AC004B3334 /* NavigationBuilder.swift in Sources */,
 				255452C8264D3B91004B3334 /* HomeRouter.swift in Sources */,
 				2590DCA72651B3D100349971 /* AddNewReminderConstant.swift in Sources */,
+				254C7C3D26565BE10087A411 /* SearchControllerViewModel.swift in Sources */,
 				255452DC264D71D7004B3334 /* MyListTableViewCell.swift in Sources */,
 				25BADD82264EDA9400D9A379 /* UICollectionViewCell+Extension.swift in Sources */,
 				2590DCBD2651D5B900349971 /* ListInteractor.swift in Sources */,
+				254C7C472656911A0087A411 /* SearchTableViewHeader.swift in Sources */,
 				25B68923265026D00007CC06 /* AddNewReminderInteractor.swift in Sources */,
 				2590DCAC2651BE0300349971 /* ImageViewCellReusable.swift in Sources */,
 				255452D1264D4B20004B3334 /* HomeSearchResultsController.swift in Sources */,
@@ -574,6 +613,7 @@
 				2525BB2D26554A7100DC834B /* ReminderTableViewCell.swift in Sources */,
 				25BADD8D264EEA6E00D9A379 /* ImageCollectionViewCellViewModel.swift in Sources */,
 				25BADD4F264E920900D9A379 /* AddNewListViewController.swift in Sources */,
+				254C7C4226567E330087A411 /* SearchTableViewCell.swift in Sources */,
 				2590DCB22651BE4D00349971 /* ReusableManager.swift in Sources */,
 				25BADD75264ED61400D9A379 /* ColorCollectionViewCell.swift in Sources */,
 				2525BB38265558F200DC834B /* ReminderTableViewCellViewModel.swift in Sources */,

@@ -2,7 +2,6 @@ import Foundation
 
 protocol HomePresenterInterface {
     var numberOfRows: Int { get }
-    
     func viewDidLoad()
     func viewWillAppear()
     func updateSearchResults(text: String?)
@@ -12,8 +11,8 @@ protocol HomePresenterInterface {
     func didSelectRowAt(indexPath: IndexPath)
     func allViewTapped()
     func flaggedViewTapped()
+    func updateSearchResults(text: String)
 }
-
 protocol HomePresenterOutputInterface: AnyObject {
     func listFetched(listModels: [ReminderList])
     func remindersFetched(reminders: [Reminder])
@@ -48,7 +47,7 @@ extension HomePresenter: HomePresenterInterface {
     func updateSearchResults(text: String?) {
         guard text != nil else { return }
         // filtered reminders
-        view?.showSearchResult(reminders: [])
+        //view?.showSearchResult(reminders: [])
     }
     
     func cellForItemAt(index: Int) -> ReminderList {
@@ -81,6 +80,19 @@ extension HomePresenter: HomePresenterInterface {
         let reminderList = ReminderList(id: UUID(), name: "Flagged", color: 1,
                                         image: "", reminders: allReminders.filter { $0.isFlag })
         router.push(identifier: .list, args: reminderList)
+    }
+    
+    func updateSearchResults(text: String) {
+        var viewModels = [SearchControllerViewModel]()
+        for listModel in listModels {
+            let filteredReminders = listModel.reminders.filter { $0.content.lowercased()
+                .contains(text.lowercased()) }
+            guard !filteredReminders.isEmpty else { continue }
+            let color = ListColor.init(rawValue: listModel.color)?.color ?? ListColor.darkGray.color
+            let viewModel = SearchControllerViewModel(listTitle: listModel.name, listColor: color, reminders: filteredReminders)
+            viewModels.append(viewModel)
+        }
+        view?.showSearchResult(viewModels: viewModels)
     }
 }
 

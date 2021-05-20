@@ -3,7 +3,7 @@ import CoreData
 
 protocol HomeViewInterface: AnyObject {
     func configure()
-    func showSearchResult(reminders: [Reminder])
+    func showSearchResult(viewModels: [SearchControllerViewModel])
     func reloadData()
     func resetNavigationBar()
 }
@@ -60,11 +60,10 @@ extension HomeViewController: HomeViewInterface {
         flaggedView.addGestureRecognizer(flaggedViewGestureRecognizer)
     }
     
-    func showSearchResult(reminders: [Reminder]) {
+    func showSearchResult(viewModels: [SearchControllerViewModel]) {
         let vc = searchController.searchResultsController as? HomeSearchResultsViewController
-        vc?.view.bounds = view.frame
-        vc?.configure(reminders: reminders)
-        
+        vc?.view.bounds = view.safeAreaLayoutGuide.layoutFrame
+        vc?.configure(viewModels: viewModels)
     }
     
     func reloadData() {
@@ -83,7 +82,8 @@ extension HomeViewController: HomeViewInterface {
 
 extension HomeViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        presenter.updateSearchResults(text: searchController.searchBar.text)
+        guard let text = searchController.searchBar.text else { return }
+        presenter.updateSearchResults(text: text)
     }
 }
 
