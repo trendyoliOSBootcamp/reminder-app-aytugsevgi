@@ -1,10 +1,3 @@
-//
-//  SearchTableViewHeader.swift
-//  Reminder
-//
-//  Created by aytug on 20.05.2021.
-//
-
 import UIKit
 
 class SearchTableViewHeader: UITableViewHeaderFooterView {

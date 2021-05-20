@@ -20,7 +20,7 @@ final class HomeSearchResultsViewController: UIViewController {
         tableView.register(reusableCellType: SearchTableViewCell.self)
         tableView.register(SearchTableViewHeader.self, forHeaderFooterViewReuseIdentifier: "searchHeader")
         tableView.tableHeaderView?.backgroundColor = .red
-        tableView.sectionHeaderHeight = CGFloat(40)
+        tableView.sectionHeaderHeight = CGFloat(44)
     }
     
     func configure(viewModels: [SearchControllerViewModel]) {

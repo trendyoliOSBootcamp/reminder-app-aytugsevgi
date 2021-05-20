@@ -1,10 +1,3 @@
-//
-//  SearchTableViewCell.swift
-//  Reminder
-//
-//  Created by aytug on 20.05.2021.
-//
-
 import UIKit
 
 class SearchTableViewCell: UITableViewCell {
@@ -21,20 +14,40 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     func configure(reminder: Reminder, isLast: Bool) {
-
         let reminderAttributedString = NSMutableAttributedString()
         let priorityTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemOrange]
         let contentTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
+        let space = reminder.priority.exclamationMark.isEmpty ? "" : " "
         let priorityAttributedString = NSAttributedString(string: reminder.priority.exclamationMark, attributes: priorityTextAttributes)
-        let contentAttributedString = NSAttributedString(string: " \(reminder.content)", attributes: contentTextAttributes)
+        let contentAttributedString = NSAttributedString(string: "\(space)\(reminder.content)", attributes: contentTextAttributes)
         reminderAttributedString.append(priorityAttributedString)
         reminderAttributedString.append(contentAttributedString)
         contentLabel.attributedText = reminderAttributedString
-        flagImageView.image = reminder.isFlag ? UIImage(systemName: ListConstant.flagImageSystemNameFill) : UIImage(systemName: ListConstant.flagImageSystemName)
-        if isLast {
-            seperatorView.translatesAutoresizingMaskIntoConstraints = false
+        flagImageView.image = reminder.isFlag ? UIImage(systemName: ListConstant.flagImageSystemNameFill) : UIImage()
+        configureSeperator(isFullWidth: isLast)
+    }
+    
+    private func configureSeperator(isFullWidth: Bool) {
+        seperatorView.translatesAutoresizingMaskIntoConstraints = false
+        seperatorView.removeConstraints(seperatorView.constraints)
+        contentView.removeConstraints( contentView.constraints.filter {
+            $0.firstItem as? UIView == seperatorView || $0.secondItem as? UIView == seperatorView
+        })
+        if isFullWidth {
             NSLayoutConstraint.activate([
-                seperatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+                seperatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                seperatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                seperatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                seperatorView.heightAnchor.constraint(equalToConstant: 1)
+                
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                seperatorView.leadingAnchor.constraint(equalTo: contentLabel.leadingAnchor),
+                seperatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+                seperatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                seperatorView.heightAnchor.constraint(equalToConstant: 1)
+                
             ])
         }
     }
