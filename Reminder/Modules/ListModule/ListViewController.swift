@@ -65,26 +65,25 @@ extension ListViewController: UITableViewDataSource {
 }
 
 extension ListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-        let detailsAction = UITableViewRowAction(style: .normal, title: "Details") { (rowAction, indexPath) in
-            print("Details")
+        let detailsAction = UIContextualAction(style: .normal, title: "Details") { (rowAction, view, completion) in
+            // empty action
         }
         detailsAction.backgroundColor = .systemGray3
-        
-        let flagAction = UITableViewRowAction(style: .normal, title: "Flag") { (rowAction, indexPath) in
-            print("Flag")
+        let flagAction = UIContextualAction(style: .normal, title: "Flag") { (rowAction, view, completion) in
             self.presenter.flagActionTapped(at: indexPath)
         }
         flagAction.backgroundColor = .systemOrange
-
-        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete")  { (rowAction, indexPath) in
-            print("delete")
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete")  { (rowAction, view, completion) in
             self.presenter.deleteActionTapped(at: indexPath)
+            completion(true)
         }
         deleteAction.backgroundColor = .red
-
-        return [deleteAction, flagAction, detailsAction]
+        let config = UISwipeActionsConfiguration(actions: [deleteAction, flagAction, detailsAction])
+        config.performsFirstActionWithFullSwipe = false
+        
+        return config
     }
 }
 

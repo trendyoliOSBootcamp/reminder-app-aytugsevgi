@@ -126,7 +126,6 @@ extension HomePresenter: ReminderDelegate {
                 reminderList.reminders.removeAll(where: { $0.id == reminder.id })
             }
             newReminderLists.append(reminderList)
-            print(reminderList.reminders.count)
         }
         listModels = newReminderLists
         view?.setAllReminderLabelText()
