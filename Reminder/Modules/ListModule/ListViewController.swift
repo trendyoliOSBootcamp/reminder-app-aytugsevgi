@@ -74,6 +74,7 @@ extension ListViewController: UITableViewDelegate {
         
         let flagAction = UITableViewRowAction(style: .normal, title: "Flag") { (rowAction, indexPath) in
             print("Flag")
+            self.presenter.flagActionTapped(at: indexPath)
         }
         flagAction.backgroundColor = .systemOrange
 

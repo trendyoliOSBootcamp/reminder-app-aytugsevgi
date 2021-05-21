@@ -2,6 +2,7 @@ import Foundation
 
 protocol ListInteractorInterface {
     func deleteReminder(reminder: Reminder)
+    func changeReminderFlag(reminder: Reminder)
 }
 
 final class ListInteractor {
@@ -16,7 +17,16 @@ extension ListInteractor: ListInteractorInterface {
             try service.deleteReminder(reminder: reminder)
             output?.reminderDeleted(reminder: reminder)
         } catch let error {
-            output?.reminderDeleteFailed()
+            output?.reminderDeleteFailed(error: error.localizedDescription)
+        }
+    }
+    
+    func changeReminderFlag(reminder: Reminder) {
+        do {
+            try service.changeReminderFlag(reminder: reminder)
+            output?.reminderFlagChanged(reminder: reminder)
+        } catch let error {
+            output?.reminderFlagChangeFailed(error: error.localizedDescription)
         }
     }
 }

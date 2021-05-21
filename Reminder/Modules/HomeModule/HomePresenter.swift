@@ -15,6 +15,7 @@ protocol HomePresenterInterface {
     func flaggedViewTapped()
     func updateSearchResults(text: String)
 }
+
 protocol HomePresenterOutputInterface: AnyObject {
     func listFetched(listModels: [ReminderList])
     func remindersFetched(reminders: [Reminder])
@@ -126,6 +127,21 @@ extension HomePresenter: ReminderDelegate {
             }
             newReminderLists.append(reminderList)
             print(reminderList.reminders.count)
+        }
+        listModels = newReminderLists
+        view?.setAllReminderLabelText()
+        view?.setFlaggedReminderLabelText()
+        view?.reloadData()
+    }
+    
+    func didChangeFlag(reminder: Reminder) {
+        var newReminderLists = [ReminderList]()
+        reminders.indices.filter { reminders[$0].id == reminder.id }
+            .forEach { reminders[$0].isFlag = reminder.isFlag }
+        for var reminderList in listModels {
+            reminderList.reminders.indices.filter { reminderList.reminders[$0].id == reminder.id }
+                .forEach { reminderList.reminders[$0].isFlag = reminder.isFlag }
+            newReminderLists.append(reminderList)
         }
         listModels = newReminderLists
         view?.setAllReminderLabelText()

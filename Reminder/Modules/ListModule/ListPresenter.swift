@@ -7,11 +7,14 @@ protocol ListPresenterInterface {
     func cellForRowItemAt(_ row: Int) -> Reminder?
     func newReminderButtonTapped()
     func deleteActionTapped(at indexPath: IndexPath)
+    func flagActionTapped(at indexPath: IndexPath)
 }
 
 protocol ListPresenterOutputInterface: AnyObject {
-    func reminderDeleteFailed()
+    func reminderDeleteFailed(error: String)
     func reminderDeleted(reminder: Reminder)
+    func reminderFlagChanged(reminder: Reminder)
+    func reminderFlagChangeFailed(error: String)
 }
 
 protocol NewReminderSavedFromListDelegate: AnyObject {
@@ -53,17 +56,35 @@ extension ListPresenter: ListPresenterInterface {
         guard let reminder = reminderList.reminders[safe: indexPath.row] else { return }
         interactor.deleteReminder(reminder: reminder)
     }
+    
+    func flagActionTapped(at indexPath: IndexPath) {
+        guard let reminder = reminderList.reminders[safe: indexPath.row] else { return }
+        interactor.changeReminderFlag(reminder: reminder)
+    }
 }
 
 extension ListPresenter: ListPresenterOutputInterface {
+    func reminderFlagChanged(reminder: Reminder) {
+        var newReminder = reminder
+        newReminder.isFlag = !newReminder.isFlag
+        reminderList.reminders.indices.filter { reminderList.reminders[$0].id == newReminder.id }
+            .forEach { reminderList.reminders[$0].isFlag = newReminder.isFlag }
+        view?.reloadData()
+        delegate?.didChangeFlag(reminder: newReminder)
+    }
+    
+    func reminderFlagChangeFailed(error: String) {
+        router.showAlert(title: "Error", message: error)
+    }
+    
     func reminderDeleted(reminder: Reminder) {
         reminderList.reminders.removeAll(where: { $0.id == reminder.id })
         view?.reloadData()
         delegate?.didDeleteReminder(reminder: reminder)
     }
     
-    func reminderDeleteFailed() {
-        //show alert
+    func reminderDeleteFailed(error: String) {
+        router.showAlert(title: "Error", message: error)
     }
 }
 
@@ -76,4 +97,6 @@ extension ListPresenter: ReminderDelegate {
     }
     
     func didDeleteReminder(reminder: Reminder) {}
+    
+    func didChangeFlag(reminder: Reminder) {}
 }

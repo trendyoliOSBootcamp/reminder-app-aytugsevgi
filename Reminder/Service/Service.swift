@@ -87,4 +87,21 @@ final class Service {
             throw(error)
         }
     }
+    
+    func changeReminderFlag(reminder: Reminder) throws {
+        let context = Service.context
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReminderEntity")
+        fetchRequest.predicate = NSPredicate(format: "ANY %K == %@", "id", reminder.id as CVarArg)
+        do {
+            let objects = try context.fetch(fetchRequest)
+            for object in objects {
+                guard let object = object as? NSManagedObject,
+                      let isFlag = object.value(forKey: "isFlag") as? Bool else { continue }
+                object.setValue(!isFlag, forKey: "isFlag")
+            }
+            try context.save()
+        } catch let error {
+            throw(error)
+        }
+    }
 }

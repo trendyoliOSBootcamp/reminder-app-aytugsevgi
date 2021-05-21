@@ -2,6 +2,7 @@ import UIKit
 
 protocol ListRouterInterface {
     func push(identifier: StoryboardId, delegate: AnyObject)
+    func showAlert(title: String, message: String)
 }
 
 final class ListRouter {
@@ -25,5 +26,12 @@ final class ListRouter {
 extension ListRouter: ListRouterInterface {
     func push(identifier: StoryboardId, delegate: AnyObject) {
         NavigatableManager.shared.push(to: identifier, navigationController: navigationController, delegate: delegate)
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(action)
+        navigationController?.present(alert, animated: true)
     }
 }

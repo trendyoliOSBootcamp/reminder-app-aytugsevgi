@@ -3,6 +3,7 @@ import Foundation
 protocol ReminderDelegate: AnyObject {
     func didAddNewReminder(reminder: Reminder)
     func didDeleteReminder(reminder: Reminder)
+    func didChangeFlag(reminder: Reminder)
 }
 
 protocol AddNewReminderPresenterInterface {
