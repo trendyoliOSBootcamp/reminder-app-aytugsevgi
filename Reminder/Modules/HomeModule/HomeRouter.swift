@@ -3,7 +3,7 @@ import UIKit
 protocol HomeRouterInterface {
     func push(identifier: StoryboardId)
     func push(identifier: StoryboardId, delegate: AnyObject)
-    func push(identifier: StoryboardId, args: Any)
+    func push(identifier: StoryboardId, delegate: AnyObject, args: Any )
 }
 
 final class HomeRouter {
@@ -33,7 +33,7 @@ extension HomeRouter: HomeRouterInterface {
         NavigatableManager.shared.push(to: identifier, navigationController: navigationController)
     }
     
-    func push(identifier: StoryboardId, args: Any) {
-        NavigatableManager.shared.push(to: identifier, navigationController: navigationController, args: args)
+    func push(identifier: StoryboardId, delegate: AnyObject, args: Any ) {
+        NavigatableManager.shared.push(to: identifier, navigationController: navigationController, delegate: delegate, args: args)
     }
 }

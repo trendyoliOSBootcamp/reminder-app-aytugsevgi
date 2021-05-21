@@ -99,8 +99,6 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
     func setPickerViewNameLabelText(text: String?) {
         pickerViewNameLabel.text = text
     }
-    
-    
 }
 
 extension AddNewReminderViewController: UIPickerViewDataSource {

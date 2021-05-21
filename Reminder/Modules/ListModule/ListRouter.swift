@@ -1,7 +1,7 @@
 import UIKit
 
 protocol ListRouterInterface {
-    
+    func push(identifier: StoryboardId, delegate: AnyObject)
 }
 
 final class ListRouter {
@@ -11,11 +11,11 @@ final class ListRouter {
         self.navigationController = navigationController
     }
     
-    static func createModule(using navigationController: UINavigationController?, reminderList: ReminderList) -> UIViewController {
+    static func createModule(using navigationController: UINavigationController?, reminderList: ReminderList, delegate: NewReminderSavedDelegate?) -> UIViewController {
         let view = UIStoryboard.instantiateViewController(type: ListViewController.self)
         let interactor = ListInteractor()
         let router = ListRouter(navigationController: navigationController)
-        let presenter = ListPresenter(view: view, interactor: interactor, router: router, reminderList: reminderList)
+        let presenter = ListPresenter(view: view, interactor: interactor, router: router, reminderList: reminderList, delegate: delegate)
         view.presenter = presenter
         interactor.output = presenter
         return view
@@ -23,5 +23,7 @@ final class ListRouter {
 }
 
 extension ListRouter: ListRouterInterface {
-    
+    func push(identifier: StoryboardId, delegate: AnyObject) {
+        NavigatableManager.shared.push(to: identifier, navigationController: navigationController, delegate: delegate)
+    }
 }

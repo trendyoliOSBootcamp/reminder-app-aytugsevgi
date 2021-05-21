@@ -1,7 +1,7 @@
 import Foundation
 
 protocol NewReminderSavedDelegate: AnyObject {
-    func didReminderSave(reminder: Reminder)
+    func didAddNewReminder(reminder: Reminder)
 }
 
 protocol AddNewReminderPresenterInterface {
@@ -130,7 +130,7 @@ extension AddNewReminderPresenter: AddNewReminderOutputInterface {
     }
     
     func reminderSaved(reminder: Reminder) {
-        delegate?.didReminderSave(reminder: reminder)
+        delegate?.didAddNewReminder(reminder: reminder)
         router.dismiss(completion: nil)
     }
 }

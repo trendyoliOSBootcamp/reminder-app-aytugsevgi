@@ -1,10 +1,3 @@
-//
-//  ReminderTableViewCell.swift
-//  Reminder
-//
-//  Created by aytug on 19.05.2021.
-//
-
 import UIKit
 
 class ReminderTableViewCell: UITableViewCell {
@@ -27,7 +20,8 @@ class ReminderTableViewCell: UITableViewCell {
         let priorityTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemOrange]
         let contentTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
         let priorityAttributedString = NSAttributedString(string: exclamationMark, attributes: priorityTextAttributes)
-        let contentAttributedString = NSAttributedString(string: " \(contentText)", attributes: contentTextAttributes)
+        let space = exclamationMark.isEmpty ? "" : " "
+        let contentAttributedString = NSAttributedString(string: "\(space)\(contentText)", attributes: contentTextAttributes)
         reminderAttributedString.append(priorityAttributedString)
         reminderAttributedString.append(contentAttributedString)
         reminderContentLabel.attributedText = reminderAttributedString

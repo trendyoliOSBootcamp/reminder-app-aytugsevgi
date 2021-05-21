@@ -6,6 +6,8 @@ protocol HomeViewInterface: AnyObject {
     func showSearchResult(viewModels: [SearchControllerViewModel])
     func reloadData()
     func resetNavigationBar()
+    func setAllReminderLabelText()
+    func setFlaggedReminderLabelText()
 }
 
 final class HomeViewController: UIViewController {
@@ -13,6 +15,8 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak private var flaggedView: UIView!
     @IBOutlet weak private var allImageView: UIView!
     @IBOutlet weak private var flaggedImageView: UIView!
+    @IBOutlet weak var allReminderLabel: UILabel!
+    @IBOutlet weak var flaggedReminderLabel: UILabel!
     @IBOutlet weak private var tableView: UITableView!
     private let searchController = UISearchController(searchResultsController: HomeSearchResultsViewController())
     var presenter: HomePresenterInterface!
@@ -58,6 +62,8 @@ extension HomeViewController: HomeViewInterface {
         allView.addGestureRecognizer(allViewGestureRecognizer)
         let flaggedViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(flaggedViewTapped))
         flaggedView.addGestureRecognizer(flaggedViewGestureRecognizer)
+        allReminderLabel.text = String(presenter.remindersCount)
+        flaggedReminderLabel.text = String(presenter.flaggedRemindersCount)
     }
     
     func showSearchResult(viewModels: [SearchControllerViewModel]) {
@@ -70,6 +76,14 @@ extension HomeViewController: HomeViewInterface {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func setAllReminderLabelText() {
+        allReminderLabel.text = String(presenter.remindersCount)
+    }
+    
+    func setFlaggedReminderLabelText() {
+        flaggedReminderLabel.text = String(presenter.flaggedRemindersCount)
     }
     
     func resetNavigationBar() {
@@ -106,3 +120,4 @@ extension HomeViewController: UITableViewDelegate {
         presenter.didSelectRowAt(indexPath: indexPath)
     }
 }
+

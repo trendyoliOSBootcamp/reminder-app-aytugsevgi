@@ -2,15 +2,21 @@ import UIKit
 
 protocol ListViewInterface: AnyObject {
     func configure(with reminderList: ReminderList)
+    func reloadData()
 }
 
 final class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var newReminderButton: UIButton!
     var presenter: ListPresenterInterface!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+    }
+    
+    @IBAction private func newReminderButtonTapped(_ sender: Any) {
+        presenter.newReminderButtonTapped()
     }
 }
 
@@ -20,6 +26,7 @@ extension ListViewController: ListViewInterface {
         title = String(reminderList.name)
         let titleAttributes = [NSAttributedString.Key.foregroundColor:
                                 ListColor.init(rawValue: reminderList.color)?.color ?? UIColor.black]
+        newReminderButton.tintColor = ListColor.init(rawValue: reminderList.color)?.color ?? UIColor.black
         navigationController?.navigationBar.largeTitleTextAttributes = titleAttributes
         navigationController?.navigationBar.isTranslucent = true
         let backButton = UIBarButtonItem()
@@ -27,6 +34,10 @@ extension ListViewController: ListViewInterface {
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         tableView.register(reusableCellType: ReminderTableViewCell.self)
         tableView.contentInsetAdjustmentBehavior = .never
+    }
+    
+    func reloadData() {
+        tableView.reloadData()
     }
 }
 
@@ -53,8 +64,4 @@ extension ListViewController: UITableViewDataSource {
     }
 }
 
-extension ListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-    }
-}
+

@@ -2,12 +2,13 @@ import UIKit
 
 final class ListNavigatable: Navigatable {
     func isSatisfied(identifier: StoryboardId, delegate: AnyObject?, args: Any? = nil) -> Bool {
-        identifier == .list && args is ReminderList
+        identifier == .list && args is ReminderList && delegate is NewReminderSavedDelegate
     }
     
     func execute(navigationController: UINavigationController?, delegate: AnyObject?, args: Any? = nil) {
         guard let args = args as? ReminderList else { return }
-        let view = ListRouter.createModule(using: navigationController, reminderList: args)
+        guard let delegate = delegate as? NewReminderSavedDelegate else { return }
+        let view = ListRouter.createModule(using: navigationController, reminderList: args, delegate: delegate)
         navigationController?.pushViewController(view, animated: true)
     }
 }

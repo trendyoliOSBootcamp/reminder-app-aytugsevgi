@@ -197,8 +197,10 @@
                     <navigationItem key="navigationItem" id="zzi-Fd-bHU"/>
                     <connections>
                         <outlet property="allImageView" destination="PhS-GP-MuW" id="sGS-at-W1w"/>
+                        <outlet property="allReminderLabel" destination="fwN-tS-AbD" id="Sx4-ox-e6b"/>
                         <outlet property="allView" destination="LPz-bv-T1h" id="5X2-fQ-vHo"/>
                         <outlet property="flaggedImageView" destination="Va4-Xf-Oc6" id="lbT-d3-oyw"/>
+                        <outlet property="flaggedReminderLabel" destination="6cx-4E-xQW" id="3yc-iG-opL"/>
                         <outlet property="flaggedView" destination="lwC-kB-3l1" id="kra-0I-J9U"/>
                         <outlet property="tableView" destination="Niy-vB-hj9" id="TaV-v5-e66"/>
                     </connections>
@@ -616,33 +618,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fl9-Gv-UOk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="818" id="0sa-U3-R3I"/>
-                                </constraints>
                                 <inset key="separatorInset" minX="57" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Nmg-ar-puT" id="JQ0-g0-rKn"/>
                                     <outlet property="delegate" destination="Nmg-ar-puT" id="QZK-OO-GrW"/>
                                 </connections>
                             </tableView>
+                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="4hF-FE-aOF">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <barButtonItem style="plain" id="rrb-oB-qbV">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="lHR-Gj-kY8">
+                                            <rect key="frame" x="20" y="5" width="214" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <state key="normal" title="  New Reminder" image="plus.circle.fill" catalog="system"/>
+                                            <connections>
+                                                <action selector="newReminderButtonTapped:" destination="Nmg-ar-puT" eventType="touchUpInside" id="Vwr-xo-F1t"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="z41-gt-Qjx"/>
+                                </items>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LIy-c2-f2x"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4hF-FE-aOF" firstAttribute="top" secondItem="fl9-Gv-UOk" secondAttribute="bottom" id="5Gs-qv-6se"/>
                             <constraint firstItem="fl9-Gv-UOk" firstAttribute="top" secondItem="LIy-c2-f2x" secondAttribute="top" id="XSk-Ry-S2D"/>
+                            <constraint firstItem="4hF-FE-aOF" firstAttribute="leading" secondItem="LIy-c2-f2x" secondAttribute="leading" id="fmw-2g-XU3"/>
+                            <constraint firstItem="LIy-c2-f2x" firstAttribute="trailing" secondItem="4hF-FE-aOF" secondAttribute="trailing" id="k5g-mf-830"/>
                             <constraint firstItem="fl9-Gv-UOk" firstAttribute="leading" secondItem="LIy-c2-f2x" secondAttribute="leading" id="pXe-xX-EOP"/>
+                            <constraint firstItem="LIy-c2-f2x" firstAttribute="bottom" secondItem="4hF-FE-aOF" secondAttribute="bottom" id="pp5-rB-ALp"/>
                             <constraint firstItem="LIy-c2-f2x" firstAttribute="trailing" secondItem="fl9-Gv-UOk" secondAttribute="trailing" id="zQj-T1-hwb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="newReminderButton" destination="lHR-Gj-kY8" id="QQi-pq-naz"/>
                         <outlet property="tableView" destination="fl9-Gv-UOk" id="pKz-yB-Soy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QIx-5V-OXn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5617" y="88"/>
+            <point key="canvasLocation" x="5615.9420289855079" y="87.723214285714278"/>
         </scene>
     </scenes>
     <resources>
