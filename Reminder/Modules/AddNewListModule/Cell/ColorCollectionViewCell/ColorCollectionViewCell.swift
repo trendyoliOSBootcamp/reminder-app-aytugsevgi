@@ -1,11 +1,15 @@
 import UIKit
 
 class ColorCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var view: UIView!
-    func configure(viewModel: ColorCollectionViewCellViewModel) {
+    @IBOutlet weak var colorView: UIView!
+
+    override func draw(_ rect: CGRect) {
+        colorView.makeCircle
         makeCircle
-        view.makeCircle
-        view.backgroundColor = viewModel.backgroundColor
+    }
+    
+    func configure(viewModel: ColorCollectionViewCellViewModel) {
+        colorView.backgroundColor = viewModel.backgroundColor
     }
     
     func selectedDisplay() {

@@ -1,7 +1,7 @@
 import UIKit
 
 extension UIView {
-    var makeCircle: Void { layer.cornerRadius = frame.height / 2 }
+    var makeCircle: Void { layer.cornerRadius = frame.height / 2.0 }
 }
 
 extension UIView {

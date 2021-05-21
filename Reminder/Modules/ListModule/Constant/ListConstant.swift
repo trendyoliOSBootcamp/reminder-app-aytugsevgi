@@ -3,4 +3,5 @@ final class ListConstant {
     static let checkBoxButtonBorderWidth = 1.0
     static let flagImageSystemName = "flag"
     static let flagImageSystemNameFill = "flag.fill"
+    static let tableViewEmptyMessage = "No Reminders"
 }

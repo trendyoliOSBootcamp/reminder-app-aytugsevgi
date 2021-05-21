@@ -18,15 +18,6 @@ final class ListViewController: UIViewController {
     @IBAction private func newReminderButtonTapped(_ sender: Any) {
         presenter.newReminderButtonTapped()
     }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        guard let footerView = self.tableView.tableFooterView else {
-//            return
-//        }
-//        let height = tableView.frame.height - tableView.contentSize.height
-//        footerView.frame.size.height = height
-//    }
 }
 
 extension ListViewController: ListViewInterface {
@@ -43,6 +34,9 @@ extension ListViewController: ListViewInterface {
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         tableView.register(reusableCellType: ReminderTableViewCell.self)
         tableView.contentInsetAdjustmentBehavior = .never
+        let footerView = UIView()
+        footerView.backgroundColor = view.backgroundColor
+        tableView.tableFooterView = footerView
     }
     
     func reloadData() {
@@ -54,7 +48,7 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfRows = presenter.numberOfRows
         if numberOfRows == 0 {
-            self.tableView.setEmptyMessage("No Reminders")
+            self.tableView.setEmptyMessage(ListConstant.tableViewEmptyMessage)
         } else {
             self.tableView.restore()
         }

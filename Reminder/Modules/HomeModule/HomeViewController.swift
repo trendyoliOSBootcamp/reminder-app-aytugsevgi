@@ -64,6 +64,9 @@ extension HomeViewController: HomeViewInterface {
         flaggedView.addGestureRecognizer(flaggedViewGestureRecognizer)
         allReminderLabel.text = String(presenter.remindersCount)
         flaggedReminderLabel.text = String(presenter.flaggedRemindersCount)
+        let footerView = UIView()
+        footerView.backgroundColor = view.backgroundColor
+        tableView.tableFooterView = footerView
     }
     
     func showSearchResult(viewModels: [SearchControllerViewModel]) {
@@ -87,10 +90,8 @@ extension HomeViewController: HomeViewInterface {
     }
     
     func resetNavigationBar() {
-        title = .none
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.backgroundColor = .clear
     }
 }
 
