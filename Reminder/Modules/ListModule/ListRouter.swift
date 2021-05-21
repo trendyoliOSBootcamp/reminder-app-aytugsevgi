@@ -11,7 +11,7 @@ final class ListRouter {
         self.navigationController = navigationController
     }
     
-    static func createModule(using navigationController: UINavigationController?, reminderList: ReminderList, delegate: NewReminderSavedDelegate?) -> UIViewController {
+    static func createModule(using navigationController: UINavigationController?, reminderList: ReminderList, delegate: ReminderDelegate?) -> UIViewController {
         let view = UIStoryboard.instantiateViewController(type: ListViewController.self)
         let interactor = ListInteractor()
         let router = ListRouter(navigationController: navigationController)

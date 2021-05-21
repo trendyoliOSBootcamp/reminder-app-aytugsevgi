@@ -1,7 +1,8 @@
 import Foundation
 
-protocol NewReminderSavedDelegate: AnyObject {
+protocol ReminderDelegate: AnyObject {
     func didAddNewReminder(reminder: Reminder)
+    func didDeleteReminder(reminder: Reminder)
 }
 
 protocol AddNewReminderPresenterInterface {
@@ -22,6 +23,7 @@ typealias NewReminder = (title: String, content: String, list: ReminderList, isF
 
 protocol AddNewReminderOutputInterface: AnyObject {
     func listFetched(listModels: [ReminderList])
+    func reminderSaveFailed(error: String)
     func reminderSaved(reminder: Reminder)
 }
 
@@ -33,10 +35,10 @@ final class AddNewReminderPresenter {
     private var reminderList = [ReminderList]()
     private var newReminder: NewReminder?
     private var priorities: [Priority] = [.none, .normal, .low, .medium, .high]
-    private weak var delegate: NewReminderSavedDelegate?
+    private weak var delegate: ReminderDelegate?
     
     init(view: AddNewReminderViewInterface, interactor: AddNewReminderInteractorInterface,
-         router: AddNewReminderRouterInterface, delegate: NewReminderSavedDelegate) {
+         router: AddNewReminderRouterInterface, delegate: ReminderDelegate) {
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -127,6 +129,10 @@ extension AddNewReminderPresenter: AddNewReminderOutputInterface {
         view?.setListLabelText(text: newReminder?.list.name)
         view?.setPriorityLabelText(text: newReminder?.priority.toString)
         view?.setListViewColor(color: ListColor.init(rawValue: firstReminderList.color)?.color)
+    }
+    
+    func reminderSaveFailed(error: String) {
+        router.showAlert(title: "Error", message: error)
     }
     
     func reminderSaved(reminder: Reminder) {

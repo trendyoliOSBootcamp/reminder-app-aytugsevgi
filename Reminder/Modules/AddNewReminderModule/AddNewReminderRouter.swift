@@ -12,7 +12,7 @@ final class AddNewReminderRouter {
         self.navigationController = navigationController
     }
         
-    static func createModule(using navigationController: UINavigationController?, delegate: NewReminderSavedDelegate) -> UIViewController {
+    static func createModule(using navigationController: UINavigationController?, delegate: ReminderDelegate) -> UIViewController {
         let view = UIStoryboard.instantiateViewController(type: AddNewReminderViewController.self)
         let interactor = AddNewReminderInteractor()
         let router = AddNewReminderRouter(navigationController: navigationController)

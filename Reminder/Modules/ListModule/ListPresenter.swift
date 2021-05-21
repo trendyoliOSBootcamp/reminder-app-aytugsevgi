@@ -6,10 +6,12 @@ protocol ListPresenterInterface {
     func viewDidLoad()
     func cellForRowItemAt(_ row: Int) -> Reminder?
     func newReminderButtonTapped()
+    func deleteActionTapped(at indexPath: IndexPath)
 }
 
 protocol ListPresenterOutputInterface: AnyObject {
-    
+    func reminderDeleteFailed()
+    func reminderDeleted(reminder: Reminder)
 }
 
 protocol NewReminderSavedFromListDelegate: AnyObject {
@@ -21,9 +23,9 @@ final class ListPresenter {
     private var interactor: ListInteractorInterface
     private var router: ListRouterInterface
     private var reminderList: ReminderList
-    private var delegate: NewReminderSavedDelegate?
+    private var delegate: ReminderDelegate?
     
-    init(view: ListViewInterface, interactor: ListInteractorInterface, router: ListRouterInterface, reminderList: ReminderList, delegate: NewReminderSavedDelegate?) {
+    init(view: ListViewInterface, interactor: ListInteractorInterface, router: ListRouterInterface, reminderList: ReminderList, delegate: ReminderDelegate?) {
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -46,17 +48,32 @@ extension ListPresenter: ListPresenterInterface {
     func newReminderButtonTapped() {
         router.push(identifier: .addNewReminder, delegate: self)
     }
+    
+    func deleteActionTapped(at indexPath: IndexPath) {
+        guard let reminder = reminderList.reminders[safe: indexPath.row] else { return }
+        interactor.deleteReminder(reminder: reminder)
+    }
 }
 
 extension ListPresenter: ListPresenterOutputInterface {
+    func reminderDeleted(reminder: Reminder) {
+        reminderList.reminders.removeAll(where: { $0.id == reminder.id })
+        view?.reloadData()
+        delegate?.didDeleteReminder(reminder: reminder)
+    }
     
+    func reminderDeleteFailed() {
+        //show alert
+    }
 }
 
-extension ListPresenter: NewReminderSavedDelegate {
+extension ListPresenter: ReminderDelegate {
     func didAddNewReminder(reminder: Reminder) {
         delegate?.didAddNewReminder(reminder: reminder)
         guard reminder.reminderListId == reminderList.id else { return }
         reminderList.reminders.append(reminder)
         view?.reloadData()
     }
+    
+    func didDeleteReminder(reminder: Reminder) {}
 }

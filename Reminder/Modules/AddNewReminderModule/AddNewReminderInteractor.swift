@@ -18,10 +18,8 @@ extension AddNewReminderInteractor: AddNewReminderInteractorInterface {
         do {
             try service.saveReminder(reminder: reminder)
             output?.reminderSaved(reminder: reminder)
-        } catch {
-            print("Error on SaveReminder")
+        } catch let error {
+            output?.reminderSaveFailed(error: error.localizedDescription)
         }
-        
-        
     }
 }

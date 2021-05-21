@@ -64,6 +64,7 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
         flagImageView.layer.cornerRadius = CGFloat(AddNewReminderConstant.flagImageViewRadius)
         pickerViewBackgroundView.transform.ty = self.view.frame.maxY - self.pickerViewBackgroundView.frame.minY
         definesPresentationContext = true
+        notesTextView.delegate = self
     }
     
     func openPicker() {
@@ -120,5 +121,14 @@ extension AddNewReminderViewController: UIPickerViewDataSource {
 extension AddNewReminderViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         presenter.didSelectRow(row: row)
+    }
+}
+
+extension AddNewReminderViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor != UIColor.black {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
     }
 }

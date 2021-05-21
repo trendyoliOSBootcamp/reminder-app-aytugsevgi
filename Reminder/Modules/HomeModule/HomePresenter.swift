@@ -101,7 +101,7 @@ extension HomePresenter: NewReminderListSavedDelegate {
     }
 }
 
-extension HomePresenter: NewReminderSavedDelegate {
+extension HomePresenter: ReminderDelegate {
     func didAddNewReminder(reminder: Reminder) {
         var newReminderLists = [ReminderList]()
         reminders.append(reminder)
@@ -110,6 +110,22 @@ extension HomePresenter: NewReminderSavedDelegate {
                 reminderList.reminders.append(reminder)
             }
             newReminderLists.append(reminderList)
+        }
+        listModels = newReminderLists
+        view?.setAllReminderLabelText()
+        view?.setFlaggedReminderLabelText()
+        view?.reloadData()
+    }
+    
+    func didDeleteReminder(reminder: Reminder) {
+        var newReminderLists = [ReminderList]()
+        reminders.removeAll(where: { $0.id == reminder.id })
+        for var reminderList in listModels {
+            if reminderList.id == reminder.reminderListId {
+                reminderList.reminders.removeAll(where: { $0.id == reminder.id })
+            }
+            newReminderLists.append(reminderList)
+            print(reminderList.reminders.count)
         }
         listModels = newReminderLists
         view?.setAllReminderLabelText()

@@ -71,4 +71,20 @@ final class Service {
             throw(error)
         }
     }
+    
+    func deleteReminder(reminder: Reminder) throws {
+        let context = Service.context
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "ReminderEntity")
+        fetchRequest.predicate = NSPredicate(format: "ANY %K == %@", "id", reminder.id as CVarArg)
+        do {
+            let objects = try context.fetch(fetchRequest)
+            for object in objects {
+                guard let object = object as? NSManagedObject else { continue }
+                context.delete(object)
+            }
+            try context.save()
+        } catch let error {
+            throw(error)
+        }
+    }
 }

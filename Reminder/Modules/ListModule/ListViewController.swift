@@ -6,8 +6,8 @@ protocol ListViewInterface: AnyObject {
 }
 
 final class ListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var newReminderButton: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var newReminderButton: UIButton!
     var presenter: ListPresenterInterface!
     
     override func viewDidLoad() {
@@ -63,5 +63,29 @@ extension ListViewController: UITableViewDataSource {
         return cell
     }
 }
+
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+
+        let detailsAction = UITableViewRowAction(style: .normal, title: "Details") { (rowAction, indexPath) in
+            print("Details")
+        }
+        detailsAction.backgroundColor = .systemGray3
+        
+        let flagAction = UITableViewRowAction(style: .normal, title: "Flag") { (rowAction, indexPath) in
+            print("Flag")
+        }
+        flagAction.backgroundColor = .systemOrange
+
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete")  { (rowAction, indexPath) in
+            print("delete")
+            self.presenter.deleteActionTapped(at: indexPath)
+        }
+        deleteAction.backgroundColor = .red
+
+        return [deleteAction, flagAction, detailsAction]
+    }
+}
+
 
 
