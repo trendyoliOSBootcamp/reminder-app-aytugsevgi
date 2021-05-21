@@ -8,4 +8,13 @@ class ImageCollectionViewCell: UICollectionViewCell {
         backgroundColor = viewModel.backgroundColor
         imageView.image = viewModel.image
     }
+    
+    func selectedDisplay() {
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.systemGray2.cgColor
+    }
+    
+    func deselectedDisplay() {
+        layer.borderWidth = 0
+    }
 }

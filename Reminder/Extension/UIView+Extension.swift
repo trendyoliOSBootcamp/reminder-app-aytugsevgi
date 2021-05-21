@@ -16,11 +16,16 @@ extension UIView {
         gradientLayer.locations = [0,1]
         gradientLayer.frame = bounds
         gradientLayer.cornerRadius = layer.cornerRadius
+        removeTopLayer()
+        layer.insertSublayer(gradientLayer, at: 0)
+        backgroundColor = .clear
+        setNeedsDisplay()
+    }
+    
+    func removeTopLayer() {
         guard let subLayers = layer.sublayers else { return }
         if subLayers.count > 1 {
             layer.sublayers?[0].removeFromSuperlayer()
         }
-        layer.insertSublayer(gradientLayer, at: 0)
-        setNeedsDisplay()
     }
 }

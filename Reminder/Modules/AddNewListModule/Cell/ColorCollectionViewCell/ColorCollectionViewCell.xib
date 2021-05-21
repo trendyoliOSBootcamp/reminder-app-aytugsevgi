@@ -16,16 +16,30 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="47" height="49"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVU-9O-6Xs">
+                        <rect key="frame" x="4" y="4" width="39" height="41"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="iKt-gy-J2z"/>
-            <color key="backgroundColor" systemColor="systemGray6Color"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="oVU-9O-6Xs" secondAttribute="trailing" constant="4" id="B1c-ue-fha"/>
+                <constraint firstAttribute="bottom" secondItem="oVU-9O-6Xs" secondAttribute="bottom" constant="4" id="ebx-xj-XZn"/>
+                <constraint firstItem="oVU-9O-6Xs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="ghq-Jm-SQ5"/>
+                <constraint firstItem="oVU-9O-6Xs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="lkS-9S-Bdz"/>
+            </constraints>
             <size key="customSize" width="47" height="49"/>
+            <connections>
+                <outlet property="view" destination="oVU-9O-6Xs" id="vtl-gb-iWN"/>
+            </connections>
             <point key="canvasLocation" x="-6.5217391304347831" y="118.86160714285714"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

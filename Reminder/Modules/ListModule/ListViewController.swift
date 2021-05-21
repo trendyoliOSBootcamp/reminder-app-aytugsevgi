@@ -18,6 +18,15 @@ final class ListViewController: UIViewController {
     @IBAction private func newReminderButtonTapped(_ sender: Any) {
         presenter.newReminderButtonTapped()
     }
+    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        guard let footerView = self.tableView.tableFooterView else {
+//            return
+//        }
+//        let height = tableView.frame.height - tableView.contentSize.height
+//        footerView.frame.size.height = height
+//    }
 }
 
 extension ListViewController: ListViewInterface {
