@@ -63,6 +63,7 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
         flagImageView.layer.cornerRadius = CGFloat(AddNewReminderConstant.flagImageViewRadius)
         pickerViewBackgroundView.transform.ty = view.frame.maxY - pickerViewBackgroundView.frame.minY
         definesPresentationContext = true
+        titleTextField.delegate = self
         notesTextView.delegate = self
     }
     
@@ -126,5 +127,19 @@ extension AddNewReminderViewController: UITextViewDelegate {
             textView.text = nil
             textView.textColor = UIColor.black
         }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard text == "\n" else { return true }
+        textView.resignFirstResponder()
+        return false
+    }
+}
+
+extension AddNewReminderViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        notesTextView.becomeFirstResponder()
+        return true
     }
 }

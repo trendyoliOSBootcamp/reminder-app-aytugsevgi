@@ -38,6 +38,7 @@ extension AddNewListViewController: AddNewListViewInterface {
         nameTextField.layer.cornerRadius = CGFloat(AddNewListConstant.textFieldCornerRadius)
         collectionView.register(reusableCellType: ColorCollectionViewCell.self)
         collectionView.register(reusableCellType: ImageCollectionViewCell.self)
+        nameTextField.delegate = self
     }
     
     func setImageViewBackgroundColor(color: UIColor?) {
@@ -104,5 +105,12 @@ extension AddNewListViewController: UICollectionViewDelegateFlowLayout {
         let size = presenter.sizeForItem(width: Double(collectionView.frame.width), minimumLineSpacing: Double(layout.minimumLineSpacing),
                               sectionInsetLeft: Double(layout.sectionInset.left), sectionInsetRight: Double(layout.sectionInset.right))
         return CGSize(width: size.width, height: size.height)
+    }
+}
+
+extension AddNewListViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
