@@ -30,7 +30,6 @@ final class HomeSearchResultsViewController: UIViewController {
 }
 
 extension HomeSearchResultsViewController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModels.count
     }

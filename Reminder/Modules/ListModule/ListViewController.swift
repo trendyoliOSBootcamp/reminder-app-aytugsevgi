@@ -15,7 +15,7 @@ final class ListViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
-    @IBAction private func newReminderButtonTapped(_ sender: Any) {
+    @IBAction private func newReminderButtonTapped() {
         presenter.newReminderButtonTapped()
     }
 }
@@ -47,7 +47,7 @@ extension ListViewController: ListViewInterface {
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let numberOfRows = presenter.numberOfRows
-        if numberOfRows == 0 {
+        if numberOfRows == .zero {
             self.tableView.setEmptyMessage(ListConstant.tableViewEmptyMessage)
         } else {
             self.tableView.restore()
@@ -70,9 +70,7 @@ extension ListViewController: UITableViewDataSource {
 extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-        let detailsAction = UIContextualAction(style: .normal, title: "Details") { (rowAction, view, completion) in
-            // empty action
-        }
+        let detailsAction = UIContextualAction(style: .normal, title: "Details") { (_, _, _) in }
         detailsAction.backgroundColor = .systemGray3
         let flagAction = UIContextualAction(style: .normal, title: "Flag") { (rowAction, view, completion) in
             self.presenter.flagActionTapped(at: indexPath)
@@ -85,7 +83,6 @@ extension ListViewController: UITableViewDelegate {
         deleteAction.backgroundColor = .red
         let config = UISwipeActionsConfiguration(actions: [deleteAction, flagAction, detailsAction])
         config.performsFirstActionWithFullSwipe = false
-        
         return config
     }
 }

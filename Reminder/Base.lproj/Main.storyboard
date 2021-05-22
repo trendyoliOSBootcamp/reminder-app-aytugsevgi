@@ -637,7 +637,7 @@
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <state key="normal" title="  New Reminder" image="plus.circle.fill" catalog="system"/>
                                             <connections>
-                                                <action selector="newReminderButtonTapped:" destination="Nmg-ar-puT" eventType="touchUpInside" id="Vwr-xo-F1t"/>
+                                                <action selector="newReminderButtonTapped" destination="Nmg-ar-puT" eventType="touchUpInside" id="6TF-Px-xvz"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>

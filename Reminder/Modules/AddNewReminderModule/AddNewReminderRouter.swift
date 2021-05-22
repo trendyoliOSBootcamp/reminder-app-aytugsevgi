@@ -21,7 +21,6 @@ final class AddNewReminderRouter {
         interactor.output = presenter
         return view
     }
-
 }
 
 extension AddNewReminderRouter: AddNewReminderRouterInterface {

@@ -28,8 +28,6 @@ class SearchTableViewHeader: UITableViewHeaderFooterView {
     func configure(text: String, color: UIColor) {
         let attribute: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: CGFloat(24), weight: .semibold),
                                                          NSAttributedString.Key.foregroundColor: color]
-                        
         title.attributedText = NSAttributedString(string: text, attributes: attribute)
     }
-    
 }

@@ -8,7 +8,6 @@ protocol ListInteractorInterface {
 final class ListInteractor {
     private let service = Service()
     weak var output: ListPresenterOutputInterface?
-    
 }
 
 extension ListInteractor: ListInteractorInterface {

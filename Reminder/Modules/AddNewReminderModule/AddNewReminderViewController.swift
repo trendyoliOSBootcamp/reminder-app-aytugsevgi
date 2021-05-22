@@ -54,7 +54,6 @@ final class AddNewReminderViewController: UIViewController {
 }
 
 extension AddNewReminderViewController: AddNewReminderViewInterface {
-    
     func configure() {
         listColorView.makeCircle
         listBackgroundView.layer.cornerRadius = CGFloat(AddNewReminderConstant.listBackgroundViewRadius)
@@ -62,7 +61,7 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
         priorityBackgroundView.layer.cornerRadius = CGFloat(AddNewReminderConstant.priorityBackgroundViewRadius)
         textsStackView.layer.cornerRadius = CGFloat(AddNewReminderConstant.textsStackViewRadius)
         flagImageView.layer.cornerRadius = CGFloat(AddNewReminderConstant.flagImageViewRadius)
-        pickerViewBackgroundView.transform.ty = self.view.frame.maxY - self.pickerViewBackgroundView.frame.minY
+        pickerViewBackgroundView.transform.ty = view.frame.maxY - pickerViewBackgroundView.frame.minY
         definesPresentationContext = true
         notesTextView.delegate = self
     }
@@ -70,11 +69,10 @@ extension AddNewReminderViewController: AddNewReminderViewInterface {
     func openPicker() {
         pickerView.delegate = self
         pickerView.dataSource = self
-        pickerView.reloadComponent(0)
+        pickerView.reloadComponent(.zero)
         UIView.animate(withDuration: AddNewReminderConstant.pickerViewAnimationDuration, animations: {
             self.pickerViewBackgroundView.transform.ty = self.pickerViewBackgroundView.frame.minY - self.view.frame.maxY
         })
-
     }
     
     func closePicker(completion: @escaping (Bool) -> Void) {
@@ -114,8 +112,6 @@ extension AddNewReminderViewController: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         presenter.titleForRow(at: row)
     }
-    
-    
 }
 
 extension AddNewReminderViewController: UIPickerViewDelegate {

@@ -15,6 +15,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
     
     func deselectedDisplay() {
-        layer.borderWidth = 0
+        layer.borderWidth = .zero
     }
 }

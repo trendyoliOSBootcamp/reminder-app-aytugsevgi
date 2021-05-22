@@ -49,7 +49,6 @@ final class Service {
         newObj.setValue(reminderList.image, forKey: "image")
         do {
             try context.save()
-            print("saved")
         } catch let error {
             throw(error)
         }
@@ -66,7 +65,6 @@ final class Service {
         newObj.setValue(reminder.reminderListId, forKey: "reminderListId")
         do {
             try context.save()
-            print("saved")
         } catch let error {
             throw(error)
         }

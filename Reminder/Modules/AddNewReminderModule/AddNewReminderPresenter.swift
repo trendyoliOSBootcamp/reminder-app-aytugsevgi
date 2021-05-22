@@ -56,7 +56,7 @@ extension AddNewReminderPresenter: AddNewReminderPresenterInterface {
         case .priority:
             return priorities.count
         default:
-            return 0
+            return .zero
         }
     }
     
@@ -119,14 +119,13 @@ extension AddNewReminderPresenter: AddNewReminderPresenterInterface {
         view?.setListLabelText(text: list.name)
         view?.setListViewColor(color: ListColor.init(rawValue: list.color)?.color)
     }
-    
 }
 
 extension AddNewReminderPresenter: AddNewReminderOutputInterface {
     func listFetched(listModels: [ReminderList]) {
         reminderList = listModels
         guard let firstReminderList = reminderList.first else { return }
-        newReminder = NewReminder(title: "", content: "", list: firstReminderList, isFlag: false, priority: Priority.none)
+        newReminder = NewReminder(title: .init(), content: .init(), list: firstReminderList, isFlag: false, priority: Priority.none)
         view?.setListLabelText(text: newReminder?.list.name)
         view?.setPriorityLabelText(text: newReminder?.priority.toString)
         view?.setListViewColor(color: ListColor.init(rawValue: firstReminderList.color)?.color)

@@ -5,8 +5,8 @@ protocol AddNewListInteractorInterface {
 }
 
 final class AddNewListInteractor {
-    weak var output: AddNewListPresenterOutputInterface?
     private let service = Service()
+    weak var output: AddNewListPresenterOutputInterface?
 }
 
 extension AddNewListInteractor: AddNewListInteractorInterface {

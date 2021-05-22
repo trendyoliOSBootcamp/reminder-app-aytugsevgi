@@ -80,8 +80,7 @@ extension AddNewListViewController: UICollectionViewDataSource {
 extension AddNewListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         presenter.didSelectItemAt(indexPath: indexPath)
-        
-        if indexPath.section == 0 {
+        if indexPath.section == .zero {
             for cell in collectionView.visibleCells {
                 guard let cell = cell as? ColorCollectionViewCell else { continue }
                 cell.deselectedDisplay()

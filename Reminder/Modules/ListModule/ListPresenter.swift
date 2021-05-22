@@ -26,7 +26,7 @@ final class ListPresenter {
     private var interactor: ListInteractorInterface
     private var router: ListRouterInterface
     private var reminderList: ReminderList
-    private var delegate: ReminderDelegate?
+    private weak var delegate: ReminderDelegate?
     
     init(view: ListViewInterface, interactor: ListInteractorInterface, router: ListRouterInterface, reminderList: ReminderList, delegate: ReminderDelegate?) {
         self.view = view

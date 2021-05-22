@@ -54,7 +54,7 @@ extension AddNewListPresenter: AddNewListPresenterInterface {
     var numberOfSections: Int { AddNewListConstant.numberOfSections }
     
     func numberOfItemsInSection(at section: Int) -> Int {
-        section == 0 ? colorsForCell.count : imagesForCell.count
+        section == .zero ? colorsForCell.count : imagesForCell.count
     }
     
     func viewDidLoad() {
@@ -125,7 +125,7 @@ extension AddNewListPresenter: AddNewListPresenterOutputInterface {
     }
     
     func newListSaveFailed(error: String) {
-        router.showAlert(title: "Hata", message: error)
+        router.showAlert(title: "Error", message: error)
     }
 }
 
